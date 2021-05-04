@@ -1,1 +1,136 @@
-<mxfile host="app.diagrams.net" modified="2021-05-04T10:41:24.585Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="zXEsl1waYtcwTm5yH_ge" version="14.6.9" type="github"><diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">7Vvbkto4EP0aHkP5bvMYJjOzD7OpqZrU7uZR2AIrkS1KFgHy9SuB5AviIggzqGbMC1Zblu0+p0+3GzPw74rVIwXz/G+SQTzwnGw18L8MPM91Y59/Cct6awkTaZhRlMlJjeEF/YbS6EjrAmWw6kxkhGCG5l1jSsoSpqxjA5SSZXfalODuWedgBjXDSwqwbv0XZSxX9+U4zY6/IJrl8tRJKHdMQPpzRsmilOcbeP5089nuLoBaS86vcpCRZcvk3w/8O0oI224VqzuIhW+V27bHPRzYW183hSUzOcCbBDBxvdHE8bIgiaef5Aq/AF5IXzxzx8uLZWvloGqJCgxKPhrnrMDc6PLNNEc4ewJrshAnrxh3hhqNc0LRb1IyoCbz3ZRJ6PlVtme8iCO5WVg3zoSZHNX+EgMMJhCPa4/fEUwo31WSzXVVjJKfNXzijFO++AMoEBas/AfSDJRAmuV1JHwIMJqVfDvlLoR8vbHuU+UkSBlctUzSx4+QFJDRNZ+i9iYSbxkPsRwuG3JFakre4lWgJgJJ6Fm9dAMq35C4GmLsaRg/CSg9xzXE+Qh0EhrdZweZdtqJ0mmeodPc8DWc5iaac2DGRUMOCWU5mZES4PvGukPelgdPUZf797PQsR3bA8LKw20MQj6GZaaOSDGoKpR+y1G53SEPc7ej1kE/IGNrOQYLRripuZEnQuY14JfE0mkOSCZWZEFTeGBOKPUf0Bk8tE60nSMAOcokCjFg6FdX5a9Kk1CLLZ02GPM8JjBd5ojBlznY3PuSp9IuSWyUvoNiYqyFUVcKIz2q/T1B7b9GTEenwWowcE8D9l4gcr0uRmE0DEatT6xBFu+DLH6N3OVoEPUy/BYyHBvIcGKNDMd9ZO+N7FpH7YvsxL7M6dkFnu/bkzr3oXO5DnMn0fV/0r4ZfBeDYdhr9DkaPTLQaNVisUCkR71I743zwOLyy+/Lr5uEtgrb47HtWhPb6nqPBTeP17nYLFYz0UYeTuZFOZTGNk1E5KCUQyHo8kwqxBARQTghjJHiMI+a5muzxmcZwEygOp5Divi9ikj+QnNSTBbVc2Mad7q5M8DgEqwFORYMI0HHmpXrYkLE1XKYAcYQPy47tNfEyWr5CUN7ygxX70f3VeFOP8W1By5fQ0t2lvcEv0WdZde0H/86rWUv6pPq1ZOqKlSOJlXPJKn69iRVJQ7vvGJWMnJxwzIYDdsF8yi6XcXs6pqoa6Hm2y5GnSppiskyzXmEDjOYompTCu3F+Uj9cRxqi4D1dmqR0O8+Crnh7ZJdcCjZ6c9INiU7/7a/o3r976jni6gBDwKTfBeY5LvQnnynh9i7zHfqNi9v48dDp/3xb5fvPL2r9x1W14z5vll8HTEwebHCNX2zQhLzE4fBcaIOOeXIWC7k4s8E8ftrppDptOLXucvN+houlBiDFzY+THl2tg7pv0gJ+JtPFNyuPFOLfuBCo9UI3eLxB3lNDPetdy01ikzUKLanNDF4d6jvb1tZPAWBvaLlfpAXV84GLdQq3huWuIGGyUfLLNcvWdW758eShFGO8KzJEZ5eW34lPXVuQh3Vhj3KHdPyonnYGfkqW0hdqh8o7Hzc8fT8cuWn856T1+Wk6oGdQcpkFMQdUtrNSV//29FVukPDsN0f6rl5HjdN3ve26F1CX/9ptM+1t+KOUWfRtE5rJdtQNZf/SNe408G6NWEuVK7aI3uqyRWEnbOq58eHA/Pd8Oh8vrG9grcV2f7FzRsFg8lDy+iNdJQPm/+Wb2nV/IHfv/8f</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-04T12:34:10.051Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="JE_c7176T_7OpYk73he7" version="14.6.9" type="github">
+  <diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">
+    <mxGraphModel dx="1422" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2b4e8129b02d487f-1" value="Pool" style="swimlane;html=1;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="1" vertex="1">
+          <mxGeometry x="170" y="80" width="990" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-2" value="Kunde" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="20" width="990" height="150" as="geometry">
+            <mxRectangle y="20" width="680" height="20" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontFamily=Verdana;fontSize=8" parent="2b4e8129b02d487f-2" source="2b4e8129b02d487f-5" target="2b4e8129b02d487f-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-5" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="40" y="57" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-6" value="&lt;font style=&quot;font-size: 12px&quot;&gt;En kunde lander på hovedsiden over carporte&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="110" y="40.25" width="90" height="63.5" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-3" value="Fog carport" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="170" width="990" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-1" value="Standart eller&lt;br&gt;&amp;nbsp;skræddersyet&lt;br&gt;carporte" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="2b4e8129b02d487f-3">
+          <mxGeometry x="85" y="10" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-7" value="Der klikkes på standart" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2b4e8129b02d487f-3">
+          <mxGeometry x="225" y="90" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-6" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="2b4e8129b02d487f-1" source="TK4KHCmlHmji3xtEz4MB-1" target="2b4e8129b02d487f-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="320" as="sourcePoint" />
+            <mxPoint x="360" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="325" y="245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-4" value="Prædefineret carport" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="320" width="990" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-14" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Kunden lander på siden over standart carporte&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="280" y="46.25" width="90" height="56.75" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-10" value="Der klikkes på skræddersyet" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="2b4e8129b02d487f-4">
+          <mxGeometry x="60" y="70" width="87.31" height="9.25" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-15" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Carport vælges&lt;/font&gt;" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;shadow=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="710" y="30" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontFamily=Verdana;fontSize=8;" parent="2b4e8129b02d487f-4" source="2b4e8129b02d487f-14" target="2b4e8129b02d487f-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-15" value="Der klikkes på de ønskede filtreringmuligheder" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2b4e8129b02d487f-4">
+          <mxGeometry x="400" y="50" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-5" value="Skræddersyet carport" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="2b4e8129b02d487f-4">
+          <mxGeometry y="150" width="990" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-8" value="Formularen udfyldes&lt;br&gt;&amp;nbsp;med mål,&lt;br&gt;&amp;nbsp;materialer etc." style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="257.31" y="10" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-16" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Kunden lander på siden for at skræddersy carporte&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="100" y="38.309999999999995" width="110" height="73.38" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-17" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-16" target="TK4KHCmlHmji3xtEz4MB-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="10" as="sourcePoint" />
+            <mxPoint x="310" y="-40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-29" value="Nej" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="397.31" y="51.69000000000006" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-30" value="Der klikkes på send forespørsel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="850" y="60.00000000000006" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-24" value="Formularen er udfyldt korrekt" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="437.31" y="25" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-14" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-8" target="TK4KHCmlHmji3xtEz4MB-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="70" as="sourcePoint" />
+            <mxPoint x="370" y="225" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="487" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-23" value="Der klikkes på send forespørsel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="360" y="111.69" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-34" value="" style="endArrow=classic;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-29" target="TK4KHCmlHmji3xtEz4MB-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="230" as="sourcePoint" />
+            <mxPoint x="480" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-28" value="Ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-5">
+          <mxGeometry x="560" y="80" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-21" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="2b4e8129b02d487f-1" source="TK4KHCmlHmji3xtEz4MB-1" target="TK4KHCmlHmji3xtEz4MB-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="320" as="sourcePoint" />
+            <mxPoint x="270" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-18" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2b4e8129b02d487f-15" target="TK4KHCmlHmji3xtEz4MB-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="780" y="529.62" as="sourcePoint" />
+            <mxPoint x="830" y="479.62" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-4" value="Sælger" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="700" width="990" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-11" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Forespørgsel modtages af sælger&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" vertex="1" parent="TK4KHCmlHmji3xtEz4MB-4">
+          <mxGeometry x="590" y="53.25" width="80" height="43.5" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-27" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="TK4KHCmlHmji3xtEz4MB-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="670" as="sourcePoint" />
+            <mxPoint x="800" y="750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="625" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
