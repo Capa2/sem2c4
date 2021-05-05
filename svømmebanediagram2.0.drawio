@@ -1,1 +1,377 @@
-<mxfile host="app.diagrams.net" modified="2021-05-04T17:53:21.662Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="1t7CWNJuAiTC3_gLMDNE" version="14.6.9" type="github"><diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">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</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-05T06:37:47.723Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="c981md14YooLwSs2PnbG" version="14.6.10" type="github">
+  <diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">
+    <mxGraphModel dx="1422" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-27" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="TK4KHCmlHmji3xtEz4MB-24" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="670" as="sourcePoint" />
+            <mxPoint x="800" y="750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="625" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-2" value="" style="endArrow=classic;html=1;startArrow=none;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="7Sn1ghP0QjaeYrTUXI2Q-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="800" as="sourcePoint" />
+            <mxPoint x="1050" y="675" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="820" />
+              <mxPoint x="960" y="820" />
+              <mxPoint x="1050" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-1" value="Pool" style="swimlane;html=1;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="1" vertex="1">
+          <mxGeometry x="170" y="80" width="2790" height="780" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-2" value="Kunde" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="20" width="2790" height="300" as="geometry">
+            <mxRectangle y="20" width="680" height="20" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontFamily=Verdana;fontSize=8" parent="2b4e8129b02d487f-2" source="2b4e8129b02d487f-5" target="2b4e8129b02d487f-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-5" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="40" y="57" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-6" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Kunden lander på hovedsiden over carporte&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="110" y="40.25" width="90" height="63.5" as="geometry" />
+        </mxCell>
+        <mxCell id="7Sn1ghP0QjaeYrTUXI2Q-8" value="Kunden modtager byggevejledning, visualisering og faktura med udasalgspris" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1390" y="40" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-2" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-2" source="7Sn1ghP0QjaeYrTUXI2Q-8" target="tzsEOKulzjB3xu4Um2Aj-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1540" y="110" as="sourcePoint" />
+            <mxPoint x="1550" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-1" value="Kunden betaler for tilbudet" style="rhombus;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1600" y="30" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-3" value="Fog carport" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry y="150" width="2790" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-1" value="Standart eller&lt;br&gt;&amp;nbsp;skræddersyet&lt;br&gt;carporte" style="rhombus;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="85" y="10" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-7" value="Der klikkes på standart" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="225" y="90" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-5" value="Byggevejledning, visualisering og vejledende pris genereres" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="1250" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7Sn1ghP0QjaeYrTUXI2Q-4" value="Hvilke materialer der skal bruges udregnes" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="820" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-3" value="Materialer læses i database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="1050" y="22.5" width="100" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="7Sn1ghP0QjaeYrTUXI2Q-5" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="2b4e8129b02d487f-3" source="7Sn1ghP0QjaeYrTUXI2Q-4" target="cRBjWWYuR_NZp4JxylkW-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="100" as="sourcePoint" />
+            <mxPoint x="1000" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7Sn1ghP0QjaeYrTUXI2Q-6" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-3" source="cRBjWWYuR_NZp4JxylkW-3" target="cRBjWWYuR_NZp4JxylkW-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1160" y="110" as="sourcePoint" />
+            <mxPoint x="1210" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-18" value="En metode til at hente materialer ud til den specifikke opgave initializeres" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="940" y="30" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-19" value="Informationerne hentes ud af databasen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="1140" y="40" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-53" value="Den færdige ordre lægges i databasen" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="2b4e8129b02d487f-3" vertex="1">
+          <mxGeometry x="1590" y="20" width="100" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-1" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-2" source="2b4e8129b02d487f-6" target="TK4KHCmlHmji3xtEz4MB-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="160" as="sourcePoint" />
+            <mxPoint x="200" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-10" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-2" source="tzsEOKulzjB3xu4Um2Aj-1" target="tzsEOKulzjB3xu4Um2Aj-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1710" y="100" as="sourcePoint" />
+            <mxPoint x="1760" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-11" value="nej" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1710" y="50" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-12" value="Afslag" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1810" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rhigw6PtUiJ9hn-NOSnQ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="2b4e8129b02d487f-2" source="tzsEOKulzjB3xu4Um2Aj-45" target="rhigw6PtUiJ9hn-NOSnQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-45" value="Stykliste og kvittering modtages af kunden" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1980" y="42" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-52" value="Refleksion fra kunden" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="2280" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-54" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="2b4e8129b02d487f-2" source="tzsEOKulzjB3xu4Um2Aj-1" target="tzsEOKulzjB3xu4Um2Aj-53" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1240" y="520" as="sourcePoint" />
+            <mxPoint x="1290" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-6" value="ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-2" vertex="1">
+          <mxGeometry x="1630" y="130" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rhigw6PtUiJ9hn-NOSnQ-2" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" vertex="1" parent="2b4e8129b02d487f-2">
+          <mxGeometry x="2140" y="57" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-6" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="2b4e8129b02d487f-1" source="TK4KHCmlHmji3xtEz4MB-1" target="2b4e8129b02d487f-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="320" as="sourcePoint" />
+            <mxPoint x="360" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="325" y="245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-4" value="Standart&amp;nbsp;carport" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="320" width="2790" height="150" as="geometry">
+            <mxRectangle y="320" width="1200" height="20" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-14" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Kunden lander på siden over standart carporte&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="280" y="46.25" width="90" height="56.75" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-10" value="Der klikkes på skræddersyet" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="60" y="70" width="87.31" height="9.25" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-15" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Carport vælges&lt;/font&gt;" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;rounded=1;shadow=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=8;align=center;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="710" y="30" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2b4e8129b02d487f-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=classicThin;endFill=1;endSize=5;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontFamily=Verdana;fontSize=8;" parent="2b4e8129b02d487f-4" source="2b4e8129b02d487f-14" target="2b4e8129b02d487f-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-15" value="Der klikkes på de ønskede filtreringmuligheder" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="450" y="46.25" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-20" value="Byggevejledning, visualisering og vejledende pris gøres tilgængelig for sælger" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="1310" y="103" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-21" value="Byggevejledning, visualisering og udsalgspris gøres tilgængelig for kunden" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="1460" y="70" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-24" value="Stykliste genereres" style="rounded=1;whiteSpace=wrap;html=1;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="1040" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-27" value="Stykliste hentes ud fra databasen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="1100" y="5" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-46" value="Stykliste fremsendes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="2060" y="123" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-58" value="Sælger undersøger om dert er nogle behov hos kunden der stadig kan dækkes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="2350" y="90" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-60" value="Refleksionerne sendes tilbage til sælger så han kan reflektere over dem" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="2b4e8129b02d487f-4" vertex="1">
+          <mxGeometry x="2560" y="50" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-21" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="TK4KHCmlHmji3xtEz4MB-1" target="TK4KHCmlHmji3xtEz4MB-16" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="320" as="sourcePoint" />
+            <mxPoint x="270" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-18" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="2b4e8129b02d487f-15" target="TK4KHCmlHmji3xtEz4MB-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="610" y="449.62" as="sourcePoint" />
+            <mxPoint x="755" y="695" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="755" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-8" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="cRBjWWYuR_NZp4JxylkW-5" target="cRBjWWYuR_NZp4JxylkW-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="340" as="sourcePoint" />
+            <mxPoint x="1060" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-5" value="Skræddersyet carport" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="470" width="2790" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-8" value="Formularen udfyldes&lt;br&gt;&amp;nbsp;med mål,&lt;br&gt;&amp;nbsp;materialer etc." style="rhombus;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="257.31" y="10" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-16" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Kunden lander på siden; skræddersyet carport&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="100" y="38.309999999999995" width="110" height="73.38" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-17" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-16" target="TK4KHCmlHmji3xtEz4MB-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="10" as="sourcePoint" />
+            <mxPoint x="310" y="-40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-29" value="Nej" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="397.31" y="51.69000000000006" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-30" value="Der klikkes på send forespørsel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="650" y="60.00000000000006" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-24" value="Formularen er udfyldt korrekt" style="rhombus;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="437.31" y="25" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-14" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-8" target="TK4KHCmlHmji3xtEz4MB-24" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="70" as="sourcePoint" />
+            <mxPoint x="370" y="225" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="487" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-23" value="Der klikkes på send forespørsel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="360" y="111.69" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-34" value="" style="endArrow=classic;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="TK4KHCmlHmji3xtEz4MB-5" source="TK4KHCmlHmji3xtEz4MB-29" target="TK4KHCmlHmji3xtEz4MB-29" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="230" as="sourcePoint" />
+            <mxPoint x="480" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-28" value="Ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="560" y="80" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-17" value="Der klikkes på dan stykliste" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="880" y="10" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-28" value="Stykliste gøres tilgængelig for sælger" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-5" vertex="1">
+          <mxGeometry x="1100" y="51.69" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-4" value="Sælger" style="swimlane;html=1;startSize=20;horizontal=0;" parent="2b4e8129b02d487f-1" vertex="1">
+          <mxGeometry y="620" width="2790" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-35" value="" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="1360" y="105" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TK4KHCmlHmji3xtEz4MB-11" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Forespørgsel modtages&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="590" y="53.25" width="80" height="43.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cRBjWWYuR_NZp4JxylkW-9" value="Sælger vælger udsalgspris" style="rhombus;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="1260" y="27.5" width="100" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-26" value="Sælger kan se stykliste" style="rounded=1;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="1040" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-32" value="Stykliste fra database gøres klar til kunden" style="rounded=1;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="1580" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-33" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="TK4KHCmlHmji3xtEz4MB-4" source="tzsEOKulzjB3xu4Um2Aj-26" target="tzsEOKulzjB3xu4Um2Aj-32" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1500" y="40" as="sourcePoint" />
+            <mxPoint x="1550" y="-10" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1100" y="140" />
+              <mxPoint x="1370" y="140" />
+              <mxPoint x="1640" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-34" value="Kunden har betalt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="1370" y="110" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-43" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="TK4KHCmlHmji3xtEz4MB-4" source="tzsEOKulzjB3xu4Um2Aj-32" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1720" y="80" as="sourcePoint" />
+            <mxPoint x="2040" y="-500" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1750" y="75" />
+              <mxPoint x="2040" y="75" />
+              <mxPoint x="2040" y="-380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-50" value="Sælger får kunden i dialog. Skal der laves en revurdering af produkt og pris?" style="rounded=1;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="2150" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-41" value="Sælger laver en redurdering af salget. Hvis det er muligt at imødekomme kundens behov iværksættes det." style="rounded=1;whiteSpace=wrap;html=1;" parent="TK4KHCmlHmji3xtEz4MB-4" vertex="1">
+          <mxGeometry x="2480" y="53.25" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7Sn1ghP0QjaeYrTUXI2Q-7" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="cRBjWWYuR_NZp4JxylkW-9" target="7Sn1ghP0QjaeYrTUXI2Q-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1350" y="720" as="sourcePoint" />
+            <mxPoint x="1460" y="130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1460" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-23" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="2b4e8129b02d487f-1" source="cRBjWWYuR_NZp4JxylkW-3" target="tzsEOKulzjB3xu4Um2Aj-24" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1180" y="400" as="sourcePoint" />
+            <mxPoint x="1100" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-25" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-24" target="tzsEOKulzjB3xu4Um2Aj-26" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="480" as="sourcePoint" />
+            <mxPoint x="1100" y="650" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1100" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-40" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-12" target="tzsEOKulzjB3xu4Um2Aj-50" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1880" y="180" as="sourcePoint" />
+            <mxPoint x="2210" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1870" y="40" />
+              <mxPoint x="2210" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-55" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-53" target="tzsEOKulzjB3xu4Um2Aj-32" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1650" y="380" as="sourcePoint" />
+            <mxPoint x="1700" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-57" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-50" target="tzsEOKulzjB3xu4Um2Aj-52" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2310" y="720" as="sourcePoint" />
+            <mxPoint x="2360" y="670" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2340" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-59" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-52" target="tzsEOKulzjB3xu4Um2Aj-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2440" y="140" as="sourcePoint" />
+            <mxPoint x="2522.8571428571427" y="680" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2560" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tzsEOKulzjB3xu4Um2Aj-61" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="2b4e8129b02d487f-1" source="tzsEOKulzjB3xu4Um2Aj-41" target="TK4KHCmlHmji3xtEz4MB-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2560" y="810" as="sourcePoint" />
+            <mxPoint x="-20" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2560" y="800" />
+              <mxPoint x="-20" y="800" />
+              <mxPoint x="-20" y="245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
