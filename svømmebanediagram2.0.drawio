@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-06T15:54:46.443Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="gXuE4ePjZRC0hY3EYo6M" version="14.6.10" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-06T16:00:35.983Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="Wkv5FEzPbC0mKiddi0aU" version="14.6.10" type="github">
   <diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">
     <mxGraphModel dx="1422" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
@@ -361,7 +361,8 @@
             <mxPoint x="2530" y="760" as="sourcePoint" />
             <mxPoint x="-20" y="240" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="2565" y="800" />
+              <mxPoint x="2565" y="810" />
+              <mxPoint x="1270" y="810" />
               <mxPoint x="-20" y="800" />
               <mxPoint x="-20" y="245" />
             </Array>
@@ -425,7 +426,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="EKBA3dbDIpnGJt8vrxfB-4" value="Kunden vil lave en ny forespørsel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="2490" y="862" width="200" height="20" as="geometry" />
+          <mxGeometry x="2480" y="872" width="200" height="20" as="geometry" />
         </mxCell>
         <mxCell id="EKBA3dbDIpnGJt8vrxfB-12" value="Kunden accepterer det nye tilbud" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="2770" y="40" width="180" height="20" as="geometry" />
