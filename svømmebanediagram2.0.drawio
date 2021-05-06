@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-06T16:00:35.983Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="Wkv5FEzPbC0mKiddi0aU" version="14.6.10" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-06T16:03:50.703Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" etag="jX35PzyyfGeDV8MneddH" version="14.6.10" type="github">
   <diagram name="Page-1" id="c7488fd3-1785-93aa-aadb-54a6760d102a">
-    <mxGraphModel dx="1422" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="3555" dy="1788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -135,7 +135,7 @@
             <mxPoint x="610" y="449.62" as="sourcePoint" />
             <mxPoint x="755" y="695" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="755" y="698" />
+              <mxPoint x="755" y="708" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -312,7 +312,7 @@
             <mxPoint x="1350" y="720" as="sourcePoint" />
             <mxPoint x="1460" y="130" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1460" y="695" />
+              <mxPoint x="1460" y="707" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -393,7 +393,7 @@
             <mxPoint x="380" y="590" as="sourcePoint" />
             <mxPoint x="630" y="670" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="635" y="545" />
+              <mxPoint x="635" y="555" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -432,7 +432,7 @@
           <mxGeometry x="2770" y="40" width="180" height="20" as="geometry" />
         </mxCell>
         <mxCell id="EKBA3dbDIpnGJt8vrxfB-27" value="Ordforklaring: med kommunikerer menes der på mail eller pr. telefon" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="2400" width="390" height="30" as="geometry" />
+          <mxGeometry x="2400" y="10" width="390" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
