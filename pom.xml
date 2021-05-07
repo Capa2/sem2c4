@@ -3,14 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dat</groupId>
-    <artifactId>sem2-startcode</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>${projectName}</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>sem2-startcode</name>
+    <name>${projectName}</name>
 
 
     <properties>
+        <projectName>sem2c4</projectName>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
