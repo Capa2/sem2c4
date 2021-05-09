@@ -1,7 +1,7 @@
 package business.entities;
 
 public class Address {
-    int postalCode;
+    private int postalCode, id;
     String address, town, municipality;
 
     public Address(int postalCode, String address, String town, String municipality) {
