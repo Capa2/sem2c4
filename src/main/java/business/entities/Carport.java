@@ -15,6 +15,26 @@ public class Carport {
         this.shedLength = shedLength;
     }
 
+    public Carport(int id, int roofAngle, int width, int length, int shedWidth, int shedLength) {
+        this.id = id;
+        this.name = name;
+        this.roofAngle = roofAngle;
+        this.width = width;
+        this.length = length;
+        this.shedWidth = shedWidth;
+        this.shedLength = shedLength;
+    }
+
+    public Carport(int id, String name, int roofAngle, int width, int length, int shedWidth, int shedLength) {
+        this.id = id;
+        this.name = name;
+        this.roofAngle = roofAngle;
+        this.width = width;
+        this.length = length;
+        this.shedWidth = shedWidth;
+        this.shedLength = shedLength;
+    }
+
     public int getId() {
         return id;
     }

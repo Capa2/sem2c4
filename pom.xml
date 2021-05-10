@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dat</groupId>
-    <artifactId>${projectName}</artifactId>
+    <artifactId>sem2c4</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
