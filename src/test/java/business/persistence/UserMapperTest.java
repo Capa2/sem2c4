@@ -36,12 +36,12 @@ public class UserMapperTest {
             // reset test database
             try ( Statement stmt = database.connect().createStatement() ) {
                 stmt.execute("drop table if exists user" );
-                stmt.execute("create table " + TESTDATABASE + ".user LIKE " + DATABASE + ".user;" );
+                stmt.execute("CREATE table " + TESTDATABASE + ".user LIKE " + DATABASE + ".user;" );
                 stmt.execute(
-                    "insert into users values " +
+                    "insert into user values " +
                     "(1,'jens@somewhere.com','jensen','customer','Jens Jensen','12345678'), " +
-                    "(2,'ken@somewhere.com','kensen','customer', 'Ken Kensen'), " +
-                    "(3,'robin@somewhere.com','batman','employee')");
+                    "(2,'ken@somewhere.com','kensen','customer', 'Ken Kensen','87654321'), " +
+                    "(3,'robin@somewhere.com','batman','employee','Robin', '87651234')");
             } catch (SQLException ex) {
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
         }
