@@ -11,6 +11,10 @@ public class Address {
         this.municipality = municipality;
     }
 
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
     public int getPostalCode() {
         return postalCode;
     }
