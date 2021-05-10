@@ -39,8 +39,8 @@ public class UserMapperTest {
                 stmt.execute("create table " + TESTDATABASE + ".user LIKE " + DATABASE + ".user;" );
                 stmt.execute(
                     "insert into users values " +
-                    "(1,'jens@somewhere.com','jensen','customer'), " +
-                    "(2,'ken@somewhere.com','kensen','customer'), " +
+                    "(1,'jens@somewhere.com','jensen','customer','Jens Jensen','12345678'), " +
+                    "(2,'ken@somewhere.com','kensen','customer', 'Ken Kensen'), " +
                     "(3,'robin@somewhere.com','batman','employee')");
             } catch (SQLException ex) {
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
