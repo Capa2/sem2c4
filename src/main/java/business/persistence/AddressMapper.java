@@ -1,6 +1,7 @@
 package business.persistence;
 
 import business.entities.Address;
+import business.entities.Carport;
 import business.entities.PostalCode;
 import business.entities.Town;
 import business.exceptions.UserException;
@@ -65,6 +66,42 @@ public class AddressMapper {
         catch (SQLException ex)
         {
             throw new UserException(ex.getMessage());
+        }
+    }
+
+    public Carport getAddress(int id) throws UserException
+    {
+
+
+        try (Connection connection = database.connect())
+        {
+            Address address = null;
+            int addressId = address.getId();
+
+            String sql = "SELECT name FROM address WHERE id = addressId";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    address = new Address(id, name);
+                    try {
+                        String name = rs.getString("name");
+                        carport.setName(name);
+                    } catch (NullPointerException ex) {
+                        throw new RuntimeException(ex); // continues
+                    } finally {
+                        return carport;
+                    }
+                }
+                return null;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
         }
     }
 
