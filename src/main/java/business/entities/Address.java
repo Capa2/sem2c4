@@ -1,49 +1,26 @@
 package business.entities;
 
 public class Address {
-    private int postalCode, id;
-    String address, town, municipality;
+    private int id;
+    String name;
 
-    public Address(int postalCode, String address, String town, String municipality) {
-        this.postalCode = postalCode;
-        this.address = address;
-        this.town = town;
-        this.municipality = municipality;
+    public Address(String name) {
+        this.name = name;
     }
 
-    public int getId() { return id; }
-
-    public void setId(int id) { this.id = id; }
-
-    public int getPostalCode() {
-        return postalCode;
+    public int getId() {
+        return id;
     }
 
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-
-    public String getMunicipality() {
-        return municipality;
-    }
-
-    public void setMunicipality(String municipality) {
-        this.municipality = municipality;
+    public void setName(String name) {
+        this.name = name;
     }
 }

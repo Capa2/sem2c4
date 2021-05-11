@@ -24,7 +24,7 @@ public class AddressMapper {
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, address.getAddress());
+                ps.setString(1, address.getName());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
