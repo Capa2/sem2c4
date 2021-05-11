@@ -1,12 +1,13 @@
 package business.entities;
 
 public class Address {
-    private int id;
+    private int id, townId;
     String name;
 
-    public Address(int id, String name) {
+    public Address(int id, String name, int townId) {
         this.id = id;
         this.name = name;
+        this.townId = townId;
     }
 
     public Address(String name) {

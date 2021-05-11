@@ -12,7 +12,7 @@ public class AddressFacade
 {
     AddressMapper addressMapper;
 
-    public AddressMapper(Database database)
+    public AddressFacade(Database database)
     {
         addressMapper = new AddressMapper(database);
     }
@@ -31,10 +31,10 @@ public class AddressFacade
         return town;
     }
 
-    public PostalCode createPostalCode(String name) throws UserException
-    {
-        PostalCode postaCode = new PostalCode(name);
-        addressMapper.createPos(town);
-        return town;
-    }
+//    public PostalCode createPostalCode(String name) throws UserException
+//    {
+//        PostalCode postalCode = new PostalCode(name);
+//        addressMapper.createPostalCode(townId);
+//        return PostalCode;
+//    }
 }

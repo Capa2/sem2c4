@@ -31,6 +31,7 @@ public class AddressMapper {
                 ids.next();
                 int id = ids.getInt(1);
                 address.setId(id);
+                //TownId from Town.getTownId creating method later and will ise it
             }
             catch (SQLException ex)
             {
@@ -69,41 +70,31 @@ public class AddressMapper {
         }
     }
 
-    public Carport getAddress(int id) throws UserException
-    {
-
-
-        try (Connection connection = database.connect())
-        {
-            Address address = null;
-            int addressId = address.getId();
-
-            String sql = "SELECT name FROM address WHERE id = addressId";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
-                ps.setInt(1, id);
-                ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    String name = rs.getString("name");
-                    address = new Address(id, name);
-                    try {
-                        String name = rs.getString("name");
-                        carport.setName(name);
-                    } catch (NullPointerException ex) {
-                        throw new RuntimeException(ex); // continues
-                    } finally {
-                        return carport;
-                    }
-                }
-                return null;
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException ex) {
-            throw new UserException("Connection to database could not be established");
-        }
-    }
+//    public Carport getAddress(int id) throws UserException
+//    {
+//
+//        try (Connection connection = database.connect())
+//        {
+//            Address address = null;
+//            int addressId = address.getId();
+//
+//            String sql = "SELECT name FROM address WHERE id = addressId";
+//
+//            try (PreparedStatement ps = connection.prepareStatement(sql))
+//            {
+//                ps.setInt(1, id);
+//                ResultSet rs = ps.executeQuery();
+//                String name = rs.getString("name");
+//                address.setName(name);
+//                }
+//                return null;
+//            } catch (SQLException ex) {
+//                throw new UserException(ex.getMessage());
+//            }
+//        } catch (SQLException ex) {
+//            throw new UserException("Connection to database could not be established");
+//        }
+//    }
 
 //    public void createPostalCode(PostalCode postalCode) throws UserException
 //    {
