@@ -6,5 +6,4 @@ public class MaterialMapper {
     public MaterialMapper(Database database) {
         this.database = database;
     }
-
 }
