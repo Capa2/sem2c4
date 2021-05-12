@@ -17,7 +17,52 @@
 <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
 <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
         <img src="<c:url value='/data/CAR01.png'/>" alt=.../>
-        <p>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
+        <div style="float: right;">
+            <form class="mt-4" method="post" action="${pageContext.request.contextPath}/fc/modelpage1">
+                <fieldset>
+                    <legend>Byg din nørdede garage/carport her</legend>
+                    <label class="p-1" for="topping"><Strong>Bredde:</Strong></label>
+                    <select class="p-0" name="width" id="width">
+                        <c:forEach var="width" items="${applicationScope.width}">
+                            <option value="${carport.id}"
+                                    selected="${requestScope.get(carport.name)}">${carport.name}</option>
+                        </c:forEach>
+                    </select>
+
+                    <label class="p-1" for="noget andet"><strong>noget andet:</strong></label>
+                    <select class="p-0" name="noget andet" id="noget andet">
+                        <c:forEach var="noget andet" items="${applicationScope.bottomList}">
+                            <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
+                        </c:forEach>
+                    </select>
+
+                    <label class="p-1" for="noget andet"><strong>noget andet:</strong></label>
+                    <select class="p-0" name="noget andet" id="noget andet">
+                        <c:forEach var="noget andet" items="${applicationScope.bottomList}">
+                            <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
+                        </c:forEach>
+                    </select>
+
+<%--                    <label class="p-2" for="amount"><strong>Antal:</strong></label>--%>
+<%--                    <select class="p-1" name="amount" id="amount">--%>
+<%--                        <option value="1">1</option>--%>
+<%--                        <option value="2">2</option>--%>
+<%--                        <option value="3">3</option>--%>
+<%--                        <option value="4">4</option>--%>
+<%--                        <option value="5">5</option>--%>
+<%--                        <option value="6">6</option>--%>
+<%--                        <option value="7">7</option>--%>
+<%--                        <option value="8">8</option>--%>
+<%--                        <option value="9">9</option>--%>
+<%--                        <option value="10">10</option>--%>
+<%--                    </select>--%>
+<%--                    <button type="submit" name="add" value="add" class="btn btn-outline-success mx-2">Tilføj til--%>
+<%--                        kurv--%>
+<%--                    </button>--%>
+                </fieldset>
+            </form>
+        </div>
+        <p>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.
             Dimensioner:<br>
             Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
             Rem: 45 x 145 mm spærtræ.<br>
@@ -27,6 +72,7 @@
             Inkl. søm, skruer og hulbånd.<br>
             Sælges som standardmodel.<br>
             Se i øvrigt tilkøbspakker.</p>
+
 
 
     </jsp:body>
