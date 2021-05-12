@@ -30,7 +30,6 @@ public abstract class Command
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
         // Switch to ModelCommand when ready
         // Make dynamic
-        // Dominatrix
         commands.put("modelpage1", new CommandUnprotectedPage("modelpage1"));
     }
 

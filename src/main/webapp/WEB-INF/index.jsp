@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+         Hom
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -14,6 +14,7 @@
 
     <jsp:body>
 
+        <p><a href="fc/modelpage1">Test</a>
         <div>
             <h2>Our Cool Site</h2>
 
@@ -32,6 +33,8 @@
                     are logged in as a customer</p>
                 <p><a href="fc/customerpage">Customer Page</a>
             </c:if>
+
+
 
         </div>
 
