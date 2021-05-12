@@ -38,7 +38,7 @@
 
                     <label class="p-1" for="noget andet"><strong>noget andet:</strong></label>
                     <select class="p-0" name="noget andet" id="noget andet">
-                        <c:forEach var="noget andet" items="${applicationScope.bottomList}">
+                        <c:forEach var="noget andet" items="${applicationScope.noget andet}">
                             <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
                         </c:forEach>
                     </select>
