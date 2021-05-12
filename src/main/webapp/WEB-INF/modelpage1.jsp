@@ -12,8 +12,22 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h4>Carport model enkelt uden reskabsrum</h4>
-        <img src="${pageContext.request.contextPath}${CAR01.png}"/>
+        <h4>Carport model CAR01<br>Enkelt model
+            uden reskabsrum</h4>
+<%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
+<%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
+        <img src="<c:url value='/data/CAR01.png'/>" alt=.../>
+        <p>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
+            Dimensioner:<br>
+            Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
+            Rem: 45 x 145 mm spærtræ.<br>
+            Spær: 45 x 95 mm. reglar.<br>
+            Stern: 25 x 150 mm. ru trykimprægneret.<br>
+            Tag: PLASTMO ecolite tagplade.<br>
+            Inkl. søm, skruer og hulbånd.<br>
+            Sælges som standardmodel.<br>
+            Se i øvrigt tilkøbspakker.</p>
+
 
     </jsp:body>
 </t:genericpage>
