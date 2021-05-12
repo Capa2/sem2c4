@@ -42,23 +42,6 @@
                             <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
                         </c:forEach>
                     </select>
-
-<%--                    <label class="p-2" for="amount"><strong>Antal:</strong></label>--%>
-<%--                    <select class="p-1" name="amount" id="amount">--%>
-<%--                        <option value="1">1</option>--%>
-<%--                        <option value="2">2</option>--%>
-<%--                        <option value="3">3</option>--%>
-<%--                        <option value="4">4</option>--%>
-<%--                        <option value="5">5</option>--%>
-<%--                        <option value="6">6</option>--%>
-<%--                        <option value="7">7</option>--%>
-<%--                        <option value="8">8</option>--%>
-<%--                        <option value="9">9</option>--%>
-<%--                        <option value="10">10</option>--%>
-<%--                    </select>--%>
-<%--                    <button type="submit" name="add" value="add" class="btn btn-outline-success mx-2">Tilføj til--%>
-<%--                        kurv--%>
-<%--                    </button>--%>
                 </fieldset>
             </form>
         </div>
