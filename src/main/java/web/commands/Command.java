@@ -31,6 +31,7 @@ public abstract class Command
         // Switch to ModelCommand when ready
         // Make dynamic
         commands.put("modelpage1", new CommandUnprotectedPage("modelpage1"));
+        commands.put("querypage", new CommandUnprotectedPage("querypage"));
     }
 
     public static Command fromPath(
