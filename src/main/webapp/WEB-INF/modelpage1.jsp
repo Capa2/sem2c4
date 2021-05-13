@@ -12,8 +12,8 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h4>Carport model CAR01<br>Enkelt model
-            uden reskabsrum</h4>
+        <h4>Carport model ${requestscope.name}<br>
+<%--            Enkelt model uden reskabsrum</h4>--%>
 <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
 <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
         <img src="<c:url value='/data/CAR01.png'/>" alt=.../>
@@ -29,23 +29,24 @@
                         </c:forEach>
                     </select>
 
-                    <label class="p-1" for="noget andet"><strong>noget andet:</strong></label>
-                    <select class="p-0" name="noget andet" id="noget andet">
+                    <label class="p-1" for="nogetandet"><strong>nogetandet:</strong></label>
+                    <select class="p-0" name="nogetandet" id="nogetandet">
                         <c:forEach var="noget andet" items="${applicationScope.bottomList}">
                             <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
                         </c:forEach>
                     </select>
 
-                    <label class="p-1" for="noget andet"><strong>noget andet:</strong></label>
-                    <select class="p-0" name="noget andet" id="noget andet">
-                        <c:forEach var="noget andet" items="${applicationScope.noget andet}">
+                    <label class="p-1" for="nogetandet"><strong>noget andet:</strong></label>
+                    <select class="p-0" name="nogetandet" id="nogetandet">
+                        <c:forEach var="nogetandet" items="${applicationScope.nogetandet}">
                             <option value="${bottom.id}" selected="${requestScope.get(bottom.name)}">${bottom.name}</option>
                         </c:forEach>
                     </select>
                 </fieldset>
             </form>
         </div>
-        <p>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.
+
+        <p> <br>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
             Dimensioner:<br>
             Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
             Rem: 45 x 145 mm spærtræ.<br>
@@ -56,26 +57,26 @@
             Sælges som standardmodel.<br>
             Se i øvrigt tilkøbspakker.</p>
 
-
-
-    </jsp:body>
-</t:genericpage>
-
-<%--        <div style="margin-top: 5em;">--%>
-<%--            <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">--%>
+        <div style="margin-top: 2em;">
+            <form name="sendForespørgsel" action="${pageContext.request.contextPath}/fc/query" method="POST">
 <%--                <div class="row mb-3">--%>
-<%--                    <label class="" for="name">Name</label>--%>
+<%--                    <label class="" for="name">Send forespørgsel</label>--%>
 <%--                    <div class="col-sm-4">--%>
-<%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Skriv navn">--%>
+<%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">--%>
 <%--                    </div>--%>
 <%--                </div>--%>
-<%--                <input class="btn btn-primary" type="submit" type="submit" value="Submit">--%>
-<%--            </form>--%>
+                <input class="btn btn-primary" type="submit" type="submit" value="Send forespørgsel">
+            </form>
 
 <%--            <c:if test="${requestScope.error != null }">--%>
 <%--                <p style="color:red">--%>
 <%--                        ${requestScope.error}--%>
 <%--                </p>--%>
 <%--            </c:if>--%>
-<%--        </div>--%>
+        </div>
+
+
+    </jsp:body>
+</t:genericpage>
+
 
