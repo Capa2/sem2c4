@@ -19,7 +19,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h4><p><SPAN STYLE="font-family:'Times New Roman'; float: right; width: 33%; padding: 5px;">Forespørgsel på carport model XXX ${requestscope.name}<br></SPAN></p></h4>
         <%--            Enkelt model uden reskabsrum</h4>--%>
         <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
         <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
