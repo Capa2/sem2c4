@@ -13,8 +13,6 @@
     </jsp:attribute>
 
     <jsp:body>
-
-        <p><a href="fc/modelpage1">Test</a>
         <div>
             <h2 class="display-2">Carporte</h2>
 
@@ -191,7 +189,7 @@
                 <c:if test="${sessionScope.role == 'customer' }">
             <p style="font-size: larger">This is what you can do, since your
                 are logged in as a customer</p>
-            <p><a href="fc/customerpage">Customer Page</a>
+                    <p><a href="fc/customerpage">Customer Page</a></p>
                 </c:if>
 
 
