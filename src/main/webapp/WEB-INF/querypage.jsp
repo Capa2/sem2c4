@@ -58,8 +58,8 @@
                     <%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">--%>
                     <%--                    </div>--%>
                     <%--                </div>--%>
-                <input style="font-family:'Times New Roman';color: red; width: 15%;" class="btn btn-dark" type="submit"
-                       type="submit" value="Accepter send forespørgsel">
+                <input style="font-family:'Times New Roman';color: red; width: 15%; align: left;" class="btn btn-dark" type="submit"
+                       type="submit" value="Send forespørgsel">
             </form>
                 <%--            flashy fast lav pris skilt--%>
         </div>
