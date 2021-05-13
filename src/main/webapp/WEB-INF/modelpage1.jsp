@@ -11,7 +11,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-
+        <h3>Model CAR01H${requestscope.name}</h3>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -25,10 +25,9 @@
             <br><br><br><br><br><br><br><br><br><br><br>
         </div>
 
-        <div style="padding: 5px;width: 45; float: left;">
+        <div style="padding: 5px; float: left;">
             <table>
                 <tr>
-                    <h4>Carport model CAR01H ${requestscope.name}</h4>
                     <p><br>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
                         Dimensioner:<br>
                         Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
@@ -59,7 +58,7 @@
                     <%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">--%>
                     <%--                    </div>--%>
                     <%--                </div>--%>
-                <input style="font-family:'Times New Roman'; color: red;" class="btn btn-dark" type="submit"
+                <input style="font-family:'Times New Roman'; color: red; width: 15%;" class="btn btn-dark" type="submit"
                        type="submit" value="Send forespørgsel">
             </form>
                 <%--            flashy fast lav pris skilt--%>
