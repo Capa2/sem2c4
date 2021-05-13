@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class UserMapper
 {
-    private Database database;
+    final private Database database;
 
     public UserMapper(Database database)
     {

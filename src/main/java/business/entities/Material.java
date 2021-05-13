@@ -2,10 +2,13 @@ package business.entities;
 
 public class Material {
     int id, width, length;
-    float cost;
-    String name, category, color, hexcode;
+    double cost;
+    String name, color, hexcode;
 
-    public Material(float cost, String name) {
+    public Material(int id, int width, int length, double cost, String name) {
+        this.id = id;
+        this.width = width;
+        this.length = length;
         this.cost = cost;
         this.name = name;
     }
@@ -34,7 +37,7 @@ public class Material {
         this.length = length;
     }
 
-    public float getCost() {
+    public double getCost() {
         return cost;
     }
 
@@ -48,14 +51,6 @@ public class Material {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getColor() {
