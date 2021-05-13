@@ -31,7 +31,7 @@ public abstract class Command
         // Switch to ModelCommand when ready
         // Make dynamic
         commands.put("modelpage1", new CommandUnprotectedPage("modelpage1"));
-        // skal laves protected page og rolle
+        // skal laves protected
         commands.put("querypage", new CommandUnprotectedPage("querypage"));
     }
 

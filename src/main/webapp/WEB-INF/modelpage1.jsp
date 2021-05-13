@@ -16,8 +16,9 @@
 <%--            Enkelt model uden reskabsrum</h4>--%>
 <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
 <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
-        <img src="<c:url value='/data/CAR01.png'/>" alt=.../>
         <div style="float: right;">
+        <img src="<c:url value='/data/CAR01.png'/>" alt=.../>
+        </div>
             <form class="mt-4" method="post" action="${pageContext.request.contextPath}/fc/modelpage1">
                 <fieldset>
                     <legend>Byg din nørdede garage/carport her</legend>
@@ -44,7 +45,6 @@
                     </select>
                 </fieldset>
             </form>
-        </div>
 
         <p> <br>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
             Dimensioner:<br>
@@ -58,7 +58,7 @@
             Se i øvrigt tilkøbspakker.</p>
 
         <div style="margin-top: 2em;">
-            <form name="sendForespørgsel" action="${pageContext.request.contextPath}/fc/query" method="POST">
+            <form name="sendforespørgsel" action="${pageContext.request.contextPath}/fc/querypage" method="POST">
 <%--                <div class="row mb-3">--%>
 <%--                    <label class="" for="name">Send forespørgsel</label>--%>
 <%--                    <div class="col-sm-4">--%>
