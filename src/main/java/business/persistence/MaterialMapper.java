@@ -86,6 +86,55 @@ public class MaterialMapper {
         }
     }
 
+    public Material getMaterial(int id) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT name, cost, length, width FROM material WHERE id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    double cost = rs.getBigDecimal("cost").doubleValue();
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    String name = rs.getString("name");
+                    Material material = new Material(id, width, length, cost, name);
+                    material.setColor("black", "#000");
+                    return material;
+                }
+                return null;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+    public Material getMaterial(String name) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT id, cost, length, width FROM material WHERE name = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setString(1, name);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    double cost = rs.getBigDecimal("cost").doubleValue();
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    Material material = new Material(id, width, length, cost, name);
+                    material.setColor("black", "#000");
+                    return material;
+                }
+                return null;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+
     public List<Material> getAll() throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "SELECT id, materialCategoryId, name, cost, length, width FROM material";
