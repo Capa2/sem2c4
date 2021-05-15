@@ -18,7 +18,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO User (phone, email, password, role, name, street, town) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO User (phone, email, password, role, name, street, town, zipCode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
@@ -29,6 +29,7 @@ public class UserMapper
                 ps.setString(5, user.getName());
                 ps.setString(6, user.getStreet());
                 ps.setString(7, user.getTown());
+                ps.setInt(8, user.getZipCode());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
@@ -50,7 +51,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT id, role, name, phone FROM user WHERE email=? AND password=?";
+            String sql = "SELECT id, role, name, phone, street, town, zipCode FROM user WHERE email=? AND password=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
@@ -59,11 +60,14 @@ public class UserMapper
                 ResultSet rs = ps.executeQuery();
                 if (rs.next())
                 {
+                    int phone = rs.getInt("phone");
                     String role = rs.getString("role");
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
-                    int phone = rs.getInt("phone");
-                    User user = new User(email, password, role, name, phone);
+                    String street = rs.getString("street");
+                    String town = rs.getString("town");
+                    int zipCode = rs.getInt("zipCode");
+                    User user = new User(phone, email, password, role, name, street, town, zipCode);
                     user.setId(id);
                     return user;
                 } else

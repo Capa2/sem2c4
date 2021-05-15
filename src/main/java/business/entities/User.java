@@ -5,7 +5,7 @@ public class User
     private int id, phone, zipCode;
     private String email, password, role, name, street, town;
 
-    public User(int phone, String email, String password, String role, String name, String street, String townName, int zipCode) {
+    public User(int phone, String email, String password, String role, String name, String street, String town, int zipCode) {
 
         this.phone = phone;
         this.email = email;
@@ -13,7 +13,7 @@ public class User
         this.role = role;
         this.name = name;
         this.street = street;
-        this.town = townName;
+        this.town = town;
         this.zipCode = zipCode;
     }
 

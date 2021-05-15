@@ -42,8 +42,10 @@ public class RegisterCommand extends CommandUnprotectedPage
             session.setAttribute("email", email);
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
-            session.setAttribute("city", );
+            session.setAttribute("town", town);
             session.setAttribute("zipCode", zipCode);
+            session.setAttribute("street", street);
+            session.setAttribute("town", town);
             return user.getRole() + "page";
         }
         else
