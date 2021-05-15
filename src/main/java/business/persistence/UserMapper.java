@@ -18,15 +18,17 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO User (email, password, role, name, phone) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO User (phone, email, password, role, name, street, town) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, user.getEmail());
-                ps.setString(2, user.getPassword());
-                ps.setString(3, user.getRole());
-                ps.setString(4, user.getName());
-                ps.setInt(5, user.getPhone());
+                ps.setInt(1, user.getPhone());
+                ps.setString(2, user.getEmail());
+                ps.setString(3, user.getPassword());
+                ps.setString(4, user.getRole());
+                ps.setString(5, user.getName());
+                ps.setString(6, user.getStreet());
+                ps.setString(7, user.getTown());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
