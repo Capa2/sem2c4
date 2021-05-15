@@ -15,16 +15,14 @@ public class MaterialFacade {
         materialMapper = new MaterialMapper(database);
     }
 
-    public String getCategory(int categoryId) throws UserException {
-        // Get the category name
-        return materialMapper.getCategory(categoryId);
+    public Material getMaterial(int id) throws UserException {
+        // Get a single material item
+        return materialMapper.getMaterial(id);
     }
-
-    public List<Color> getColors(int materialId) throws UserException {
-        // get a list of available colors for any given material
-        return materialMapper.getColors(materialId);
+    public Material getMaterial(String name) throws UserException {
+        // Get a single material item
+        return materialMapper.getMaterial(name);
     }
-
     public List<Material> getGroup(int categoryId) throws UserException {
         // Get a list of materials in a specific category
         return materialMapper.getGroup(categoryId);
@@ -34,7 +32,16 @@ public class MaterialFacade {
         // Get a list of all materials
         return materialMapper.getAll();
     }
+    public String getCategory(int categoryId) throws UserException {
+        // Get the category name
+        return materialMapper.getCategory(categoryId);
+    }
 
+    public List<Color> getColors(int materialId) throws UserException {
+        // get a list of available colors for any given material
+        return materialMapper.getColors(materialId);
+    }
+    
     // TODO INSERT TAGGED MATERIAL METHOD
 
 }

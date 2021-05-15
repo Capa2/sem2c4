@@ -35,6 +35,36 @@ public class Carport {
         this.shedLength = shedLength;
     }
 
+    private void setPosts(Material post) { // stolper
+        int amount = 2;
+        int lengthToSupport = length - shedLength - 100; // first posts always @ 1m
+        while (lengthToSupport > 0) {
+            amount += 2;
+            lengthToSupport -= 310; // max supported length
+        }
+        post.setAmount(amount);
+        materialList.add(post);
+    }
+
+    private void setRafters(Material rafter) {
+        setRafters(rafter, 55); // default span
+    }
+
+    private void setRafters(Material rafter, int gap) { // spæretræ
+        rafter.setAmount((int) Math.ceil(width / gap));
+        materialList.add(rafter);
+    }
+
+    private void setRem(Material rem) { // remme
+        rem.setAmount(2 * (int) Math.ceil(length/rem.length));
+        materialList.add(rem);
+    }
+
+    private void setRoof(Material roof) { // tag
+        roof.setAmount((int) Math.ceil(length * width) / (roof.width + roof.length));
+        materialList.add(roof);
+    }
+
     public int getId() {
         return id;
     }

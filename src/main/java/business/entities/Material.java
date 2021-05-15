@@ -1,7 +1,7 @@
 package business.entities;
 
 public class Material {
-    int id, width, length;
+    int id, width, length, amount;
     double cost;
     String name, color, hexcode;
 
@@ -9,6 +9,7 @@ public class Material {
         this.id = id;
         this.width = width;
         this.length = length;
+        this.amount = 1;
         this.cost = cost;
         this.name = name;
     }
@@ -35,6 +36,14 @@ public class Material {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public double getCost() {
