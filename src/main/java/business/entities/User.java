@@ -2,17 +2,20 @@ package business.entities;
 
 public class User
 {
+    private int id, phone, zipCode;
+    private String email, password, role, name, street, town;
 
-    public User(String email, String password, String role, String name, int phone) {
+    public User(int phone, String email, String password, String role, String name, String street, String town, int zipCode) {
+
+        this.phone = phone;
         this.email = email;
         this.password = password;
         this.role = role;
         this.name = name;
-        this.phone = phone;
+        this.street = street;
+        this.town = town;
+        this.zipCode = zipCode;
     }
-
-    private int id, phone;
-    private String email, password, role, name;
 
     public int getId() {
         return id;
@@ -20,6 +23,14 @@ public class User
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -54,12 +65,27 @@ public class User
         this.name = name;
     }
 
-    public int getPhone() {
-        return phone;
+    public String getStreet() {
+        return street;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
 }
