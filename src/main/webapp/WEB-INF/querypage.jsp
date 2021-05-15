@@ -11,7 +11,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-<h3>Send en forspørgsel på CAR01H ${requestscope.name}</h3>
+        <h3>Forespørgsel på model CAR01H ${requestscope.name}</h3>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -20,49 +20,98 @@
 
     <jsp:body>
 
-        <div style="width: 33%; padding: 5px; float: left;">
-            <img src="<c:url value='/data/CAR01H.png'/>" alt=Carport model ${requestscope.name}/>
-            <br><br><br><br><br><br><br><br><br><br><br>
-        </div>
+        <%--            <div style="width: 350px;height: 250px">--%>
+        <img src="<c:url value='/data/CAR01H.png'/>" style="padding: 10px;border: 1px solid;float: left;" class="img-fluid. max-width: 100%;" alt=Carport model ${requestscope.name}/>
+        <%--            </div>--%>
 
-        <div style="padding: 5px; float: left;">
-            <table>
-                <tr>
-                    <p><br>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
-                        Dimensioner:<br>
-                        Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
-                        Rem: 45 x 145 mm spærtræ.<br>
-                        Spær: 45 x 95 mm. reglar.<br>
-                        Stern: 25 x 150 mm. ru trykimprægneret.<br>
-                        Tag: PLASTMO ecolite tagplade.<br>
-                        Inkl. søm, skruer og hulbånd.<br>
-                        Sælges som standardmodel.<br>
-                        Se i øvrigt tilkøbspakker.</p>
-                </tr>
-            </table>
-        </div>
+        <%--make colums--%>
+        <p style="font-family:'Times New Roman';border:1px solid; padding:5px;float: left;" width="300px;" height="auto">
+            Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
+            Dimensioner:<br>
+            Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
+            Rem: 45 x 145 mm spærtræ.<br>
+            Spær: 45 x 95 mm. reglar.<br>
+            Stern: 25 x 150 mm. ru trykimprægneret.<br>
+            Tag: PLASTMO ecolite tagplade.<br>
+            Inkl. søm, skruer og hulbånd.<br>
+            Sælges som standardmodel.<br>
+            Se i øvrigt tilkøbspakker.</p>
 
-        <div style="width: 100;height: auto;padding: 5px; float: left;">
-            <img src="<c:url value='/data/SVGD.png'/>" width=500 height=auto alt=Carport model ${requestscope.name}/>
-        </div>
+
+
+        <img src="<c:url value='/data/SVGD.png'/>" style="width: 500px; height: auto;border: 1px solid;float: left;" alt=Carport model ${requestscope.name}/>
 
         <%--            Enkelt model uden reskabsrum</h4>--%>
         <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
         <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
 
-        <div style="padding: 5px;">
-            <form name="sendforespørgsel" action="${pageContext.request.contextPath}/fc/modelpage1" method="get">
-                    <%--                <div class="row mb-3">--%>
-                    <%--                    <label class="" for="name">Send forespørgsel</label>--%>
-                    <%--                    <div class="col-sm-4">--%>
-                    <%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">--%>
-                    <%--                    </div>--%>
-                    <%--                </div>--%>
-                <input style="font-family:'Times New Roman';color: red; width: 16%; align: left;" class="btn btn-dark" type="submit"
-                       type="submit" value="Go back to send forespørgsel">
-            </form>
-                <%--            flashy fast lav pris skilt--%>
-        </div>
+<%--        <div style="padding: 5px;">--%>
+<%--            <form name="sendforespørgsel" action="${pageContext.request.contextPath}/fc/querypage" method="get">--%>
+<%--                    &lt;%&ndash;                <div class="row mb-3">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                    <label class="" for="name">Send forespørgsel</label>&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                    <div class="col-sm-4">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                    </div>&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                <input style="font-family:'Times New Roman';color: red; width: 200px; align: left;padding: 10px;" class="btn btn-dark" type="submit"--%>
+<%--                       type="submit" value="Gå tilbage">--%>
+<%--            </form>--%>
+<%--                &lt;%&ndash;            flashy fast lav pris skilt&ndash;%&gt;--%>
+<%--        </div>--%>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="${sessionScope.user.email}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Navn</label>
+                <input type="text" class="form-control" id="name" placeholder="${sessionScope.user.name}">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" class="form-control" id="address" placeholder="${sessionScope.address.street}">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">By</label>
+                    <input type="text" class="form-control" id="city" placeholder="${sessionScope.city}">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="zipCode">Postnummer</label>
+                        <input type="text" class="form-control" id="zipCode" placeholder="${sessionScope.zipCode}">
+                    </div>
+
+<%--                <div class="form-group col-md-4">--%>
+<%--                    <label for="inputState">Postnummer</label>--%>
+<%--                    <select id="inputState" class="form-control">--%>
+<%--                        <option selected>Choose...</option>--%>
+<%--                        <option>...</option>--%>
+<%--                    </select>--%>
+<%--                </div>--%>
+<%--                <div class="form-group col-md-2">--%>
+<%--                    <label for="inputZip">Forespørgsel på garage CAR01H</label>--%>
+<%--                    <input type="text" class="form-control" id="inputZip">--%>
+<%--                </div>--%>
+<%--            </div>--%>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Jeg vil gerne have tilbud på en tømrer
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
 
 
         <%--        <div style="float: right;">--%>

@@ -2,17 +2,15 @@ package business.entities;
 
 public class Address {
     private int id, townId;
-    String name;
+    String street;
 
-    public Address(int id, String name, int townId) {
-        this.id = id;
-        this.name = name;
-        this.townId = townId;
+    public Address(String street) {
+        this.street = street;
     }
 
-    public Address(String name) {
-        this.name = name;
-    }
+    public int getTownId() { return townId; }
+
+    public void setTownId(int townId) { this.townId = townId; }
 
     public int getId() {
         return id;
@@ -22,11 +20,11 @@ public class Address {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getStreet() {
+        return street;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStreet(String street) {
+        this.street = street;
     }
 }

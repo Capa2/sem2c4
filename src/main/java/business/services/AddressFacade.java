@@ -17,16 +17,16 @@ public class AddressFacade
         addressMapper = new AddressMapper(database);
     }
 
-    public Address createAddress(String name) throws UserException
+    public Address createAddress(String street) throws UserException
     {
-        Address address = new Address(name);
+        Address address = new Address(street);
         addressMapper.createAddress(address);
         return address;
     }
 
-    public Town createTown(String name) throws UserException
+    public Town createTown(String townName) throws UserException
     {
-        Town town = new Town(name);
+        Town town = new Town(townName);
         addressMapper.createTown(town);
         return town;
     }

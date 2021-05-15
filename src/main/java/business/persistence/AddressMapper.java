@@ -21,16 +21,18 @@ public class AddressMapper {
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO Address (address) VALUES (?)";
+            String sql = "INSERT INTO Address (street) VALUES (?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, address.getName());
+                ps.setString(1, address.getStreet());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 int id = ids.getInt(1);
+//                int townId = ids.getInt(3);
                 address.setId(id);
+//                address.setTownId(townId);
                 //TownId from Town.getTownId creating method later and will ise it
             }
             catch (SQLException ex)
@@ -48,11 +50,11 @@ public class AddressMapper {
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO Town (name) VALUES (?)";
+            String sql = "INSERT INTO Town (townName) VALUES (?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, town.getName());
+                ps.setString(1, town.getTownName());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
