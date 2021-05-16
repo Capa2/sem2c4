@@ -24,17 +24,12 @@ public class FrontController extends HttpServlet
 
     public static Database database;
 
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         // Initialize database connection
-        if (database == null)
-        {
-            try
-            {
+        if (database == null) {
+            try {
                 database = new Database(USER, PASSWORD, URL);
-            }
-            catch (ClassNotFoundException ex)
-            {
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger("web").log(Level.SEVERE, ex.getMessage(), ex);
             }
         }
@@ -42,18 +37,22 @@ public class FrontController extends HttpServlet
         // Initialize whatever global datastructures needed here:
         CarportFacade carportFacade = new CarportFacade(database);
         try {
+            getServletContext().setAttribute("carportDb", carportFacade);
+        } catch (Exception e) {
+            throw new ServletException("Failed to get carport db");
+        }
+
+        try {
             getServletContext().setAttribute("models", carportFacade.getModels());
         } catch (Exception e) {
             throw new ServletException("Failed to load carport facade");
         }
-
     }
 
-    protected void processRequest(
+        protected void processRequest(
             HttpServletRequest request,
             HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         try
         {
             request.setCharacterEncoding("UTF-8");

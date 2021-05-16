@@ -1,74 +1,76 @@
-package business.persistence;
-
-import business.entities.Address;
-import business.entities.Carport;
-import business.entities.PostalCode;
-import business.entities.Town;
-import business.exceptions.UserException;
-
-import java.sql.*;
-
-public class AddressMapper {
-
-    private Database database;
-
-    public AddressMapper(Database database)
-    {
-        this.database = database;
-    }
-
-    public void createAddress(Address address) throws UserException
-    {
-        try (Connection connection = database.connect())
-        {
-            String sql = "INSERT INTO Address (address) VALUES (?)";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
-            {
-                ps.setString(1, address.getName());
-                ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                address.setId(id);
-                //TownId from Town.getTownId creating method later and will ise it
-            }
-            catch (SQLException ex)
-            {
-                throw new UserException(ex.getMessage());
-            }
-        }
-        catch (SQLException ex)
-        {
-            throw new UserException(ex.getMessage());
-        }
-    }
-
-    public void createTown(Town town) throws UserException
-    {
-        try (Connection connection = database.connect())
-        {
-            String sql = "INSERT INTO Town (name) VALUES (?)";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
-            {
-                ps.setString(1, town.getName());
-                ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                town.setId(id);
-            }
-            catch (SQLException ex)
-            {
-                throw new UserException(ex.getMessage());
-            }
-        }
-        catch (SQLException ex)
-        {
-            throw new UserException(ex.getMessage());
-        }
-    }
+//package business.persistence;
+//
+//import business.entities.Address;
+//import business.entities.Carport;
+//import business.entities.PostalCode;
+//import business.entities.Town;
+//import business.exceptions.UserException;
+//
+//import java.sql.*;
+//
+//public class AddressMapper {
+//
+//    private Database database;
+//
+//    public AddressMapper(Database database)
+//    {
+//        this.database = database;
+//    }
+//
+//    public void createAddress(Address address) throws UserException
+//    {
+//        try (Connection connection = database.connect())
+//        {
+//            String sql = "INSERT INTO Address (street) VALUES (?)";
+//
+//            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+//            {
+//                ps.setString(1, address.getStreet());
+//                ps.executeUpdate();
+//                ResultSet ids = ps.getGeneratedKeys();
+//                ids.next();
+//                int id = ids.getInt(1);
+////                int townId = ids.getInt(3);
+//                address.setId(id);
+////                address.setTownId(townId);
+//                //TownId from Town.getTownId creating method later and will ise it
+//            }
+//            catch (SQLException ex)
+//            {
+//                throw new UserException(ex.getMessage());
+//            }
+//        }
+//        catch (SQLException ex)
+//        {
+//            throw new UserException(ex.getMessage());
+//        }
+//    }
+//
+//    public void createTown(Town town) throws UserException
+//    {
+//        try (Connection connection = database.connect())
+//        {
+//            String sql = "INSERT INTO Town (townName) VALUES (?)";
+//
+//            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+//            {
+//                ps.setString(1, town.getTownName());
+//                ps.executeUpdate();
+//                ResultSet ids = ps.getGeneratedKeys();
+//                ids.next();
+//                int id = ids.getInt(1);
+//                town.setId(id);
+//            }
+//            catch (SQLException ex)
+//            {
+//                throw new UserException(ex.getMessage());
+//            }
+//        }
+//        catch (SQLException ex)
+//        {
+//            throw new UserException(ex.getMessage());
+//        }
+//    }
 
 //    public Carport getAddress(int id) throws UserException
 //    {
@@ -121,4 +123,4 @@ public class AddressMapper {
 //            throw new UserException(ex.getMessage());
 //        }
 //    }
-}
+//}

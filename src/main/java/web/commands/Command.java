@@ -32,7 +32,7 @@ public abstract class Command
         // Make dynamic
         commands.put("modelpage", new ModelCommand("modelpage"));
         // skal laves protected
-        commands.put("querypage", new CommandUnprotectedPage("querypage"));
+        commands.put("querypage", new QueryCommand("querypage", "customer"));
     }
 
     public static Command fromPath(

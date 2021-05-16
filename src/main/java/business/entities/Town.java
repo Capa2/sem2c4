@@ -2,10 +2,10 @@ package business.entities;
 
 public class Town {
     private int id, postalCodeId;
-    private String name;
+    private String townName;
 
-    public Town(String name) {
-        this.name = name;
+    public Town(String townName) {
+        this.townName = townName;
     }
 
     public int getId() {
@@ -24,11 +24,11 @@ public class Town {
         this.postalCodeId = postalCodeId;
     }
 
-    public String getName() {
-        return name;
+    public String getTownName() {
+        return townName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTownName(String townName) {
+        this.townName = townName;
     }
 }

@@ -1,5 +1,6 @@
 package web.commands;
 
+import business.entities.Address;
 import business.entities.User;
 import business.services.UserFacade;
 import business.exceptions.UserException;
@@ -26,12 +27,20 @@ public class LoginCommand extends CommandUnprotectedPage
 
         try {
         User user = userFacade.login(email, password);
+//            Address address = new Address();
 
         HttpSession session = request.getSession();
 
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
-        session.setAttribute("email", email);
+//        session.setAttribute("email", email);
+//        session.setAttribute("name", user.getName());
+//        session.setAttribute("phone", user.getPhone());
+//        session.setAttribute("street", user.getStreet());
+//        session.setAttribute("town", user.getTown());
+//        session.setAttribute("zipCode", user.getZipCode());
+
+//        session.setAttribute("address", address);
 
         String pageToShow =  user.getRole() + "page";
         return REDIRECT_INDICATOR + pageToShow;

@@ -1,7 +1,10 @@
 package web.commands;
 
+
+import business.entities.Carport;
 import business.entities.User;
 import business.persistence.Database;
+import business.services.CarportFacade;
 import business.services.UserFacade;
 import business.exceptions.UserException;
 
@@ -27,15 +30,24 @@ public class RegisterCommand extends CommandUnprotectedPage
         String password2 = request.getParameter("password2");
         String name = request.getParameter("name");
         int phone = Integer.parseInt(request.getParameter("phone"));
+        String street = request.getParameter("street");
+        String town = request.getParameter("town");
+        int zipCode = Integer.parseInt(request.getParameter("zipCode"));
+
 
         if (password1.equals(password2))
         {
-            User user = userFacade.createUser(email, password1, name, phone);
+            User user = userFacade.createUser(email, password1, name, phone, street, town, zipCode);
+
             HttpSession session = request.getSession();
 
             session.setAttribute("email", email);
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
+//            session.setAttribute("town", town);
+//            session.setAttribute("zipCode", zipCode);
+//            session.setAttribute("street", street);
+//            session.setAttribute("town", town);
             return user.getRole() + "page";
         }
         else
@@ -46,3 +58,9 @@ public class RegisterCommand extends CommandUnprotectedPage
     }
 
 }
+//
+//private CarportFacade carportFacade;
+//
+//Carport carport = carportFacade.getModels():
+//
+//request.setAttribute("carport", carport);
