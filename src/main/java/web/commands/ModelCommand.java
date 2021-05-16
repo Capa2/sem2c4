@@ -1,12 +1,7 @@
 package web.commands;
 
 import business.entities.Carport;
-import business.entities.Query;
-import business.entities.User;
-import business.persistence.Database;
 import business.services.CarportFacade;
-import business.services.QueryFacade;
-import business.services.UserFacade;
 import business.exceptions.UserException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +17,7 @@ public class ModelCommand extends CommandUnprotectedPage {
     }
 
     @Override
+<<<<<<< HEAD
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
 
@@ -31,6 +27,13 @@ public class ModelCommand extends CommandUnprotectedPage {
 //        String name = request.getParameter("name");
 //        Carport carport = (Carport) request.getAttribute("carport");
 
+=======
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException
+    {
+        int carportId = Integer.parseInt(request.getParameter("model"));
+        Carport carport = carportFacade.getCarport(carportId);
+        request.setAttribute("carport", carport);
+>>>>>>> ed255a93fdca148cc8038fb4035a3aadf5763554
 //            Query query = QueryFacade.createQuery(get_userID, user_name, carport_name);
 
 

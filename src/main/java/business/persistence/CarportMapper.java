@@ -39,7 +39,7 @@ public class CarportMapper {
 
     public Carport getCarport(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE id == ?";
+            String sql = "SELECT roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE id = ?";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
@@ -73,7 +73,7 @@ public class CarportMapper {
             String sql = "SELECT id, roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE name IS NOT NULL";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                List<Carport> carpotList = new ArrayList<>();
+                List<Carport> carportList = new ArrayList<>();
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     int id = rs.getInt("id");
@@ -84,9 +84,9 @@ public class CarportMapper {
                     int shedLength = rs.getInt("shedlength");
                     String name = rs.getString("name");
                     Carport carport = new Carport(id, name, roofAngle, width, length, shedWidth, shedLength);
-                    carpotList.add(carport);
+                    carportList.add(carport);
                 }
-                return carpotList;
+                return carportList;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
