@@ -2,6 +2,7 @@ package web;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.services.CarportFacade;
 import web.commands.*;
 
 import java.io.IOException;
@@ -39,6 +40,12 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
+        CarportFacade carportFacade = new CarportFacade(database);
+        try {
+            getServletContext().setAttribute("models", carportFacade.getModels());
+        } catch (Exception e) {
+            throw new ServletException("Failed to load carport facade");
+        }
 
     }
 
