@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class CommandQuery extends CommandProtectedPage {
+public class QueryCommand extends CommandProtectedPage {
 
 
-    public CommandQuery(String pageToShow, String role) {
+    public QueryCommand(String pageToShow, String role) {
         super(pageToShow, role);
     }
 
@@ -33,6 +33,8 @@ public class CommandQuery extends CommandProtectedPage {
 //        CarportFacade carportfacade = new CarportFacade(database);
 //
 //        user
+
+
         return pageToShow;
     }
 }
