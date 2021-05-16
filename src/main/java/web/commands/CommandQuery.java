@@ -1,6 +1,7 @@
 package web.commands;
 
 import business.entities.Address;
+import business.entities.Carport;
 import business.entities.User;
 import business.services.CarportFacade;
 import business.services.UserFacade;
@@ -21,7 +22,9 @@ public class CommandQuery extends CommandProtectedPage {
         HttpSession session = request.getSession();
 
 //        String email = (String) session.getAttribute("email");
-        User user = (User) session.getAttribute("user");
+//        User user = (User) session.getAttribute("user");
+//        Carport carport = (Carport) session.getAttribute("carport");
+
 //        Address address = (Address) session.getAttribute("address");
 //        String email = request.getParameter("email");
 //        String userEmail = "AlexanderStubMichelsen@gmail.com";

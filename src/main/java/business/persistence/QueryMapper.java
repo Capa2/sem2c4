@@ -1,19 +1,43 @@
-//package business.persistence;
-//
-//import business.entities.*;
-//import business.exceptions.UserException;
-//
-//import java.sql.*;
-//
-//public class QueryMapper {
-//
-//    private Database database;
-//
-//    public QueryMapper(Database database)
-//    {
-//        this.database = database;
-//    }
-//
+package business.persistence;
+
+import business.entities.*;
+import business.exceptions.UserException;
+
+import java.sql.*;
+
+public class QueryMapper {
+
+    private Database database;
+
+    private User user;
+
+    private Carport carport;
+
+    public QueryMapper(Database database) { this.database = database; }
+
+    public void createQuery(Query query) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "INSERT INTO Query (userId, carportId, status, message) VALUES (?, ?, ?, ?)";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setInt(1, user.getId());
+                ps.setInt(2, carport.getId());
+                ps.setString(3, query.getStatus());
+                ps.setString(4, query.getMessage());
+                ps.executeUpdate();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+                int id = ids.getInt(1);
+                query.setId(id);
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
+}
+
 //    public User login(String email, String password) throws UserException
 //    {
 //        try (Connection connection = database.connect())

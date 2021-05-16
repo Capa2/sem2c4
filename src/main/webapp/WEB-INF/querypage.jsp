@@ -89,6 +89,12 @@
                         <input type="text" class="form-control" id="zipCode" value="${sessionScope.user.zipCode}">
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="zipCode">Model</label>
+                            <input type="text" class="form-control" id="zipCode" value="${sessionScope}">
+                        </div>
+
 <%--                <div class="form-group col-md-4">--%>
 <%--                    <label for="inputState">Postnummer</label>--%>
 <%--                    <select id="inputState" class="form-control">--%>

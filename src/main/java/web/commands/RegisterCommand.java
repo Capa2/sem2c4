@@ -1,8 +1,10 @@
 package web.commands;
 
 
+import business.entities.Carport;
 import business.entities.User;
 import business.persistence.Database;
+import business.services.CarportFacade;
 import business.services.UserFacade;
 import business.exceptions.UserException;
 
@@ -42,10 +44,10 @@ public class RegisterCommand extends CommandUnprotectedPage
             session.setAttribute("email", email);
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
-            session.setAttribute("town", town);
-            session.setAttribute("zipCode", zipCode);
-            session.setAttribute("street", street);
-            session.setAttribute("town", town);
+//            session.setAttribute("town", town);
+//            session.setAttribute("zipCode", zipCode);
+//            session.setAttribute("street", street);
+//            session.setAttribute("town", town);
             return user.getRole() + "page";
         }
         else
@@ -56,3 +58,9 @@ public class RegisterCommand extends CommandUnprotectedPage
     }
 
 }
+//
+//private CarportFacade carportFacade;
+//
+//Carport carport = carportFacade.getModels():
+//
+//request.setAttribute("carport", carport);
