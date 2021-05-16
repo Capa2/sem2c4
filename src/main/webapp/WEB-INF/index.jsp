@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Hom
+         Carporte
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -14,8 +14,6 @@
 
     <jsp:body>
         <div>
-            <h2 class="display-2">Carporte</h2>
-
             <div class="container my-5">
                 <div class="row">
                     <div class="row col-9 m-n2 p-n2">
