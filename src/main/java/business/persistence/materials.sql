@@ -1,6 +1,6 @@
 USE fog_carport;
 
-DELETE FROM TABLE `materialCategory` WHERE `id` IS NOT NULL;
+DELETE FROM `materialCategory`;
 
 INSERT INTO `materialCategory` (name)
 VALUES ('rafter'),
@@ -9,7 +9,7 @@ VALUES ('rafter'),
        ('slopedRoof'),
        ('cladding');
 
-DELETE FROM TABLE `material` WHERE `id` IS NOT NULL;
+DELETE FROM `material`;
 
 INSERT INTO `material` (name, cost, length, width, materialCategoryId)
 VALUES ('trykimp. stolpe', '300', '300', '97', '1'),

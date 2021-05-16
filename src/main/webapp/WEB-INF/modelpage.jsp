@@ -11,7 +11,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <h3>Model ${requestScope}</h3>
+        <h3>Model ${requestScope.carport.name}</h3>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -20,30 +20,6 @@
 
     <jsp:body>
 
-<<<<<<< HEAD:src/main/webapp/WEB-INF/modelpage1.jsp
-        <%--            <div style="width: 350px;height: 250px">--%>
-        <img src="<c:url value='/data/CAR01H.png'/>" style="padding: 10px;border: 1px solid;float: left;"
-             class="img-fluid. max-width: 100%;" alt=Carport model ${requestScope}/>
-        <%--            </div>--%>
-
-        <%--make colums--%>
-        <p style="font-family:'Times New Roman';border:1px solid; padding:5px;float: left;" width="300px;"
-           height="auto">
-            Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
-            Dimensioner:<br>
-            Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
-            Rem: 45 x 145 mm spærtræ.<br>
-            Spær: 45 x 95 mm. reglar.<br>
-            Stern: 25 x 150 mm. ru trykimprægneret.<br>
-            Tag: PLASTMO ecolite tagplade.<br>
-            Inkl. søm, skruer og hulbånd.<br>
-            Sælges som standardmodel.<br>
-            Se i øvrigt tilkøbspakker.</p>
-
-
-        <img src="<c:url value='/data/SVGD.png'/>" style="width: 500px; height: auto;border: 1px solid;float: left;"
-             alt=Carport model ${applicationScope}/>
-=======
         <div style="width: 33%; padding: 5px; float: left;">
             <img src="<c:url value='/data/CAR01H.png'/>" alt="carport"/>
             <br><br><br><br><br><br><br><br><br><br><br>
@@ -52,7 +28,7 @@
         <div style="padding: 5px;width: 45; float: left;">
             <table>
                 <tr>
-                    <h4>${requestScope.name}</h4>
+                    <h4>${requestScope.carport.name}</h4>
                     <p><br>${requestScope.carport.width} x ${requestScope.carport.length} mtr.<br>
                         Dimensioner:<br>
                         Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
@@ -70,7 +46,6 @@
         <div style="width: 100;height: auto;padding: 5px; float: left;">
             <img src="<c:url value='/data/SVGD.png'/>" width=500 height=auto alt=Carport model ${requestscope.name}/>
         </div>
->>>>>>> ed255a93fdca148cc8038fb4035a3aadf5763554:src/main/webapp/WEB-INF/modelpage.jsp
 
         <%--            Enkelt model uden reskabsrum</h4>--%>
         <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
