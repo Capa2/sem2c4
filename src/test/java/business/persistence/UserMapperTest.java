@@ -37,11 +37,12 @@ public class UserMapperTest {
             try ( Statement stmt = database.connect().createStatement() ) {
                 stmt.execute("drop table if exists user" );
                 stmt.execute("CREATE table " + TESTDATABASE + ".user LIKE " + DATABASE + ".user;" );
-                stmt.execute(
-                    "insert into user values " +
-                    "(1,'jens@somewhere.com','jensen','customer','Jens Jensen',12345678), " +
-                    "(2,'ken@somewhere.com','kensen','customer', 'Ken Kensen',87654321), " +
-                    "(3,'robin@somewhere.com','batman','employee','Robin', 87651234)");
+                stmt.execute("INSERT INTO user VALUES (1,'jens@somewhere.com','jensen','customer','Jens Jensen',87654321,'Veddagodtgade','Viby',3480);");
+
+//                "INSERT INTO user values " +
+//                    "(1,'jens@somewhere.com','jensen','customer','Jens Jensen',87654321,'Veddagodtgade','Viby',3480)");
+//                    "(2,'ken@somewhere.com','kensen','customer','Ken Kensen',87654321,'Veddaikkgade','Vejle',3400), " +
+//                    "(3,'robin@somewhere.com','batman','employee','Robin',87651234,'Veddaikkgodtgade','Vedbæk',3450)");
             } catch (SQLException ex) {
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
         }
@@ -79,7 +80,7 @@ public class UserMapperTest {
     public void testCreateUser01() throws UserException {
         // Can we create a new user - Notice, if login fails, this will fail
         // but so would login01, so this is OK
-        User original = new User( "king@kong.com", "uhahvorhemmeligt", "konge", "Bente", 12345678);
+        User original = new User(12345678,"king@kong.com","uhahvorhemmeligt","konge","Bente","Hemmeliggade 123", "Hemmeligby", 4568);
         userMapper.createUser( original );
         User retrieved = userMapper.login( "king@kong.com", "uhahvorhemmeligt" );
         assertEquals( "konge", retrieved.getRole() );
