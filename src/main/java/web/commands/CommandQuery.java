@@ -22,7 +22,7 @@ public class CommandQuery extends CommandProtectedPage {
 
 //        String email = (String) session.getAttribute("email");
         User user = (User) session.getAttribute("user");
-        Address address = (Address) session.getAttribute("address");
+//        Address address = (Address) session.getAttribute("address");
 //        String email = request.getParameter("email");
 //        String userEmail = "AlexanderStubMichelsen@gmail.com";
 //        User user = (User) session.getAttribute("user");

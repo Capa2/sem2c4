@@ -63,30 +63,30 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="${sessionScope.user.email}">
+                    <input type="email" class="form-control" id="email" value="${sessionScope.user.email}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name">Navn</label>
-                <input type="text" class="form-control" id="name" placeholder="${sessionScope.user.name}">
+                <input type="text" class="form-control" id="name" value="${sessionScope.user.name}">
             </div>
 
             <div class="form-group">
                 <label for="address">Adresse</label>
-                <input type="text" class="form-control" id="address" placeholder="${sessionScope.address.street}">
+                <input type="text" class="form-control" id="address" value="${sessionScope.user.street}">
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">By</label>
-                    <input type="text" class="form-control" id="city" placeholder="${sessionScope.city}">
+                    <input type="text" class="form-control" id="city" value="${sessionScope.user.town}">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="zipCode">Postnummer</label>
-                        <input type="text" class="form-control" id="zipCode" placeholder="${sessionScope.zipCode}">
+                        <input type="text" class="form-control" id="zipCode" value="${sessionScope.user.zipCode}">
                     </div>
 
 <%--                <div class="form-group col-md-4">--%>

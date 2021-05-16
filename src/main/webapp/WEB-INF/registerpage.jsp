@@ -42,14 +42,14 @@
                 <div class="row mb-3">
                     <%--@declare id="city"--%><label class="col-sm-2 col-form-label" for="city">By:</label>
                     <div class="col-sm-4">
-                        <input id="By" class="form-control" type="text" name="city" value="${param.city}" placeholder="By">
+                        <input id="town" class="form-control" type="text" name="town" value="${param.town}" placeholder="By">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="zipCode">Postnummer:</label>
                     <div class="col-sm-4">
-                        <input id="Postnummer" class="form-control" type="text" name="zipCode" value="${param.zipCode}" placeholder="Postnummer">
+                        <input id="zipCode" class="form-control" type="text" name="zipCode" value="${param.zipCode}" placeholder="Postnummer">
                     </div>
                 </div>
 

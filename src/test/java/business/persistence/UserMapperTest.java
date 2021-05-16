@@ -40,7 +40,7 @@ public class UserMapperTest {
                 stmt.execute("INSERT INTO user VALUES (1,'jens@somewhere.com','jensen','customer','Jens Jensen',87654321,'Veddagodtgade','Viby',3480);");
 
 //                "INSERT INTO user values " +
-//                    "(1,'jens@somewhere.com','jensen','customer','Jens Jensen',87654321,'Veddagodtgade','Viby'',3480)");
+//                    "(1,'jens@somewhere.com','jensen','customer','Jens Jensen',87654321,'Veddagodtgade','Viby',3480)");
 //                    "(2,'ken@somewhere.com','kensen','customer','Ken Kensen',87654321,'Veddaikkgade','Vejle',3400), " +
 //                    "(3,'robin@somewhere.com','batman','employee','Robin',87651234,'Veddaikkgodtgade','Vedbæk',3450)");
             } catch (SQLException ex) {
