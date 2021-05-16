@@ -11,7 +11,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <h3>Model CAR01H ${requestscope.name}</h3>
+        <h3>Model ${requestScope}</h3>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -20,32 +20,35 @@
 
     <jsp:body>
 
-<%--            <div style="width: 350px;height: 250px">--%>
-            <img src="<c:url value='/data/CAR01H.png'/>" style="padding: 10px;border: 1px solid;float: left;" class="img-fluid. max-width: 100%;" alt=Carport model ${requestscope.name}/>
-<%--            </div>--%>
+        <%--            <div style="width: 350px;height: 250px">--%>
+        <img src="<c:url value='/data/CAR01H.png'/>" style="padding: 10px;border: 1px solid;float: left;"
+             class="img-fluid. max-width: 100%;" alt=Carport model ${requestScope}/>
+        <%--            </div>--%>
 
-<%--make colums--%>
-                    <p style="font-family:'Times New Roman';border:1px solid; padding:5px;float: left;" width="300px;" height="auto">
-                        Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
-                        Dimensioner:<br>
-                        Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
-                        Rem: 45 x 145 mm spærtræ.<br>
-                        Spær: 45 x 95 mm. reglar.<br>
-                        Stern: 25 x 150 mm. ru trykimprægneret.<br>
-                        Tag: PLASTMO ecolite tagplade.<br>
-                        Inkl. søm, skruer og hulbånd.<br>
-                        Sælges som standardmodel.<br>
-                        Se i øvrigt tilkøbspakker.</p>
+        <%--make colums--%>
+        <p style="font-family:'Times New Roman';border:1px solid; padding:5px;float: left;" width="300px;"
+           height="auto">
+            Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
+            Dimensioner:<br>
+            Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
+            Rem: 45 x 145 mm spærtræ.<br>
+            Spær: 45 x 95 mm. reglar.<br>
+            Stern: 25 x 150 mm. ru trykimprægneret.<br>
+            Tag: PLASTMO ecolite tagplade.<br>
+            Inkl. søm, skruer og hulbånd.<br>
+            Sælges som standardmodel.<br>
+            Se i øvrigt tilkøbspakker.</p>
 
 
-
-            <img src="<c:url value='/data/SVGD.png'/>" style="width: 500px; height: auto;border: 1px solid;float: left;" alt=Carport model ${requestscope.name}/>
+        <img src="<c:url value='/data/SVGD.png'/>" style="width: 500px; height: auto;border: 1px solid;float: left;"
+             alt=Carport model ${applicationScope}/>
 
         <%--            Enkelt model uden reskabsrum</h4>--%>
         <%--        <div class="w-25 pl-4 rounded-1"><img class="img-circle border-white img-fluid" src="<c:url value='/data/CAR01.png'/>"alt="kids"/></div>--%>
         <%--        <img src="${pageContext.request.contextPath}${CAR01.png}"/>--%>
 
         <div style="padding: 5px;">
+
             <form name="sendforespørgsel" action="${pageContext.request.contextPath}/fc/querypage" method="get">
                     <%--                <div class="row mb-3">--%>
                     <%--                    <label class="" for="name">Send forespørgsel</label>--%>
@@ -53,7 +56,8 @@
                     <%--                        <input id="name" class="form-control" type="name" name="name" value="${param.name}"  placeholder="Send forespørgsel">--%>
                     <%--                    </div>--%>
                     <%--                </div>--%>
-                <input style="font-family:'Times New Roman';color: red; width: 200px; align: left;" class="btn btn-dark" type="submit"
+                <input style="font-family:'Times New Roman';color: red; width: 200px; align: left;" class="btn btn-dark"
+                       type="submit"
                        type="submit" value="Send forespørgsel">
             </form>
                 <%--            flashy fast lav pris skilt--%>

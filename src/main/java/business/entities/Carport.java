@@ -46,7 +46,7 @@ public class Carport {
         materialList.add(post);
     }
 
-    private void setRafters(Material rafter) {
+    private void setRafters(Material rafter) { // spæretræ
         setRafters(rafter, 55); // default span
     }
 
