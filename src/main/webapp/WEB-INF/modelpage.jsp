@@ -21,15 +21,15 @@
     <jsp:body>
 
         <div style="width: 33%; padding: 5px; float: left;">
-            <img src="<c:url value='/data/CAR01H.png'/>" alt=Carport model ${requestscope.name}/>
+            <img src="<c:url value='/data/CAR01H.png'/>" alt="carport"/>
             <br><br><br><br><br><br><br><br><br><br><br>
         </div>
 
         <div style="padding: 5px;width: 45; float: left;">
             <table>
                 <tr>
-                    <h4>Carport model CAR01H ${requestscope.name}</h4>
-                    <p><br>Mål: 3,00 x 4,80 mtr. Højde 2,25 mtr.<br>
+                    <h4>${requestScope.name}</h4>
+                    <p><br>${requestScope.carport.width} x ${requestScope.carport.length} mtr.<br>
                         Dimensioner:<br>
                         Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
                         Rem: 45 x 145 mm spærtræ.<br>

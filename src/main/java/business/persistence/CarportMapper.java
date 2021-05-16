@@ -39,7 +39,7 @@ public class CarportMapper {
 
     public Carport getCarport(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE id == ?";
+            String sql = "SELECT roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE id = ?";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
