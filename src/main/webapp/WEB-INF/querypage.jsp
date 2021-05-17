@@ -61,37 +61,37 @@
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" value="${sessionScope.user.email}">
+                    <p>By<br><p/>
+                    <p>${sessionScope.user.email}</p>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="name">Navn</label>
-                <input type="text" class="form-control" id="name" value="${sessionScope.user.name}">
+            <div style="border: 1px;" class="form-group col-md-6">
+                <p>Navn<br><p/>
+                <p>${sessionScope.user.name}</p>
             </div>
 
             <div class="form-group">
-                <label for="address">Adresse</label>
-                <input type="text" class="form-control" id="address" value="${sessionScope.user.street}">
+                <p>Adresse</p>
+                <p>${sessionScope.user.street}</p>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="city">By</label>
-                    <input type="text" class="form-control" id="city" value="${sessionScope.user.town}">
+                    <p>By<br><p/>
+                    <p>${sessionScope.user.town}</p>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="zipCode">Postnummer</label>
-                        <input type="text" class="form-control" id="zipCode" value="${sessionScope.user.zipCode}">
+                        <p>Postnummer<br><p/>
+                        <p>${sessionScope.user.zipCode}</p>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="zipCode">Model</label>
-                            <input type="text" class="form-control" id="zipCode" value="${sessionScope}">
+                            <p>model<br><p/>
+                            <p>${sessionScope}</p>
                         </div>
 
 <%--                <div class="form-group col-md-4">--%>
@@ -116,6 +116,22 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+
+        action="${pageContext.request.contextPath}/fc/querypage" method="post"
+
+        <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+            <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
+            <button class="btn btn-success mt-2" type="submit" <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if> name="submitQuery"
+                    value="${requestScope.carport.name}">Send forespørgsel
+            </button>
+        </form>
+
+        <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+            <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
+            <button class="btn btn-success mt-2" type="submit" name="submitQuery"
+                    value="${requestScope.carport.name}">Send forespørgsel
+            </button>
         </form>
 
 
