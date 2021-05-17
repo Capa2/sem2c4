@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-3">
                         <div class="mb-4">
-                            <form name="filter" action="${pageContext.request.contextPath}/fc/" method="post">
+                            <form name="filter" action="${pageContext.request.contextPath}" method="post">
                                 <label class="my-2" for="roof">Tag:</label>
                                 <select class="my-2 w-50" id="roof" name="roof">
                                     <option value="flat">Fladt</option>
