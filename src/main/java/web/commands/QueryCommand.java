@@ -1,25 +1,30 @@
 package web.commands;
 
-import business.entities.Address;
 import business.entities.Carport;
-import business.entities.User;
-import business.services.CarportFacade;
-import business.services.UserFacade;
+import business.exceptions.UserException;
+import business.services.CarportFacade;;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class QueryCommand extends CommandProtectedPage {
-
+    private CarportFacade carportFacade;
 
     public QueryCommand(String pageToShow, String role) {
         super(pageToShow, role);
+        carportFacade = new CarportFacade(database);
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
+        try {
+            int carportId = Integer.parseInt(request.getParameter("queriedId"));
+            Carport carport = carportFacade.getCarport(carportId);
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
 
 //        String email = (String) session.getAttribute("email");
 //        User user = (User) session.getAttribute("user");
@@ -36,7 +41,6 @@ public class QueryCommand extends CommandProtectedPage {
 //        CarportFacade carportfacade = new CarportFacade(database);
 //
 //        user
-
 
         return pageToShow;
     }

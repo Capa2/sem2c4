@@ -19,10 +19,13 @@ public class ModelCommand extends CommandUnprotectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
-        int carportId = Integer.parseInt(request.getParameter("model"));
-        Carport carport = carportFacade.getCarport(carportId);
-        request.setAttribute("carport", carport);
-
+        try {
+            int carportId = Integer.parseInt(request.getParameter("model"));
+            Carport carport = carportFacade.getCarport(carportId);
+            request.setAttribute("carport", carport);
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
 //        Query query = QueryFacade.createQuery(get_userID, user_name, carport_name);
 //        session.setAttribute("carport", carport);
 //        Carport carport = (Carport) request.getAttribute("carport");

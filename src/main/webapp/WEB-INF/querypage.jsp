@@ -20,7 +20,6 @@
 
     <jsp:body>
 
-        <%--            <div style="width: 350px;height: 250px">--%>
         <img src="<c:url value='/data/CAR01H.png'/>" style="padding: 10px;border: 1px solid;float: left;" class="img-fluid. max-width: 100%;" alt=Carport model ${requestscope.name}/>
         <%--            </div>--%>
 

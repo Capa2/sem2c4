@@ -16,7 +16,7 @@
             <c:if test="${carport.width < 400}">enkelt</c:if>
         ${requestScope.carport.width}cm x ${requestScope.carport.length}cm
             <c:if test="${carport.roofAngle == 0}"> med fladt tag</c:if>
-            <c:if test="${carport.roofAngle != 0}">med høj rejsning</c:if>
+            <c:if test="${carport.roofAngle > 0}">med høj rejsning</c:if>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -24,48 +24,40 @@
     </jsp:attribute>
 
     <jsp:body>
-
-        <div style="width: 33%; padding: 5px; float: left;">
-            <img src="<c:url value='/data/CAR01H.png'/>" alt="carport"/>
-            <br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-
-        <div style="padding: 5px;width: 45; float: left;">
-            <p><br>${requestScope.carport.width} x ${requestScope.carport.length} mtr.<br>
-                Stolpe: 100 x 100 mm. ru trykimprægneret.<br>
-                Rem: 45 x 145 mm spærtræ.<br>
-                Spær: 45 x 95 mm. reglar.<br>
-                Stern: 25 x 150 mm. ru trykimprægneret.<br>
-                Tag: PLASTMO ecolite tagplade.<br>
-                Inkl. søm, skruer og hulbånd.<br>
-                Sælges som standardmodel.<br>
-                Se i øvrigt tilkøbspakker.</p>
-        </div>
-
-        <div style="width: 100;height: auto;padding: 5px; float: left;">
-            <img src="<c:url value='/data/SVGD.png'/>" width=500 height=auto alt=Carport model ${requestscope.name}/>
-        </div>
-        <div style="padding: 5px;">
-
-            <form name="sendforespørgsel" action="${pageContext.request.contextPath}/fc/querypage" method="post">
-                <input class="btn btn-succes" type="submit" value="Send forespørgsel">
-            </form>
-        </div>
-
         <div class="container my-5">
-        <div class="row">
-            <div class="row col-9 m-n2 p-n2">
-            <div class="col-3">
-                <div class="mb-4">
-
+            <div class="row">
+                <div class="row col-8">
+                    <img src="<c:url  value='/data/CAR01H.png'/>" alt="carport"/>
                 </div>
-                <hr>
-                <div class="bg-info p-4"><a href="${pageContext.request.contextPath}/fc/custom">
-                    <h2 class="display-4">Klik her for byg-selv-formular</h2></a>
+                <div class="col-4">
+                    <div class="mb-4">
+                        <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
+                        <p>Stolpe: 100 x 100 mm. ru trykimprægneret.</p>
+                        <p>Rem: 45 x 145 mm spærtræ.</p>
+                        <p>Spær: 45 x 95 mm. reglar.</p>
+                        <p>Stern: 25 x 150 mm. ru trykimprægneret.</p>
+                        <p>Tag: PLASTMO ecolite tagplade.</p>
+                        <p>Inkl. søm, skruer og hulbånd.</p>
+                        <p>Sælges som standardmodel.</p>
+                        <p>Se i øvrigt tilkøbspakker.</p>
+                        <c:if test="${sessionScope.user == null}">
+                            <div class="alert-info"><a href="${pageContext.request.contextPath}/fc/register">Klik her
+                                for at oprette dig som bruger.</a></div>
+                        </c:if>
+                        <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                            <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
+                            <button class="btn btn-succes" type="submit" <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if> name="submitQuery"
+                                    value="${requestScope.carport.name}">Send forespørgsel
+                            </button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="p-4">
+                        <img class="img-fluid" src="<c:url value='/data/SVGD.png'/>"
+                             alt="carport ${requestscope.carport.name}"/>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </jsp:body>
 </t:genericpage>
