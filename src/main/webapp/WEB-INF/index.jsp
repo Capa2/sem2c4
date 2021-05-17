@@ -28,7 +28,7 @@
                                          src="<c:url  value='/data/${carport.name}.png'/>"
                                          alt="carport"/>
                                     <div class="card-body">
-                                        <p > ${carport.width} x ${carport.length} mtr.
+                                        <p> ${carport.width} x ${carport.length} mtr.
                                         </p>
                                         <p>Type:
                                             <c:if test="${carport.width >= 400}">dobbelt</c:if>
