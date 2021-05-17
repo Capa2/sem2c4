@@ -14,7 +14,6 @@ public class CarportFacade {
         carportMapper = new CarportMapper(database);
     }
 
-
     public void createCarport(int roofAngle, int width, int length, int shedwidth, int shedlength) throws UserException {
         createCarport(new Carport(roofAngle, width, length, shedwidth, shedlength));
     }
