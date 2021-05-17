@@ -73,7 +73,7 @@ public class MaterialMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     String name = rs.getString("name");
-                    Material material = new Material(id, width, length, cost, name);
+                    Material material = new Material(id, width, length, cost, name, categoryId);
                     material.setColor("black", "#000");
                     materials.add(material);
                 }
@@ -88,7 +88,7 @@ public class MaterialMapper {
 
     public Material getMaterial(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT name, cost, length, width FROM material WHERE id = ?";
+            String sql = "SELECT name, cost, length, width, materialCategoryId FROM material WHERE id = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -98,7 +98,8 @@ public class MaterialMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     String name = rs.getString("name");
-                    Material material = new Material(id, width, length, cost, name);
+                    int materialCategoryId = rs.getInt("materialCategoryId");
+                    Material material = new Material(id, width, length, cost, name, materialCategoryId);
                     material.setColor("black", "#000");
                     return material;
                 }
@@ -112,7 +113,7 @@ public class MaterialMapper {
     }
     public Material getMaterial(String name) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, cost, length, width FROM material WHERE name = ?";
+            String sql = "SELECT id, cost, length, width, materialCategoryId FROM material WHERE name = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, name);
@@ -122,7 +123,8 @@ public class MaterialMapper {
                     double cost = rs.getBigDecimal("cost").doubleValue();
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
-                    Material material = new Material(id, width, length, cost, name);
+                    int materialCategoryId = rs.getInt("materialCategoryId");
+                    Material material = new Material(id, width, length, cost, name, materialCategoryId);
                     material.setColor("black", "#000");
                     return material;
                 }
@@ -143,12 +145,13 @@ public class MaterialMapper {
                 ResultSet rs = ps.executeQuery();
                 List<Material> materials = new ArrayList<>();
                 while (rs.next()) {
-                    int id = rs.getInt("id");
-                    double cost = rs.getBigDecimal("cost").doubleValue();
-                    int length = rs.getInt("length");
-                    int width = rs.getInt("width");
-                    String name = rs.getString("name");
-                    Material material = new Material(id, width, length, cost, name);
+                    int id                  = rs.getInt("id");
+                    double cost             = rs.getBigDecimal("cost").doubleValue();
+                    int length              = rs.getInt("length");
+                    int width               = rs.getInt("width");
+                    String name             = rs.getString("name");
+                    int materialCategoryId  = rs.getInt("materialCategoryId");
+                    Material material       = new Material(id, width, length, cost, name, materialCategoryId);
                     material.setColor("black", "#000");
                     materials.add(material);
                 }

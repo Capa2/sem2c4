@@ -1,17 +1,18 @@
 package business.entities;
 
 public class Material {
-    int id, width, length, amount;
+    int id, width, length, amount, materialCategoryId;
     double cost;
     String name, color, hexcode;
 
-    public Material(int id, int width, int length, double cost, String name) {
+    public Material(int id, int width, int length, double cost, String name, int materialCategoryId) {
         this.id = id;
         this.width = width;
         this.length = length;
         this.amount = 1;
         this.cost = cost;
         this.name = name;
+        this.materialCategoryId = materialCategoryId;
     }
 
     public int getId() {
@@ -60,6 +61,14 @@ public class Material {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getMaterialCategoryId() {
+        return materialCategoryId;
+    }
+
+    public void setMaterialCategoryId(int materialCategoryId) {
+        this.materialCategoryId = materialCategoryId;
     }
 
     public String getColor() {
