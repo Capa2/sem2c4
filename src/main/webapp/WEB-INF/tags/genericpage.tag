@@ -37,7 +37,7 @@
         <c:if test="${addHomeLink == null }">
             <a class="p-4 text-light text-uppercase font-weight-bold" href="<%=request.getContextPath()%>">Katalog</a>
         </c:if>
-        <a class="p-4 text-light text-uppercase font-weight-bold" href="#">Qucik byg</a>
+        <a class="p-4 text-light text-uppercase font-weight-bold" href="#">Quick byg</a>
         <c:if test="${sessionScope.user != null }">
             <a class="p-4 text-light text-uppercase font-weight-bold" href="#">Forespørgsler</a>
         </c:if>

@@ -22,25 +22,10 @@ public class QueryCommand extends CommandProtectedPage {
         try {
             int carportId = Integer.parseInt(request.getParameter("queriedId"));
             Carport carport = carportFacade.getCarport(carportId);
+            request.setAttribute("carport", carport);
         } catch (UserException e) {
             e.printStackTrace();
         }
-
-//        String email = (String) session.getAttribute("email");
-//        User user = (User) session.getAttribute("user");
-//        Carport carport = (Carport) session.getAttribute("carport");
-
-//        Address address = (Address) session.getAttribute("address");
-//        String email = request.getParameter("email");
-//        String userEmail = "AlexanderStubMichelsen@gmail.com";
-//        User user = (User) session.getAttribute("user");
-//        String name = "Alex";
-//        session.setAttribute("name", name);
-//        UserFacade userfacade = new UserFacade(database);
-//        User user;
-//        CarportFacade carportfacade = new CarportFacade(database);
-//
-//        user
 
         return pageToShow;
     }
