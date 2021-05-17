@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
     <meta name="theme-color" content="#7952b3">
 </head>
-<body>
+<body style="background:url('<c:url value="/data/so-white.png"/>'); background-repeat:repeat;">
 <!--
     This header is inspired by this bootstrap
     example: https://getbootstrap.com/docs/5.0/examples/pricing/
