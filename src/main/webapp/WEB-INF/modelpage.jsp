@@ -41,12 +41,12 @@
                         <p>Sælges som standardmodel.</p>
                         <p>Se i øvrigt tilkøbspakker.</p>
                         <c:if test="${sessionScope.user == null}">
-                            <div class="alert-info"><a href="${pageContext.request.contextPath}/fc/register">Klik her
+                            <div class="alert-info p-2 mt-2"><a href="${pageContext.request.contextPath}/fc/registerpage">Klik her
                                 for at oprette dig som bruger.</a></div>
                         </c:if>
                         <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
                             <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
-                            <button class="btn btn-succes" type="submit" <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if> name="submitQuery"
+                            <button class="btn btn-success mt-2" type="submit" <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if> name="submitQuery"
                                     value="${requestScope.carport.name}">Send forespørgsel
                             </button>
                         </form>

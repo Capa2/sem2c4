@@ -18,47 +18,42 @@
                 <div class="row">
                     <div class="row col-9 m-n2 p-n2">
                         <c:forEach var="carport" items="${applicationScope.models}">
-
-                            <div class="col-3 m-2  p-2 rounded border border-2 border-secondary"><h4 class="h4">
-                                    ${carport.name}</h4>
-                                <img class="img-fluid rounded w-100 my-2 mx-n2"
-                                     src="https://www.polarhus.dk/cache/0d1299f4da2d5e4722cdbf2c7bd7f9f0e498828c_780x520_c.jpg"
-                                     alt="carport"/>
-                                <p> ${carport.width} x ${carport.length} mtr.</p>
-                                <p>Type: <c:if test="${carport.width >= 400}">dobbelt</c:if>
-                                    <c:if test="${carport.width < 400}">enkelt</c:if></p>
-                                <p>Tag: <c:if test="${carport.roofAngle == 0}">fladt</c:if>
-                                    <c:if test="${carport.roofAngle != 0}">høj rejsning</c:if></p>
-                                <p><strong>399,- kr.</strong></p>
-                                <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">
-                                    <button class="btn btn-success float-right">Læs mere</button>
-                                </a>
+                            <div class="w-25">
+                                <div class="w-100 m-2  p-2 rounded border border-2 border-secondary"><h4 class="h4">
+                                        ${carport.name}</h4>
+                                    <img class="img-fluid rounded w-100 my-2 mx-n2"
+                                         src="https://www.polarhus.dk/cache/0d1299f4da2d5e4722cdbf2c7bd7f9f0e498828c_780x520_c.jpg"
+                                         alt="carport"/>
+                                    <p> ${carport.width} x ${carport.length} mtr.</p>
+                                    <p>Type: <c:if test="${carport.width >= 400}">dobbelt</c:if>
+                                        <c:if test="${carport.width < 400}">enkelt</c:if></p>
+                                    <p>Tag: <c:if test="${carport.roofAngle == 0}">fladt</c:if>
+                                        <c:if test="${carport.roofAngle > 0}">høj rejsning</c:if></p>
+                                    <p><strong>10399,- kr.</strong></p>
+                                    <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">
+                                        <button class="btn btn-success float-right">Læs mere</button>
+                                    </a>
+                                </div>
                             </div>
                         </c:forEach>
                     </div>
                     <div class="col-3">
                         <div class="mb-4">
                             <form>
-                                <label class="my-2" for="1">Vælg noget andet:</label>
+                                <label class="my-2" for="1">Tag:</label>
                                 <select class="my-2" id="1" name="valg">
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
+                                    <option value="valgbart">Fladt</option>
+                                    <option value="valgbart">Høj rejsning</option>
                                 </select>
-                                <label class="my-2" for="2">Vælg noget andet:</label>
+                                <label class="my-2" for="2">Type</label>
                                 <select class="my-2" id="2" name="valg">
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
+                                    <option value="valgbart">Enkelt</option>
+                                    <option value="valgbart">Dobbelt</option>
                                 </select>
-                                <label class="my-2" for="3">Vælg noget andet:</label>
+                                <label class="my-2" for="3">Skur</label>
                                 <select class="my-2" id="3" name="valg">
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
-                                    <option value="valgbart">valgbart</option>
+                                    <option value="valgbart">Med skur</option>
+                                    <option value="valgbart">Uden skur</option>
                                 </select>
                                 <label class="my-2" for="4">Vælg noget andet:</label>
                                 <select class="my-2" id="4" name="valg">
