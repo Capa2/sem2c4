@@ -13,7 +13,7 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div>
+        <div style="background-color: lightblue;">
             <div class="container my-5">
                 <div class="row">
                     <div class="row col-9 m-n2 p-n2">
