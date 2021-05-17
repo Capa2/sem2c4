@@ -2,6 +2,7 @@ package web;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.services.BomGenerator;
 import business.services.CarportFacade;
 import web.commands.*;
 
@@ -36,6 +37,8 @@ public class FrontController extends HttpServlet
 
         // Initialize whatever global datastructures needed here:
         CarportFacade carportFacade = new CarportFacade(database);
+        BomGenerator bomGenerator = new BomGenerator(database);
+
         try {
             getServletContext().setAttribute("carportDb", carportFacade);
         } catch (Exception e) {

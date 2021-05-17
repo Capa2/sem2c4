@@ -1,6 +1,7 @@
 package web.commands;
 
 import business.entities.Carport;
+import business.services.BomGenerator;
 import business.services.CarportFacade;
 import business.exceptions.UserException;
 
@@ -9,11 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ModelCommand extends CommandUnprotectedPage {
-    private CarportFacade carportFacade;
+    final private CarportFacade carportFacade;
+    final private BomGenerator bomGenerator;
 
     public ModelCommand(String pageToShow) {
         super(pageToShow);
         carportFacade = new CarportFacade(database);
+        bomGenerator = new BomGenerator(database);
     }
 
     @Override
@@ -23,6 +26,7 @@ public class ModelCommand extends CommandUnprotectedPage {
             int carportId = Integer.parseInt(request.getParameter("model"));
             Carport carport = carportFacade.getCarport(carportId);
             request.setAttribute("carport", carport);
+            request.setAttribute("bom", bomGenerator.getBom(carportId));
         } catch (UserException e) {
             e.printStackTrace();
         }
