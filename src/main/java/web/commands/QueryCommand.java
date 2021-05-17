@@ -2,7 +2,8 @@ package web.commands;
 
 import business.entities.Carport;
 import business.exceptions.UserException;
-import business.services.CarportFacade;;
+import business.services.CarportFacade;
+import business.services.QueryFacade;;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpSession;
 
 public class QueryCommand extends CommandProtectedPage {
     private CarportFacade carportFacade;
+    private QueryFacade queryFacade;
+
+
 
     public QueryCommand(String pageToShow, String role) {
         super(pageToShow, role);
@@ -26,6 +30,10 @@ public class QueryCommand extends CommandProtectedPage {
         } catch (UserException e) {
             e.printStackTrace();
         }
+
+
+
+
 
         return pageToShow;
     }

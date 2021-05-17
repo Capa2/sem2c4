@@ -11,7 +11,6 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <h3>Forespørgsel på model CAR01H ${requestscope.name}</h3>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -19,10 +18,12 @@
     </jsp:attribute>
 
     <jsp:body>
-<body style="background-color: darksalmon;">
+<body>
+<div style="font-family: 'Times New Roman'">
+
 <img class="mx-auto d-block rounded" style="width: 356px;height: 249px;float: right;" src="<c:url  value="/data/${requestScope.carport.name}.png"/>" alt="carport"/>
 
-<table class="table" style="width: 50%">
+<table class="table" style="width: auto;">
     <thead class="thead-dark">
     <tr>
         <th scope="col">${sessionScope.user.name}</th>
@@ -32,11 +33,15 @@
     <tbody>
     <tr>
         <th scope="row">Model</th>
-        <td>${requestScope.carport.name}</td>
+        <th>${requestScope.carport.name}</th>
+    </tr>
+    <tr>
+        <th scope="row">Model</th>
+        <th>${requestScope.carport.name}</th>
     </tr>
     </tbody>
 </table>
-
+</div>
 </body>
     </jsp:body>
 </t:genericpage>
