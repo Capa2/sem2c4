@@ -27,7 +27,7 @@
         <div class="container my-5">
             <div class="row">
                 <div class="row col-8">
-                    <img src="<c:url  value='/data/CAR01H.png'/>" alt="carport"/>
+                    <img src="<c:url  value='/data/${carport.name}.png'/>" alt="carport"/>
                 </div>
                 <div class="col-4">
                     <div class="mb-4">
