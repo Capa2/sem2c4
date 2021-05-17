@@ -31,6 +31,8 @@
                 </div>
                 <div class="col-4">
                     <div class="mb-4">
+                        <h3>Pris: ${requestScope.bom.defaultPrice},- DKK </h3>
+                        <hr>
                         <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                         <p>Stolpe: 100 x 100 mm. ru trykimprægneret.</p>
                         <p>Rem: 45 x 145 mm spærtræ.</p>
