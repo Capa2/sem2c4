@@ -42,8 +42,9 @@ public class LoginCommand extends CommandUnprotectedPage
 
 //        session.setAttribute("address", address);
 
-        String pageToShow =  user.getRole() + "page";
-        return REDIRECT_INDICATOR + pageToShow;
+        String pageToShow = request.getContextPath();
+
+            return REDIRECT_INDICATOR + pageToShow;
         }
         catch (UserException ex)
         {
