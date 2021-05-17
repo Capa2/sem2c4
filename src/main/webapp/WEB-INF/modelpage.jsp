@@ -31,7 +31,13 @@
                 </div>
                 <div class="col-4">
                     <div class="mb-4">
-                        <h3>Pris: ${requestScope.bom.defaultPrice},- DKK </h3>
+                        <h2 class="text-uppercase">Carport ${requestScope.carport.name}
+                            <c:if test="${carport.width >= 400}">dobbelt</c:if>
+                            <c:if test="${carport.width < 400}">enkelt</c:if>
+                                ${requestScope.carport.width}cm x ${requestScope.carport.length}cm
+                            <c:if test="${carport.roofAngle == 0}"> med fladt tag</c:if>
+                            <c:if test="${carport.roofAngle > 0}">med høj rejsning</c:if></h2>
+                        <h4 class="alert-success font-weight-bold text-uppercase">PRIS: ${requestScope.bom.defaultPrice},- DKK</h4>
                         <hr>
                         <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                         <p>Stolpe: 100 x 100 mm. ru trykimprægneret.</p>
