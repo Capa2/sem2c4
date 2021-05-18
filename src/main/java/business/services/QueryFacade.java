@@ -23,8 +23,13 @@ public class QueryFacade {
         return query;
     }
 
-    public ArrayList getQuery(int userId) throws UserException {
+    public ArrayList getQueries(int userId) throws UserException {
 
         return (ArrayList) queryMapper.getQuery(userId);
+    }
+
+    public ArrayList getAllQueries() throws UserException {
+
+        return (ArrayList) queryMapper.getAllQueries();
     }
 }

@@ -20,9 +20,6 @@
     <jsp:body>
 <body>
 <div style="font-family: 'Times New Roman'">
-
-<img class="mx-auto d-block rounded" style="width: 356px;height: 249px;float: right;" src="<c:url  value="/data/${requestScope.carport.name}.png"/>" alt="carport"/>
-
 <table class="table" style="width: auto;">
     <thead class="thead-dark">
     <tr>

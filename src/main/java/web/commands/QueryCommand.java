@@ -18,8 +18,6 @@ public class QueryCommand extends CommandProtectedPage {
     private QueryFacade queryFacade;
 
 
-
-
     public QueryCommand(String pageToShow, String role) {
         super(pageToShow, role);
         carportFacade = new CarportFacade(database);
@@ -30,33 +28,37 @@ public class QueryCommand extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
 
-
-
+        int userId = (int) session.getAttribute("userId");
+        String userRole = (String) session.getAttribute("role");
+        session.setAttribute("role", userRole);
+        ArrayList queries;
 
         try {
-            int carportId = Integer.parseInt(request.getParameter("queriedId"));
-            Carport carport = carportFacade.getCarport(carportId);
-            request.setAttribute("carport", carport);
+            if (request.getParameter("queriedId") != null) {
+                int carportId = Integer.parseInt(request.getParameter("queriedId"));
+                Carport carport = carportFacade.getCarport(carportId);
+                request.setAttribute("carport", carport);
 
+                String status = "Created";
+                String message = "Hi this is a query from a customer";
 
-             int userId = (int) session.getAttribute("userId");
-             String status = "Created";
-             String message = "Hi this is a query from a customer";
+                queryFacade.createQuery(userId, carportId, status, message);
+            }
 
-            queryFacade.createQuery(userId, carportId, status, message);
+            if (userRole.equals("customer")) {
+                queries = queryFacade.getQueries(userId);
+                request.setAttribute("queries", queries);
+            }
 
-            ArrayList queries = queryFacade.getQuery(userId);
+            if (userRole.equals("employee")) {
+                queries = queryFacade.getAllQueries();
+                request.setAttribute("queries", queries);
+            }
 
-            request.setAttribute("queries", queries);
-
+            return pageToShow;
         } catch (UserException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-        return pageToShow;
+        return userRole;
     }
 }

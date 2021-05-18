@@ -39,7 +39,7 @@
         </c:if>
         <a class="p-4 text-light text-uppercase font-weight-bold" href="#">Quick byg</a>
         <c:if test="${sessionScope.user != null }">
-            <a class="p-4 text-light text-uppercase font-weight-bold" href="#">Forespørgsler</a>
+            <a class="p-4 text-light text-uppercase font-weight-bold" href="${pageContext.request.contextPath}/fc/querypage">Forespørgsler</a>
         </c:if>
     </nav>
 

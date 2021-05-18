@@ -64,4 +64,30 @@ public class QueryMapper {
         }
         return null;
     }
+
+    public List<Query> getAllQueries() {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM query";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                List<Query> queries = new ArrayList<>();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    int userId = rs.getInt("userId");
+                    int carportId = rs.getInt("carportId");
+                    String status = rs.getString("status");
+                    String message = rs.getString("message");
+                    Query query = new Query(id, userId, carportId, status, message);
+                    queries.add(query);
+                }
+                return queries;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }
