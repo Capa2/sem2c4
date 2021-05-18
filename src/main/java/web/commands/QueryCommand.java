@@ -34,6 +34,7 @@ public class QueryCommand extends CommandUnprotectedPage {
                 int carportId = Integer.parseInt(request.getParameter("queriedId"));
                 Carport carport = carportFacade.getCarport(carportId);
                 request.setAttribute("carport", carport);
+                Query query;
             }
 
             if (role.equals("customer")) {

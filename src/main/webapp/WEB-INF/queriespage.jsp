@@ -23,13 +23,10 @@
             <table class="table" style="width: auto;">
                 <thead class="thead-dark">
                 <tr>
+                    <th scope="col">${sessionScope.role}</th>
                     <th scope="col">${sessionScope.user.name}</th>
                     <th scope="col">${sessionScope.user.email}</th>
                     <th scope="col">${sessionScope.user.phone}</th>
-                    <c:if test = "${sessionScope.role}">
-                    <p>My salary is: <c:out value = "${salary}"/><p>
-                    </c:if>
-                    <th scope="col">${sessionScope.role}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,15 +36,17 @@
                     <th scope="row">Carport id</th>
                     <th>Status</th>
                     <th>Besked</th>
+                    <th>Kontakt</th>
                 </tr>
 
-                <c:forEach items="${requestScope.queries}" var="object">
+                <c:forEach items="${requestScope.queries}" var="object" varStatus="status">
                     <tr>
                         <td>${object.id}</td>
                         <td>${object.userId}</td>
                         <td>${object.carportId}</td>
                         <td>${object.status}</td>
                         <td>${object.message}</td>
+                        <td>${users.}</td>
                     </tr>
                 </c:forEach>
 

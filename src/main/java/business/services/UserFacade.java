@@ -5,6 +5,8 @@ import business.persistence.Database;
 import business.persistence.UserMapper;
 import business.exceptions.UserException;
 
+import java.util.ArrayList;
+
 public class UserFacade
 {
     UserMapper userMapper;
@@ -24,6 +26,11 @@ public class UserFacade
         User user = new User(phone, email, password, "customer", name, street, town, zipcode);
         userMapper.createUser(user);
         return user;
+    }
+
+    public ArrayList<User> getUser(int userId) throws UserException {
+
+        return userMapper.getUser(userId);
     }
 
 }

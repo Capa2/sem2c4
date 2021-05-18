@@ -5,22 +5,27 @@ import business.entities.Query;
 import business.entities.User;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
-import business.services.QueryFacade;;
+import business.services.QueryFacade;
+import business.services.UserFacade;;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 public class QueriesCommand extends CommandUnprotectedPage {
     private CarportFacade carportFacade;
     private QueryFacade queryFacade;
+    private UserFacade userFacade;
 
 
     public QueriesCommand(String pageToShow) {
         super(pageToShow);
         carportFacade = new CarportFacade(database);
         queryFacade = new QueryFacade(database);
+        userFacade = new UserFacade(database);
+
     }
 
     @Override
@@ -29,7 +34,9 @@ public class QueriesCommand extends CommandUnprotectedPage {
 
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
-        ArrayList queries;
+        ArrayList<Query> queries;
+        ArrayList<User> users;
+
 
         try {
             if (role.equals("customer")) {
@@ -42,14 +49,20 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 role = "Sælger";
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
+                for (Query q : queries) {
+                    users.add(userFacade.getUsers(q.getUserId());
+                }
+                request.setAttribute("users", users);
+
+                session.setAttribute("role", role);
+
+                return pageToShow;
+            } catch(UserException e){
+                e.printStackTrace();
             }
-
-            session.setAttribute("role", role);
-
-            return pageToShow;
+            return role;
         } catch (UserException e) {
             e.printStackTrace();
         }
-        return role;
     }
 }
