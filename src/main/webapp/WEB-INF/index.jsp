@@ -16,7 +16,7 @@
         <div class="container my-5">
             <div class="row">
                 <div class="row col-9 m-n2 p-n2">
-                    <c:forEach var="carport" items="${applicationScope.models}">
+                    <c:forEach var="carport" items="${requestScope.models}">
                         <div class="col-3">
                             <div class="m-2 w-100 pt-2 rounded shadow border-2 border-top border-white"
                                  style="background:url('<c:url
@@ -37,7 +37,7 @@
                                         <c:if test="${carport.roofAngle == 0}">fladt</c:if>
                                         <c:if test="${carport.roofAngle > 0}">høj rejsning</c:if>
                                     </p>
-                                    <p class="text-bold lead align-self-center">10399,- kr.</p>
+                                    <p class="text-bold lead align-self-center">${requestScope.bomBuilder.getBomPrice(carport.id)},- kr.</p>
                                 </div>
                                 <div class="text-center">
                                     <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">

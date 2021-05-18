@@ -2,7 +2,7 @@ package web;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
-import business.services.BomGenerator;
+import business.services.BomBuilder;
 import business.services.CarportFacade;
 import web.commands.*;
 
@@ -37,10 +37,10 @@ public class FrontController extends HttpServlet
 
         // Initialize whatever global datastructures needed here:
         CarportFacade carportFacade = new CarportFacade(database);
-        BomGenerator bomGenerator = new BomGenerator(database);
+        BomBuilder bomBuilder = new BomBuilder(database);
 
         try {
-            getServletContext().setAttribute("carportDb", carportFacade);
+            getServletContext().setAttribute("carportFacade", carportFacade);
         } catch (Exception e) {
             throw new ServletException("Failed to get carport db");
         }
