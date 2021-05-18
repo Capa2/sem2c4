@@ -33,6 +33,7 @@ public class LoginCommand extends CommandUnprotectedPage
 
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
+        session.setAttribute("userId", user.getId());
 //        session.setAttribute("email", email);
 //        session.setAttribute("name", user.getName());
 //        session.setAttribute("phone", user.getPhone());

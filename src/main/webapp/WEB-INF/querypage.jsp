@@ -32,15 +32,26 @@
     </thead>
     <tbody>
     <tr>
-        <th scope="row">Model</th>
-        <th>${requestScope.carport.name}</th>
+        <th scope="row">Id</th>
+        <th>UserId</th>
+        <th scope="row">Carport id</th>
+        <th>Status</th>
+        <th>Message</th>
     </tr>
-    <tr>
-        <th scope="row">Model</th>
-        <th>${requestScope.carport.name}</th>
-    </tr>
+
+    <c:forEach items="${requestScope.queries}" var="object">
+        <tr>
+            <td>${object.id}</td>
+            <td>${object.userId}</td>
+            <td>${object.carportId}</td>
+            <td>${object.status}</td>
+            <td>${object.message}</td>
+        </tr>
+    </c:forEach>
+
     </tbody>
 </table>
+
 </div>
 </body>
     </jsp:body>

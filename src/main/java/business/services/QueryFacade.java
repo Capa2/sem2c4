@@ -4,7 +4,8 @@ import business.entities.Query;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.QueryMapper;
-import business.persistence.UserMapper;
+
+import java.util.ArrayList;
 
 public class QueryFacade {
 
@@ -22,4 +23,8 @@ public class QueryFacade {
         return query;
     }
 
+    public ArrayList getQuery(int userId) throws UserException {
+
+        return (ArrayList) queryMapper.getQuery(userId);
+    }
 }

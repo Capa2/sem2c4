@@ -30,10 +30,6 @@ public class ModelCommand extends CommandUnprotectedPage {
         } catch (UserException e) {
             e.printStackTrace();
         }
-//        Query query = QueryFacade.createQuery(get_userID, user_name, carport_name);
-//        session.setAttribute("carport", carport);
-//        Carport carport = (Carport) request.getAttribute("carport");
-//        session.setAttribute("carport_id", carport_id);
 
         return pageToShow;
     }
