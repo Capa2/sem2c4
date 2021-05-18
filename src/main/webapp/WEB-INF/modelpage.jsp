@@ -60,8 +60,9 @@
                     <img class="img-fluid img-thumbnail" src="<c:url  value='/data/${carport.name}.png'/>"
                          alt="carport"/>
                     <hr class="border-white">
-                    <img class="img-fluid img-thumbnail" src="<c:url value='/data/SVGD.png'/>"
-                         alt="carport ${requestscope.carport.name}"/>
+                        ${requestScope.svg}
+                    <!--<img class="img-fluid img-thumbnail" src="<c:url value='/data/SVGD.png'/>"
+                         alt="carport ${requestscope.carport.name}"/>-->
                 </div>
             </div>
         </div>
