@@ -25,15 +25,17 @@
     <tr>
         <th scope="col">${sessionScope.user.name}</th>
         <th scope="col">${sessionScope.user.email}</th>
+        <th scope="col">${sessionScope.user.phone}</th>
+        <th scope="col">${sessionScope.role}</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <th scope="row">Id</th>
-        <th>UserId</th>
+        <th>Bruger id</th>
         <th scope="row">Carport id</th>
         <th>Status</th>
-        <th>Message</th>
+        <th>Besked</th>
     </tr>
 
     <c:forEach items="${requestScope.queries}" var="object">

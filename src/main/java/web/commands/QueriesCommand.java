@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
-public class QueryCommand extends CommandUnprotectedPage {
+public class QueriesCommand extends CommandUnprotectedPage {
     private CarportFacade carportFacade;
     private QueryFacade queryFacade;
 
-    public QueryCommand(String pageToShow) {
+
+    public QueriesCommand(String pageToShow) {
         super(pageToShow);
         carportFacade = new CarportFacade(database);
         queryFacade = new QueryFacade(database);
@@ -28,18 +29,24 @@ public class QueryCommand extends CommandUnprotectedPage {
 
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
+        ArrayList queries;
 
         try {
-            if (request.getParameter("queriedId") != null) {
-                int carportId = Integer.parseInt(request.getParameter("queriedId"));
-                Carport carport = carportFacade.getCarport(carportId);
-                request.setAttribute("carport", carport);
-            }
-
             if (role.equals("customer")) {
                 role = "Kunde";
-                session.setAttribute("role", role);
+                queries = queryFacade.getQueries(userId);
+                request.setAttribute("queries", queries);
             }
+
+            if (role.equals("employee")) {
+                role = "Sælger";
+                queries = queryFacade.getAllQueries();
+                request.setAttribute("queries", queries);
+            }
+
+            session.setAttribute("role", role);
+
+            return pageToShow;
         } catch (UserException e) {
             e.printStackTrace();
         }

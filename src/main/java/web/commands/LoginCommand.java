@@ -1,6 +1,5 @@
 package web.commands;
 
-import business.entities.Address;
 import business.entities.User;
 import business.services.UserFacade;
 import business.exceptions.UserException;
