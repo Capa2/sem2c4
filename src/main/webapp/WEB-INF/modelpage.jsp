@@ -39,7 +39,7 @@
                         <p>Inkl. søm, skruer og hulbånd.</p>
                         <p>Sælges som standardmodel.</p>
                         <br>
-                        <h4 class="text-uppercase">PRIS: ${requestScope.bom.defaultPrice},- DKK</h4>
+                        <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                         <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
                             <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
                             <button class="btn btn-success mt-2" type="submit"

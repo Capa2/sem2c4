@@ -9,16 +9,20 @@ import business.persistence.Database;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BomGenerator {
+public class BomBuilder {
 List<Material> bom;
 CarportFacade carportFacade;
 MaterialFacade materialFacade;
 Carport carport;
 
-    public BomGenerator(Database database) {
+    public BomBuilder(Database database) {
         carportFacade = new CarportFacade(database);
         materialFacade = new MaterialFacade(database);
 
+    }
+
+    public String getPriceString(int carportId) {
+        return getBom(carportId).getPriceString();
     }
 
     public Bom getBom(int carportId) {
