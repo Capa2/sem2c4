@@ -12,19 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class RegisterCommand extends CommandUnprotectedPage
-{
+public class RegisterCommand extends CommandUnprotectedPage {
     private UserFacade userFacade;
 
-    public RegisterCommand(String pageToShow)
-    {
+    public RegisterCommand(String pageToShow) {
         super(pageToShow);
         userFacade = new UserFacade(database);
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException
-    {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         String email = request.getParameter("email");
         String password1 = request.getParameter("password1");
         String password2 = request.getParameter("password2");
@@ -34,9 +31,7 @@ public class RegisterCommand extends CommandUnprotectedPage
         String town = request.getParameter("town");
         int zipCode = Integer.parseInt(request.getParameter("zipCode"));
 
-
-        if (password1.equals(password2))
-        {
+        if (password1.equals(password2)) {
             User user = userFacade.createUser(email, password1, name, phone, street, town, zipCode);
 
             HttpSession session = request.getSession();
@@ -49,10 +44,8 @@ public class RegisterCommand extends CommandUnprotectedPage
 //            session.setAttribute("zipCode", zipCode);
 //            session.setAttribute("street", street);
 //            session.setAttribute("town", town);
-            return user.getRole() + "page";
-        }
-        else
-        {
+            return request.getContextPath();
+        } else {
             request.setAttribute("error", "the two passwords did not match");
             return "registerpage";
         }
