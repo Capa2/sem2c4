@@ -28,7 +28,7 @@ public class UserFacade
         return user;
     }
 
-    public ArrayList<User> getUser(int userId) throws UserException {
+    public User getUser(int userId) throws UserException {
 
         return userMapper.getUser(userId);
     }

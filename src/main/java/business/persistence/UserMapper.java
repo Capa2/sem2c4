@@ -89,31 +89,31 @@ public class UserMapper
         }
     }
 
-    public List<User> getUsers(int userId) throws UserException {
+    public User getUser(int userId) throws UserException {
 
+        User user = null;
         try (Connection connection = database.connect()) {
-            String sql = "SELECT phone, zipCode, email, name, street, town FROM user WHERE userId=?";
+            String sql = "SELECT phone, zipCode, email, name, street, town FROM user WHERE id=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, userId);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     int phone = rs.getInt("phone");
-                    int zipCode = rs.getInt("zipCode");
                     String email = rs.getString("email");
                     String name = rs.getString("name");
                     String street = rs.getString("street");
                     String town = rs.getString("town");
-                    User user = new User(userId, phone, zipCode, email, name, street, town);
+                    int zipCode = rs.getInt("zipCode");
+                    user = new User(phone, zipCode, email, name, street, town);
+                    return user;
                 }
-                return user;
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        return user;
     }
-
 }

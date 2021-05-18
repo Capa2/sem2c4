@@ -35,8 +35,8 @@ public class QueriesCommand extends CommandUnprotectedPage {
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
         ArrayList<Query> queries;
-        ArrayList<User> users;
-
+        ArrayList<User> users = null;
+        User user = null;
 
         try {
             if (role.equals("customer")) {
@@ -49,11 +49,11 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 role = "Sælger";
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
-                for (Query q : queries) {
-                    users.add(userFacade.getUsers(q.getUserId());
-                }
-                request.setAttribute("users", users);
-
+//                for (Query q : queries) {
+//                    users.add(new User(userFacade.getUser(q.getUserId()));;
+//                }
+//                request.setAttribute("users", users);
+            }
                 session.setAttribute("role", role);
 
                 return pageToShow;
@@ -61,8 +61,5 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 e.printStackTrace();
             }
             return role;
-        } catch (UserException e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -39,17 +39,25 @@
                     <th>Kontakt</th>
                 </tr>
 
-                <c:forEach items="${requestScope.queries}" var="object" varStatus="status">
+                <c:forEach items="${requestScope.queries}" var="queries">
                     <tr>
-                        <td>${object.id}</td>
-                        <td>${object.userId}</td>
-                        <td>${object.carportId}</td>
-                        <td>${object.status}</td>
-                        <td>${object.message}</td>
-                        <td>${users.}</td>
-                    </tr>
-                </c:forEach>
+                        <td>${queries.id}</td>
+                        <td>${queries.userId}</td>
+                        <td>${queries.carportId}</td>
+                        <td>${queries.status}</td>
+                        <td>${queries.message}</td>
+                        <td><form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                            <button class="btn btn-success mt-2" type="submit" name="submitQuery" value="${queries.userId}">Læs mere
+                            </button>
+                        </form></td>
 
+<%--                        <c:forEach items="${requestScope.users}" var="users">--%>
+<%--                    <td>${users.email}</td>--%>
+<%--                    <td>${users.phone}</td>--%>
+<%--                    <td>${users.zipCode}</td>--%>
+<%--                    </c:forEach>--%>
+                        </c:forEach>
+                    </tr>
                 </tbody>
             </table>
 
