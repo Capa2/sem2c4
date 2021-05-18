@@ -36,20 +36,6 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
-        CarportFacade carportFacade = new CarportFacade(database);
-        BomBuilder bomBuilder = new BomBuilder(database);
-
-        try {
-            getServletContext().setAttribute("carportFacade", carportFacade);
-        } catch (Exception e) {
-            throw new ServletException("Failed to get carport db");
-        }
-
-        try {
-            getServletContext().setAttribute("models", carportFacade.getModels());
-        } catch (Exception e) {
-            throw new ServletException("Failed to load carport facade");
-        }
     }
 
         protected void processRequest(
