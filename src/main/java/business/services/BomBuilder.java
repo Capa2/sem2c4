@@ -21,8 +21,8 @@ Carport carport;
 
     }
 
-    public float getBomPrice(int carportId) {
-        return getBom(carportId).getPrice();
+    public String getPriceString(int carportId) {
+        return getBom(carportId).getPriceString();
     }
 
     public Bom getBom(int carportId) {

@@ -21,25 +21,26 @@
                             <div class="m-2 w-100 pt-2 rounded shadow border-2 border-top border-white"
                                  style="background:url('<c:url
                                          value="/data/ep_naturalwhite.png"/>'); background-repeat:repeat;">
-                                <h4 class="text-center">${carport.name}</h4>
+                                <h4 style="font-weight: 600;" class="text-center text-uppercase">${carport.name}</h4>
                                 <img style="height: 125px"
-                                     class="img-fluid w-100 my-2 mx-n2 border-top border-bottom border-white"
+                                     class="img-fluid w-100 mt-2 mb-4 mx-n2 border-top border-bottom border-white"
                                      src="<c:url  value='/data/${carport.name}.png'/>"
                                      alt="carport"/>
-                                <div class="card-body">
+                                <div style="font-weight:400;" class="px-4 text-center">
                                     <p> ${carport.width} x ${carport.length} mtr.
                                     </p>
-                                    <p>Type:
-                                        <c:if test="${carport.width >= 400}">dobbelt</c:if>
-                                        <c:if test="${carport.width < 400}">enkelt</c:if>
+                                    <p>
+                                        <c:if test="${carport.width >= 400}">Dobbelt</c:if>
+                                        <c:if test="${carport.width < 400}">Enkelt</c:if>
+                                        carport
                                     </p>
-                                    <p>Tag:
-                                        <c:if test="${carport.roofAngle == 0}">fladt</c:if>
-                                        <c:if test="${carport.roofAngle > 0}">høj rejsning</c:if>
+                                    <p>
+                                        <c:if test="${carport.roofAngle == 0}">Fladt tag</c:if>
+                                        <c:if test="${carport.roofAngle > 0}">Tag med høj rejsning</c:if>
                                     </p>
-                                    <p class="text-bold lead align-self-center">${requestScope.bomBuilder.getBomPrice(carport.id)},- kr.</p>
                                 </div>
                                 <div class="text-center">
+                                    <p style="font-weight: 600" class="lead">${requestScope.bomBuilder.getPriceString(carport.id)} DKK</p>
                                     <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">
                                         <button class="btn btn-success rounded-0 rounded-top">Læs mere</button>
                                     </a></div>

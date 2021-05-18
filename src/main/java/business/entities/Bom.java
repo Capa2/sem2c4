@@ -1,4 +1,5 @@
 package business.entities;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class Bom {
@@ -28,6 +29,11 @@ public class Bom {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getPriceString() {
+        NumberFormat formatter = NumberFormat.getInstance();
+        return formatter.format(getPrice());
     }
 
     public int size() {
