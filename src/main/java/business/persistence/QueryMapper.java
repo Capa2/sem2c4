@@ -64,32 +64,4 @@ public class QueryMapper {
         }
         return null;
     }
-
-    public List<Material> getGroup(int categoryId) throws UserException {
-
-        try (Connection connection = database.connect()) {
-            String sql = "SELECT carportId, status, message FROM query WHERE userId=?";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, categoryId);
-                ResultSet rs = ps.executeQuery();
-                List<Material> materials = new ArrayList<>();
-                while (rs.next()) {
-                    int id = rs.getInt("id");
-                    double cost = rs.getBigDecimal("cost").doubleValue();
-                    int length = rs.getInt("length");
-                    int width = rs.getInt("width");
-                    String name = rs.getString("name");
-                    Material material = new Material(id, width, length, cost, name);
-                    material.setColor("black", "#000");
-                    materials.add(material);
-                }
-                return (materials.size() > 0) ? materials : null;
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException ex) {
-            throw new UserException("Connection to database could not be established");
-        }
-    }
 }
