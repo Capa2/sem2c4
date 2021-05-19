@@ -50,17 +50,18 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
                 for (Query q : queries) {
+                    System.out.println(q.getUserId());
                     User user = userFacade.getUser(q.getUserId());
-                    users.add(user);
                 }
                 request.setAttribute("users", users);
-            }
-                session.setAttribute("role", role);
 
-                return pageToShow;
-            } catch(UserException e){
-                e.printStackTrace();
             }
-            return role;
+            session.setAttribute("role", role);
+
+            return pageToShow;
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        return role;
     }
 }

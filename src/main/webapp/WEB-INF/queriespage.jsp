@@ -53,17 +53,9 @@
 <%--                        <td>${users.name}</td>--%>
 <%--                        <td>${users.email}</td>--%>
 <%--                        <td>${users.phone}</td>--%>
-                        <td>
-                            <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
-                                <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
-                                <button class="btn btn-success mt-2" type="submit"
-                                        <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if>
-                                        name="submitQuery"
-                                        value="${queries.carportId}">Send forespørgsel
-                                </button>
-                            </form>
-                        </td>
-                        </tr>
+<%--                        <td>--%>
+<%--                        </td>--%>
+<%--                        </tr>--%>
 <%--                    </c:forEach>--%>
                 </c:forEach>
                 </tbody>
