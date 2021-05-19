@@ -36,6 +36,7 @@ public class SvgBuilder {
         int l = 20;
         int posts = typeCount(bom, "post");
         int rafters = typeCount(bom, "rafter");
+        System.out.println(posts);
         // frame & sides:
         svg.addRect(0, 0, length, width);
         svg.addRect(0, 0, length, s);
@@ -44,15 +45,19 @@ public class SvgBuilder {
         svg.addRect(s, l, s, width - l); // top plank
         svg.addRect(s, length - l - s, s, width - l); // bottom plank
         if (shedLength != 0) {
-            int y = (width - shedWidth > width / 2) ? 0 : width / 2 - shedWidth / 2; // center shed if more than half carport width
-            svg.addRect(0, y, shedWidth, shedLength); // shed
-            svg.addRect(shedLength, m + 1, m, m); // fixed post top
-            svg.addRect(shedLength, length - l - s, m, m); // fixed post top
+            int shedY = (shedWidth < width / 2) ? 0 : width / 2 - shedWidth / 2; // center shed if more than half carport width
+            svg.addRect(0, shedY, shedWidth, shedLength); // shed
         }
-        int postGap = (length - shedLength) / (posts / (2 - (int) Math.signum(shedLength))); // post spacing
-        for (int i = posts; i > 0; i--) {
-            svg.addRect(shedLength + postGap * i, m + 1, m, m); // top
-            svg.addRect(shedLength + postGap * i, length - l - s, m, m); // bottom
+            int firstPostX = (shedLength == 0) ? s*10 : shedLength;
+            int lastPostX = length - s*10;
+            svg.addRect(firstPostX, m + 1, m, m); // fixed post top
+            svg.addRect(firstPostX, length - l - s, m, m); // fixed post top
+            svg.addRect(lastPostX, m + 1, m, m); // fixed post top
+            svg.addRect(lastPostX, length - l - s, m, m); // fixed post top
+        int postGap = (length - firstPostX) / (posts / 2); // post spacing
+        for (int i = posts; i > 0; i -= 2) {
+            svg.addRect(firstPostX + postGap * (posts-i), m + 1, m, m); // top
+            svg.addRect(firstPostX + postGap * (posts-i), length - l - s, m, m); // bottom
         }
         return toString();
     }
