@@ -31,40 +31,34 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">Id</th>
-                    <th>Bruger id</th>
-                    <th scope="row">Carport id</th>
-                    <th>Status</th>
-                    <th>Besked</th>
-                    <th>Kontakt</th>
-                    <th></th>
-                    <th></th>
+                    <th scope="row">forespørgsels nr.</th>
+                    <th>kunde nr.</th>
+                    <th scope="row">carport nr.</th>
+                    <th scope="row">status</th>
+                    <th>besked</th>
+                    <th>navn</th>
+                    <th>email</th>
+                    <th>telefon</th>
+                    <c:set var="price" scope="request" value="${4000*4}"/><th>
+                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                            <p>${requestScope.bomBuilder.getPriceString(queries.carportId)}<c:out value="${price}"/><p>
+                    </th></c:if>
                 </tr>
-
                 <c:forEach items="${requestScope.queries}" var="queries">
-<%--                <c:forEach items="${requestScope.users}" var="users">--%>
                     <tr>
-                    <td>${queries.id}</td>
-                    <td>${queries.userId}</td>
-                    <td>${queries.carportId}</td>
-                    <td>${queries.status}</td>
-                    <td>${queries.message}</td>
-
-<%--                        <td>${users.name}</td>--%>
-<%--                        <td>${users.email}</td>--%>
-<%--                        <td>${users.phone}</td>--%>
+                        <td>${queries.id}</td>
+                        <td>${queries.userId}</td>
+                        <td>${queries.carportId}</td>
+                        <td>${queries.status}</td>
+                        <td>${queries.message}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
                         <td>
-                            <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
-                                <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
-                                <button class="btn btn-success mt-2" type="submit"
-                                        <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if>
-                                        name="submitQuery"
-                                        value="${queries.carportId}">Send forespørgsel
-                                </button>
-                            </form>
-                        </td>
-                        </tr>
-<%--                    </c:forEach>--%>
+                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} <c:out value="${income}"/><p>
+                    </td></c:if>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>

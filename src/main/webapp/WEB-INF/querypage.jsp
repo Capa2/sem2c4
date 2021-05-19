@@ -23,19 +23,22 @@
 <table class="table" style="width: auto;">
     <thead class="thead-dark">
     <tr>
+        <th scope="col">${sessionScope.role}</th>
         <th scope="col">${sessionScope.user.name}</th>
         <th scope="col">${sessionScope.user.email}</th>
         <th scope="col">${sessionScope.user.phone}</th>
-        <th scope="col">${sessionScope.role}</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">Id</th>
-        <th>Bruger id</th>
-        <th scope="row">Carport id</th>
-        <th>Status</th>
-        <th>Besked</th>
+        <th scope="row">forespørgsels nr.</th>
+        <th>kunde nr.</th>
+        <th scope="row">carport nr.</th>
+        <th scope="row">status</th>
+        <th>besked</th>
+        <th>navn</th>
+        <th>email</th>
+        <th>telefon</th>
     </tr>
 
     <c:forEach items="${requestScope.queries}" var="object">

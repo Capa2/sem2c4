@@ -4,6 +4,7 @@ import business.entities.Carport;
 import business.entities.Query;
 import business.entities.User;
 import business.exceptions.UserException;
+import business.services.BomBuilder;
 import business.services.CarportFacade;
 import business.services.QueryFacade;
 import business.services.UserFacade;;
@@ -18,6 +19,7 @@ public class QueriesCommand extends CommandUnprotectedPage {
     private CarportFacade carportFacade;
     private QueryFacade queryFacade;
     private UserFacade userFacade;
+    private BomBuilder bomBuilder;
 
 
     public QueriesCommand(String pageToShow) {
@@ -25,18 +27,17 @@ public class QueriesCommand extends CommandUnprotectedPage {
         carportFacade = new CarportFacade(database);
         queryFacade = new QueryFacade(database);
         userFacade = new UserFacade(database);
-
+        bomBuilder = new BomBuilder(database);
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-
+        request.setAttribute("userFacade", userFacade);
+        request.setAttribute("bomBuilder", bomBuilder);
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
         ArrayList<Query> queries;
-        ArrayList<User> users = new ArrayList<>();
-
 
         try {
             if (role.equals("customer") || role.equals("Kunde")) {
@@ -49,18 +50,14 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 role = "Sælger";
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
-                for (Query q : queries) {
-                    User user = userFacade.getUser(q.getUserId());
-                    users.add(user);
-                }
-                request.setAttribute("users", users);
             }
-                session.setAttribute("role", role);
+            session.setAttribute("role", role);
 
-                return pageToShow;
-            } catch(UserException e){
-                e.printStackTrace();
-            }
-            return role;
+
+
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        return pageToShow;
     }
 }
