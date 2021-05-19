@@ -3,13 +3,16 @@ package business.persistence;
 import business.entities.Color;
 import business.entities.Material;
 import business.exceptions.UserException;
+import org.apache.taglibs.standard.lang.jstl.EnumeratedMap;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MaterialMapper {
     Database database;
@@ -29,6 +32,22 @@ public class MaterialMapper {
                 }
             }
             return null;
+        } catch (SQLException ex) {
+            throw new UserException("Could not get material categories");
+        }
+    }
+
+    public Map<Integer, String> getCategories() throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT id, name FROM materialCategory";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                Map<Integer, String> cats = new HashMap<>();
+                while (rs.next()) {
+                    cats.put(rs.getInt("id"), rs.getString("name"));
+                }
+                return cats;
+            }
         } catch (SQLException ex) {
             throw new UserException("Could not get material categories");
         }
@@ -111,6 +130,7 @@ public class MaterialMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
+
     public Material getMaterial(String name) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "SELECT id, cost, length, width, materialCategoryId FROM material WHERE name = ?";
@@ -145,13 +165,13 @@ public class MaterialMapper {
                 ResultSet rs = ps.executeQuery();
                 List<Material> materials = new ArrayList<>();
                 while (rs.next()) {
-                    int id                  = rs.getInt("id");
-                    double cost             = rs.getBigDecimal("cost").doubleValue();
-                    int length              = rs.getInt("length");
-                    int width               = rs.getInt("width");
-                    String name             = rs.getString("name");
-                    int materialCategoryId  = rs.getInt("materialCategoryId");
-                    Material material       = new Material(id, width, length, cost, name, materialCategoryId);
+                    int id = rs.getInt("id");
+                    double cost = rs.getBigDecimal("cost").doubleValue();
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    String name = rs.getString("name");
+                    int materialCategoryId = rs.getInt("materialCategoryId");
+                    Material material = new Material(id, width, length, cost, name, materialCategoryId);
                     material.setColor("black", "#000");
                     materials.add(material);
                 }

@@ -41,8 +41,8 @@ Carport carport;
         // assign materials
         Material post   = getDbMaterial("trykimp. stolpe");
         Material rafter = getDbMaterial("spærtræ ubh.");
-        Material rim    = getDbMaterial("Plastmo Ecolite blåtonet");
-        Material roof   = getDbMaterial("trykimp. brædt");
+        Material roof   = getDbMaterial("Plastmo Ecolite blåtonet");
+        Material rim    = getDbMaterial("trykimp. brædt");
 
         // calc amount & add to bom
         addPosts(post);

@@ -7,6 +7,7 @@ import business.persistence.Database;
 import business.persistence.MaterialMapper;
 
 import java.util.List;
+import java.util.Map;
 
 public class MaterialFacade {
     MaterialMapper materialMapper;
@@ -35,6 +36,10 @@ public class MaterialFacade {
     public String getCategory(int categoryId) throws UserException {
         // Get the category name
         return materialMapper.getCategory(categoryId);
+    }
+
+    public Map<Integer, String> getCategories() throws UserException {
+        return materialMapper.getCategories();
     }
 
     public List<Color> getColors(int materialId) throws UserException {
