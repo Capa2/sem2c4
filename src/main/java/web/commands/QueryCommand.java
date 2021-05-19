@@ -47,11 +47,8 @@ public class QueryCommand extends CommandUnprotectedPage {
             if (role.equals("employee") || role.equals("Sælger")) {
                 role = "Sælger";
                 request.getAttribute("queries");
-//                for (Query q : queries) {
-//                    users.add(new User(userFacade.getUser(q.getUserId()));;
-//                }
-//                request.setAttribute("users", users);
             }
+
             session.setAttribute("role", role);
 
             return pageToShow;
