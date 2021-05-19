@@ -26,7 +26,7 @@ public class SvgBuilder {
     }
 
     public String draw(Carport carport, Bom bom) {
-        svg = new SVG(0, 0, "0 0 855 696", 855, 696);
+        svg = new SVG(0, 0, "0 0 " + carport.getWidth() +" "+ carport.getLength(), 100, 100);
         int length = carport.getLength(); // 600
         int width = carport.getWidth();// 780
         int shedLength = carport.getShedLength();
@@ -49,7 +49,7 @@ public class SvgBuilder {
             svg.addFilledRect(sm, shedY, shedWidth, shedLength); // shed
         }
         // draw 4 fixed posts
-        int firstPostX = (shedLength == 0) ? sm * 10 : shedLength+lg*5 - sm / 2;
+        int firstPostX = (shedLength == 0) ? sm * 10 : shedLength + lg * 5 - sm / 2;
         int lastPostX = width - sm * 10;
         svg.addRect(firstPostX, md, md, md); // fixed post top
         svg.addRect(firstPostX, length - lg - sm, md, md); // fixed post top
@@ -57,7 +57,7 @@ public class SvgBuilder {
         svg.addRect(lastPostX, length - lg - sm, md, md); // fixed post top
         // draw remaining posts
         if (posts < 4) {
-            int remainingPosts = posts-4;
+            int remainingPosts = posts - 4;
             int postGap = (length - firstPostX - (length - lastPostX)) / ((remainingPosts) / 2); // post spacing
             for (int i = remainingPosts; i > 0; i -= 2) {
                 svg.addRect(firstPostX + postGap * (remainingPosts - i), md + sm / 10, md, md); // top
