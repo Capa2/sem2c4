@@ -16,7 +16,8 @@ public class SVG {
             "y=\"%d\"   " +
             " preserveAspectRatio=\"xMinYMin\">";
 
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
+    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000; fill: #fff\" />";
+    private final String filledRectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000; fill: #ccc\" />";
 
     public SVG(int x, int y, String viewBox, int width, int height) {
         this.x = x;
@@ -31,6 +32,9 @@ public class SVG {
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
+    public void addFilledRect(int x, int y, double height, double width) {
+        svg.append(String.format(filledRectTemplate, x, y, height, width));
+    }
 
     public void addLine(int x1, int y1, int x2, int y2) {
 
