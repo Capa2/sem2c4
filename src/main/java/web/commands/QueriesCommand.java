@@ -35,24 +35,25 @@ public class QueriesCommand extends CommandUnprotectedPage {
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
         ArrayList<Query> queries;
-        ArrayList<User> users = null;
-        User user = null;
+        ArrayList<User> users = new ArrayList<>();
+
 
         try {
-            if (role.equals("customer")) {
+            if (role.equals("customer") || role.equals("Kunde")) {
                 role = "Kunde";
                 queries = queryFacade.getQueries(userId);
                 request.setAttribute("queries", queries);
             }
 
-            if (role.equals("employee")) {
+            if (role.equals("employee") || role.equals("Sælger")) {
                 role = "Sælger";
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
-//                for (Query q : queries) {
-//                    users.add(new User(userFacade.getUser(q.getUserId()));;
-//                }
-//                request.setAttribute("users", users);
+                for (Query q : queries) {
+                    User user = userFacade.getUser(q.getUserId());
+                    users.add(user);
+                }
+                request.setAttribute("users", users);
             }
                 session.setAttribute("role", role);
 

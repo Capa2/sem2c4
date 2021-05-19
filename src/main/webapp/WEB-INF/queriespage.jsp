@@ -37,27 +37,35 @@
                     <th>Status</th>
                     <th>Besked</th>
                     <th>Kontakt</th>
+                    <th></th>
+                    <th></th>
                 </tr>
 
                 <c:forEach items="${requestScope.queries}" var="queries">
+<%--                <c:forEach items="${requestScope.users}" var="users">--%>
                     <tr>
-                        <td>${queries.id}</td>
-                        <td>${queries.userId}</td>
-                        <td>${queries.carportId}</td>
-                        <td>${queries.status}</td>
-                        <td>${queries.message}</td>
-                        <td><form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
-                            <button class="btn btn-success mt-2" type="submit" name="submitQuery" value="${queries.userId}">Læs mere
-                            </button>
-                        </form></td>
+                    <td>${queries.id}</td>
+                    <td>${queries.userId}</td>
+                    <td>${queries.carportId}</td>
+                    <td>${queries.status}</td>
+                    <td>${queries.message}</td>
 
-<%--                        <c:forEach items="${requestScope.users}" var="users">--%>
-<%--                    <td>${users.email}</td>--%>
-<%--                    <td>${users.phone}</td>--%>
-<%--                    <td>${users.zipCode}</td>--%>
+<%--                        <td>${users.name}</td>--%>
+<%--                        <td>${users.email}</td>--%>
+<%--                        <td>${users.phone}</td>--%>
+                        <td>
+                            <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                                <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
+                                <button class="btn btn-success mt-2" type="submit"
+                                        <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if>
+                                        name="submitQuery"
+                                        value="${queries.carportId}">Send forespørgsel
+                                </button>
+                            </form>
+                        </td>
+                        </tr>
 <%--                    </c:forEach>--%>
-                        </c:forEach>
-                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
 

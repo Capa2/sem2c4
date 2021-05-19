@@ -97,4 +97,9 @@ public class User
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
+
+    @Override
+    public String toString() {
+        return "name: " + name + " email: " + email + " phone: " + phone + " phone";
+    }
 }
