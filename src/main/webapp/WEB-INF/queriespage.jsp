@@ -23,13 +23,10 @@
             <table class="table" style="width: auto;">
                 <thead class="thead-dark">
                 <tr>
+                    <th scope="col">${sessionScope.role}</th>
                     <th scope="col">${sessionScope.user.name}</th>
                     <th scope="col">${sessionScope.user.email}</th>
                     <th scope="col">${sessionScope.user.phone}</th>
-                    <c:if test = "${sessionScope.role}">
-                    <p>My salary is: <c:out value = "${salary}"/><p>
-                    </c:if>
-                    <th scope="col">${sessionScope.role}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,18 +36,36 @@
                     <th scope="row">Carport id</th>
                     <th>Status</th>
                     <th>Besked</th>
+                    <th>Kontakt</th>
+                    <th></th>
+                    <th></th>
                 </tr>
 
-                <c:forEach items="${requestScope.queries}" var="object">
+                <c:forEach items="${requestScope.queries}" var="queries">
+<%--                <c:forEach items="${requestScope.users}" var="users">--%>
                     <tr>
-                        <td>${object.id}</td>
-                        <td>${object.userId}</td>
-                        <td>${object.carportId}</td>
-                        <td>${object.status}</td>
-                        <td>${object.message}</td>
-                    </tr>
-                </c:forEach>
+                    <td>${queries.id}</td>
+                    <td>${queries.userId}</td>
+                    <td>${queries.carportId}</td>
+                    <td>${queries.status}</td>
+                    <td>${queries.message}</td>
 
+<%--                        <td>${users.name}</td>--%>
+<%--                        <td>${users.email}</td>--%>
+<%--                        <td>${users.phone}</td>--%>
+                        <td>
+                            <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                                <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
+                                <button class="btn btn-success mt-2" type="submit"
+                                        <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if>
+                                        name="submitQuery"
+                                        value="${queries.carportId}">Send forespørgsel
+                                </button>
+                            </form>
+                        </td>
+                        </tr>
+<%--                    </c:forEach>--%>
+                </c:forEach>
                 </tbody>
             </table>
 

@@ -45,7 +45,13 @@
             <td>${object.carportId}</td>
             <td>${object.status}</td>
             <td>${object.message}</td>
-        </tr>
+        <c:forEach items="${requestScope.users}" var="users">
+
+                <td>${users.name}</td>
+                <td>${users.email}</td>
+                <td>${users.phone}</td>
+            </tr>
+        </c:forEach>
     </c:forEach>
 
     </tbody>

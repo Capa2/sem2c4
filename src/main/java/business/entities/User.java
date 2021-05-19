@@ -17,6 +17,15 @@ public class User
         this.zipCode = zipCode;
     }
 
+    public User(int phone, int zipCode, String email, String name, String street, String town) {
+        this.phone = phone;
+        this.zipCode = zipCode;
+        this.email = email;
+        this.name = name;
+        this.street = street;
+        this.town = town;
+    }
+
     public int getId() {
         return id;
     }
@@ -87,5 +96,10 @@ public class User
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        return "name: " + name + " email: " + email + " phone: " + phone + " phone";
     }
 }
