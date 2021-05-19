@@ -1,0 +1,5 @@
+ALTER TABLE `fog_carport`.`user` 
+DROP COLUMN `adressId`,
+ADD COLUMN `street` VARCHAR(45) NOT NULL AFTER `phone`,
+ADD COLUMN `town` VARCHAR(45) NOT NULL AFTER `street`,
+ADD COLUMN `zipCode` INT UNSIGNED NOT NULL AFTER `town`;
