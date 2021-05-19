@@ -57,7 +57,7 @@
                     </c:if>
                 </div>
                 <div class="row col-6 offset-1">
-                    <img class="img-fluid img-thumbnail" src="<c:url  value='/data/${carport.name}.png'/>"
+                    <img class="img-fluid" src="<c:url  value='/data/${carport.name}.png'/>"
                          alt="carport"/>
                     <hr class="border-white">
                         ${requestScope.svg}
