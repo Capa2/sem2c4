@@ -41,8 +41,8 @@ Carport carport;
         // assign materials
         Material post   = getDbMaterial("trykimp. stolpe");
         Material rafter = getDbMaterial("spærtræ ubh.");
-        Material rim    = getDbMaterial("Plastmo Ecolite blåtonet");
-        Material roof   = getDbMaterial("trykimp. brædt");
+        Material roof   = getDbMaterial("Plastmo Ecolite blåtonet");
+        Material rim    = getDbMaterial("trykimp. brædt");
 
         // calc amount & add to bom
         addPosts(post);
@@ -73,7 +73,7 @@ Carport carport;
 
     private void addPosts(Material post) { // stolper
         int amount = 2;
-        int lengthToSupport = carport.getLength() - carport.getShedLength() - 100; // first posts always @ 1m
+        int lengthToSupport = carport.getLength() - carport.getShedLength(); // first posts always @ 1m
         while (lengthToSupport > 0) {
             amount += 2;
             lengthToSupport -= 310; // max supported length

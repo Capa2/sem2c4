@@ -7,15 +7,17 @@ VALUES ('rafter'),
        ('rem'),
        ('flatRoof'),
        ('slopedRoof'),
-       ('cladding');
+       ('cladding'),
+       ('post');
 
 DELETE FROM `material`;
 
 INSERT INTO `material` (name, cost, length, width, materialCategoryId)
-VALUES ('trykimp. stolpe', '300', '300', '97', '1'),
-       ('spærtræ ubh.', '150', '600', '195', '2'),
-       ('Plastmo Ecolite blåtonet', '500', '600', '600', '3'),
-       ('trykimp. brædt', '200', '19', '100', '5');
+VALUES ('trykimp. stolpe', '300', '300', '97', (SELECT id from materialCategory WHERE name='post')),
+       ('spærtræ ubh.', '250', '600', '195', (SELECT id from materialCategory WHERE name='rafter')),
+       ('spærtræ ubh.', '250', '600', '195', (SELECT id from materialCategory WHERE name='rem')),
+       ('Plastmo Ecolite blåtonet', '500', '600', '600', (SELECT id from materialCategory WHERE name='flatRoof')),
+       ('trykimp. brædt', '200', '210', '100', (SELECT id from materialCategory WHERE name='cladding'));
 
 
 INSERT INTO `material` (name, cost)
