@@ -43,11 +43,12 @@
                     <tr>
                         <td>${queries.id}</td>
                         <td>${queries.userId}</td>
-                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
-                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
                         <td>${queries.carportId}</td>
                         <td>${queries.status}</td>
                         <td>${queries.message}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
