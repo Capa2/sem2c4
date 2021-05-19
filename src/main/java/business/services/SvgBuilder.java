@@ -26,33 +26,43 @@ public class SvgBuilder {
     }
 
     public String draw(Carport carport, Bom bom) {
-        svg = new SVG(0, 0, "0 0 855 696", 855, 696);
+        svg = new SVG(0, 0, "0 0 " + carport.getWidth() +" "+ carport.getLength(), 100, 100);
         int length = carport.getLength(); // 600
         int width = carport.getWidth();// 780
         int shedLength = carport.getShedLength();
         int shedWidth = carport.getShedWidth();
-        int s = 10;
-        int m = 15;
-        int l = 20;
+        int sm = 10; // small
+        int md = 15; // medium
+        int lg = 20; // large
         int posts = typeCount(bom, "post");
         int rafters = typeCount(bom, "rafter");
+        System.out.println(posts);
         // frame & sides:
         svg.addRect(0, 0, length, width);
-        svg.addRect(0, 0, length, s);
-        svg.addRect(width - s, 0, length, s);
+        svg.addRect(0, 0, length, sm);
+        svg.addRect(width - sm, 0, length, sm);
         // plank with posts
-        svg.addRect(s, l, s, width - l); // top plank
-        svg.addRect(s, length - l - s, s, width - l); // bottom plank
+        svg.addRect(sm, lg, sm, width - lg); // top plank
+        svg.addRect(sm, length - lg - sm, sm, width - lg); // bottom plank
         if (shedLength != 0) {
-            int y = (width - shedWidth > width / 2) ? 0 : width / 2 - shedWidth / 2; // center shed if more than half carport width
-            svg.addRect(0, y, shedWidth, shedLength); // shed
-            svg.addRect(shedLength, m + 1, m, m); // fixed post top
-            svg.addRect(shedLength, length - l - s, m, m); // fixed post top
+            int shedY = (shedWidth < width / 2) ? lg : (width / 2 - shedWidth / 2) / 4; // center shed if more than half carport width
+            svg.addFilledRect(sm, shedY, shedWidth, shedLength); // shed
         }
-        int postGap = (length - shedLength) / (posts / (2 - (int) Math.signum(shedLength))); // post spacing
-        for (int i = posts; i > 0; i--) {
-            svg.addRect(shedLength + postGap * i, m + 1, m, m); // top
-            svg.addRect(shedLength + postGap * i, length - l - s, m, m); // bottom
+        // draw 4 fixed posts
+        int firstPostX = (shedLength == 0) ? sm * 10 : shedLength + lg * 5 - sm / 2;
+        int lastPostX = width - sm * 10;
+        svg.addRect(firstPostX, md, md, md); // fixed post top
+        svg.addRect(firstPostX, length - lg - sm, md, md); // fixed post top
+        svg.addRect(lastPostX, md, md, md); // fixed post top
+        svg.addRect(lastPostX, length - lg - sm, md, md); // fixed post top
+        // draw remaining posts
+        if (posts < 4) {
+            int remainingPosts = posts - 4;
+            int postGap = (length - firstPostX - (length - lastPostX)) / ((remainingPosts) / 2); // post spacing
+            for (int i = remainingPosts; i > 0; i -= 2) {
+                svg.addRect(firstPostX + postGap * (remainingPosts - i), md + sm / 10, md, md); // top
+                svg.addRect(firstPostX + postGap * (remainingPosts - i), length - lg - sm, md, md); // bottom
+            }
         }
         return toString();
     }
