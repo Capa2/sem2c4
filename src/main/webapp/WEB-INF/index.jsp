@@ -30,8 +30,8 @@
                                     <p> ${carport.width} x ${carport.length} mtr.
                                     </p>
                                     <p>
-                                        <c:if test="${carport.width >= 400}">Dobbelt</c:if>
-                                        <c:if test="${carport.width < 400}">Enkelt</c:if>
+                                        <c:if test="${carport.length >= 400}">Dobbelt</c:if>
+                                        <c:if test="${carport.length < 400}">Enkelt</c:if>
                                         carport
                                     </p>
                                     <p>

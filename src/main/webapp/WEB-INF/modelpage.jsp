@@ -26,8 +26,8 @@
     <jsp:body>
         <div class="container my-5">
             <h2 class="display-4"> ${requestScope.carport.name}
-                <c:if test="${carport.width >= 400}">dobbelt</c:if>
-                <c:if test="${carport.width < 400}">enkelt</c:if> carport</h2>
+                <c:if test="${carport.length >= 400}">dobbelt</c:if>
+                <c:if test="${carport.length < 400}">enkelt</c:if> carport</h2>
             <div class="row mt-4">
                 <hr class="border-white">
                 <div class="col-5">
