@@ -31,32 +31,24 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">Id</th>
-                    <th>Bruger id</th>
-                    <th scope="row">Carport id</th>
-                    <th>Status</th>
-                    <th>Besked</th>
-                    <th>Kontakt</th>
-                    <th></th>
-                    <th></th>
+                    <th scope="row">forespørgsels nr.</th>
+                    <th>kunde nr.</th>
+                    <th scope="row">kunde navn</th>
+                    <th scope="row">kunde email</th>
+                    <th>carport nr.</th>
+                    <th>status</th>
+                    <th>besked</th>
                 </tr>
-
                 <c:forEach items="${requestScope.queries}" var="queries">
-<%--                <c:forEach items="${requestScope.users}" var="users">--%>
                     <tr>
-                    <td>${queries.id}</td>
-                    <td>${queries.userId}</td>
-                    <td>${queries.carportId}</td>
-                    <td>${queries.status}</td>
-                    <td>${queries.message}</td>
-
-<%--                        <td>${users.name}</td>--%>
-<%--                        <td>${users.email}</td>--%>
-<%--                        <td>${users.phone}</td>--%>
-<%--                        <td>--%>
-<%--                        </td>--%>
-<%--                        </tr>--%>
-<%--                    </c:forEach>--%>
+                        <td>${queries.id}</td>
+                        <td>${queries.userId}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                        <td>${queries.carportId}</td>
+                        <td>${queries.status}</td>
+                        <td>${queries.message}</td>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>

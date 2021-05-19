@@ -31,12 +31,10 @@ public class QueriesCommand extends CommandUnprotectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-
+        request.setAttribute("userFacade", userFacade);
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
         ArrayList<Query> queries;
-        ArrayList<User> users = new ArrayList<>();
-
 
         try {
             if (role.equals("customer") || role.equals("Kunde")) {
@@ -49,19 +47,11 @@ public class QueriesCommand extends CommandUnprotectedPage {
                 role = "Sælger";
                 queries = queryFacade.getAllQueries();
                 request.setAttribute("queries", queries);
-                for (Query q : queries) {
-                    System.out.println(q.getUserId());
-                    User user = userFacade.getUser(q.getUserId());
-                }
-                request.setAttribute("users", users);
-
             }
             session.setAttribute("role", role);
-
-            return pageToShow;
         } catch (UserException e) {
             e.printStackTrace();
         }
-        return role;
+        return pageToShow;
     }
 }
