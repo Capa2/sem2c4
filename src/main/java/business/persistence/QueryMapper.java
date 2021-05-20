@@ -93,4 +93,19 @@ public class QueryMapper {
         }
         return null;
     }
+
+    public String updateQueryMessage(String message, int queryId) {
+        try (Connection connection = database.connect()) {
+            String sql = "update query set message = ? where id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setString(1, message);
+                ps.setInt(2, queryId);
+                }
+                return message;
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        return null;
+    }
 }

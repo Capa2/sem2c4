@@ -32,4 +32,8 @@ public class QueryFacade {
 
         return (ArrayList) queryMapper.getAllQueries();
     }
+
+    public void updateQueryMessage(String message) {
+
+    }
 }

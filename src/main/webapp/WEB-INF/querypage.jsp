@@ -37,7 +37,9 @@
                     <br>
                     <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                 </div>
+                <p>besked fra sælger: ${requestScope.message}</p>
             </div>
+
                 <div class="row col-6 offset-1">
                     <c:if test="${requestScope.custom == false}">
                         <img class="img-fluid" style="float: right;"
@@ -47,15 +49,20 @@
                     </c:if>
                         ${requestScope.svg}
         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        </form>
 
+            <form name="updateMessage" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                <input type="hidden" name="newMessage" value="${requestScope.carport.id}"/>
 
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
 
-
+                <button class="btn btn-success mt-2" type="submit"
+                        name="updateMessage"
+                        value="${requestScope.carport.name}">Send forespørgsel
+                </button>
+            </form>
 
     </c:if>
     </jsp:body>

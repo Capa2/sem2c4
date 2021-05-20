@@ -38,6 +38,8 @@ public class QueryCommand extends CommandUnprotectedPage {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String wantBuilder = request.getParameter("wantBuilder");
+        String message = "message";
+
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
             custom = true;
@@ -47,7 +49,7 @@ public class QueryCommand extends CommandUnprotectedPage {
             custom = false;
         }
 
-        Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", "message", wantBuilder);
+        Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
         Bom bom = bomBuilder.getBom(carport.getId());
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);
@@ -59,6 +61,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
         request.setAttribute("queryFacade", queryFacade);
+        request.setAttribute("message", message);
         request.setAttribute("wantBuilder", request.getParameter("wantBuilder"));
 
         return pageToShow;
