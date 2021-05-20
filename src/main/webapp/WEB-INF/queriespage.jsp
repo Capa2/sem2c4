@@ -39,8 +39,8 @@
                     <th>navn</th>
                     <th>email</th>
                     <th>telefon</th>
+                    <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
                     <th>
-                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
                         <p>Indkøbspris</p>
                     </th></c:if>
                     <th>

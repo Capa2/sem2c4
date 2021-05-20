@@ -11,6 +11,12 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
+        Carport ${requestScope.carport.name}
+        <c:if test="${carport.width >= 400}">dobbelt</c:if>
+            <c:if test="${carport.width < 400}">enkelt</c:if>
+        ${requestScope.carport.width}cm x ${requestScope.carport.length}cm
+            <c:if test="${carport.roofAngle == 0}"> med fladt tag</c:if>
+            <c:if test="${carport.roofAngle > 0}">med høj rejsning</c:if>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -19,49 +25,69 @@
 
     <jsp:body>
         <body>
-        <div style="font-family: 'Times New Roman'">
-            <table class="table" style="width: auto;">
-                <thead class="thead-dark">
+        <div class="container my-5">
+            <h2 class="display-4"> ${requestScope.carport.name}
+                <c:if test="${carport.length >= 400}">dobbelt</c:if>
+                <c:if test="${carport.length < 400}">enkelt</c:if> carport</h2>
+            <div class="row mt-4">
+                <hr class="border-white">
+                <div class="col-5">
+                    <div class="mb-4">
+                        <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
+                        <c:forEach var="material" items="${requestScope.bom.list}">
+                            <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
+                        </c:forEach>
+                        <p>Inkl. søm, skruer og hulbånd.</p>
+                        <p>Sælges som standardmodel.</p>
+                        <br>
+                        <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
+
+        <table class="table" style="width: auto;">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">${sessionScope.role}</th>
+                <th scope="col">${sessionScope.user.name}</th>
+                <th scope="col">${sessionScope.user.email}</th>
+                <th scope="col">${sessionScope.user.phone}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">forespørgsels nr.</th>
+                <th>kunde nr.</th>
+                <th scope="row">carport nr.</th>
+                <th scope="row">status</th>
+                <th>besked</th>
+                <th>navn</th>
+                <th>email</th>
+                <th>telefon</th>
+                <th>Håndværker</th>
+            </tr>
+
+
+            <c:forEach items="${requestScope.queries}" var="queries">
                 <tr>
-                    <th scope="col">${sessionScope.role}</th>
-                    <th scope="col">${sessionScope.user.name}</th>
-                    <th scope="col">${sessionScope.user.email}</th>
-                    <th scope="col">${sessionScope.user.phone}</th>
+                    <td>${queries.id}</td>
+                    <td>${queries.userId}</td>
+                    <td>${queries.carportId}</td>
+                    <td>${queries.status}</td>
+                    <td>${queries.message}</td>
+                    <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                    <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                    <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
+                    <td>${queries.wantBuilder}</td>
+
+                    <td>
+                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId) * 1.5} Dkkr</p> <c:out
+                            value="${income}"/><p>
+                    </td>
+                    </c:if>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">forespørgsels nr.</th>
-                    <th>kunde nr.</th>
-                    <th scope="row">carport nr.</th>
-                    <th scope="row">status</th>
-                    <th>besked</th>
-                    <th>navn</th>
-                    <th>email</th>
-                    <th>telefon</th>
-                    <th>Håndværker</th>
-                </tr>
+            </c:forEach>
 
-
-                <c:forEach items="${requestScope.queries}" var="queries">
-                    <tr>
-                        <td>${queries.id}</td>
-                        <td>${queries.userId}</td>
-                        <td>${queries.carportId}</td>
-                        <td>${queries.status}</td>
-                        <td>${queries.message}</td>
-                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
-                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
-                        <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
-                        <td>
-                            <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                            <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} <c:out value="${income}"/><p>
-                        </td></c:if>
-                    </tr>
-                </c:forEach>
-
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
         </div>
         </body>
