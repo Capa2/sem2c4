@@ -42,7 +42,7 @@ public class QueryMapper {
     public List<Query> getQuery(int userId) throws UserException {
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, carportId, status, message, wantBuilder FROM query WHERE userId=?";
+            String sql = "SELECT id, carportId, status, message, wantBuilder FROM `query` WHERE userId=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, userId);
@@ -53,7 +53,7 @@ public class QueryMapper {
                     int carportId = rs.getInt("carportId");
                     String status = rs.getString("status");
                     String message = rs.getString("message");
-                    String  wantBuilder = rs.getString("wantBuilder");
+                    String wantBuilder = rs.getString("wantBuilder");
                     Query query = new Query(id, userId, carportId, status, message, wantBuilder);
                     queries.add(query);
                 }
@@ -69,7 +69,7 @@ public class QueryMapper {
 
     public List<Query> getAllQueries() {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM query";
+            String sql = "SELECT * FROM `query`";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();

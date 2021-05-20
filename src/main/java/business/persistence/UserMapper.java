@@ -21,7 +21,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO User (phone, email, password, role, name, street, town, zipCode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `user` (phone, email, password, role, name, street, town, zipCode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
@@ -54,7 +54,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT id, role, name, phone, street, town, zipCode FROM user WHERE email=? AND password=?";
+            String sql = "SELECT id, role, name, phone, street, town, zipCode FROM `user` WHERE email=? AND password=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
@@ -93,7 +93,7 @@ public class UserMapper
 
         User user = null;
         try (Connection connection = database.connect()) {
-            String sql = "SELECT phone, zipCode, email, name, street, town FROM user WHERE id=?";
+            String sql = "SELECT phone, zipCode, email, name, street, town FROM `user` WHERE id=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, userId);

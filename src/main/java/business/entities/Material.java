@@ -1,9 +1,9 @@
 package business.entities;
 
 public class Material {
-    int id, width, length, amount, materialCategoryId;
-    double cost;
-    String name, color, hexcode;
+    private int id, width, length, amount, materialCategoryId;
+    private double cost;
+    private String name, color, hexcode;
 
     public Material(int id, int width, int length, double cost, String name, int materialCategoryId) {
         this.id = id;
@@ -51,7 +51,7 @@ public class Material {
         return cost;
     }
 
-    public void setCost(float cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
