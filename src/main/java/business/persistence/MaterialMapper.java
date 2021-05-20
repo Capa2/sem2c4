@@ -23,7 +23,7 @@ public class MaterialMapper {
 
     public String getCategory(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT name FROM materialCategory WHERE id = ?";
+            String sql = "SELECT name FROM `materialcategory` WHERE id = ?";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
@@ -39,14 +39,14 @@ public class MaterialMapper {
 
     public Map<Integer, String> getCategories() throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, name FROM materialCategory";
+            String sql = "SELECT id, name FROM `materialcategory`";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                Map<Integer, String> cats = new HashMap<>();
+                Map<Integer, String> categories = new HashMap<>();
                 while (rs.next()) {
-                    cats.put(rs.getInt("id"), rs.getString("name"));
+                    categories.put(rs.getInt("id"), rs.getString("name"));
                 }
-                return cats;
+                return categories;
             }
         } catch (SQLException ex) {
             throw new UserException("Could not get material categories");
@@ -80,7 +80,7 @@ public class MaterialMapper {
         String category = getCategory(categoryId);
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, name, cost, length, width FROM material WHERE materialCategoryId = ?";
+            String sql = "SELECT id, name, cost, length, width FROM `material` WHERE materialCategoryId = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, categoryId);
@@ -107,7 +107,7 @@ public class MaterialMapper {
 
     public Material getMaterial(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT name, cost, length, width, materialCategoryId FROM material WHERE id = ?";
+            String sql = "SELECT name, cost, length, width, materialCategoryId FROM `material` WHERE id = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
@@ -133,7 +133,7 @@ public class MaterialMapper {
 
     public Material getMaterial(String name) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, cost, length, width, materialCategoryId FROM material WHERE name = ?";
+            String sql = "SELECT id, cost, length, width, materialCategoryId FROM `material` WHERE name = ?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setString(1, name);
@@ -159,7 +159,7 @@ public class MaterialMapper {
 
     public List<Material> getAll() throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, materialCategoryId, name, cost, length, width FROM material";
+            String sql = "SELECT id, materialCategoryId, name, cost, length, width FROM `material`";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
