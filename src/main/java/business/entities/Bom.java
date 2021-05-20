@@ -36,6 +36,12 @@ public class Bom {
         return formatter.format(getPrice());
     }
 
+    public String getCostString() {
+        NumberFormat formatter = NumberFormat.getInstance();
+        return formatter.format(getCost());
+    }
+
+
     public int size() {
         return bom.size();
     }
