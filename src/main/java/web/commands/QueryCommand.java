@@ -6,6 +6,7 @@ import business.entities.User;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 import business.services.QueryFacade;
+import business.services.QuickBuilder;
 import business.services.UserFacade;;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,52 +19,37 @@ public class QueryCommand extends CommandUnprotectedPage {
     private CarportFacade carportFacade;
     private QueryFacade queryFacade;
     private UserFacade userFacade;
-
+    private QuickBuilder quickBuilder;
+    private Carport carport;
 
     public QueryCommand(String pageToShow) {
         super(pageToShow);
         carportFacade = new CarportFacade(database);
         queryFacade = new QueryFacade(database);
         userFacade = new UserFacade(database);
+        quickBuilder = new QuickBuilder();
 
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
-        int carportId = Integer.parseInt(request.getParameter("queriedId"));
-        String wantBuilder = request.getParameter("wantBuilder");
-        Carport carport = carportFacade.getCarport(carportId);
-        System.out.println(carport);
+        User user = (User) session.getAttribute("user");
         request.setAttribute("userFacade", userFacade);
-//        id, roofAngle, width, length, shedWidth, shedLength
+
+        if (request.getParameter("submit") != null) {
+            carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
+        } else {
+            int id = Integer.parseInt(request.getParameter("queriedId"));
+            carport = carportFacade.getCarport(id);
+        }
+
+        String wantBuilder = request.getParameter("wantBuilder");
 
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
-        ArrayList<Query> queries = new ArrayList<>();
-        ArrayList<User> users = new ArrayList<>();
-        Query query = new Query(userId, carportId, "Xreated", "Robotmachine", wantBuilder); // add wantbuilder
+        Query query = new Query(user.getId(), carport.getId(), "Xreated", "Robotmachine", wantBuilder); // add wantbuilder
 
-        try {
-            if (role.equals("customer") || role.equals("Kunde")) {
-                role = "Kunde";
-                queryFacade.createQuery(userId, carport.getId(), "Xreated", "Robotmachine", wantBuilder);
-                queries = queryFacade.getQueries(userId);
-                request.setAttribute("queries", queries);
-                session.getAttribute("user");
-            }
-
-            if (role.equals("employee") || role.equals("Sælger")) {
-                role = "Sælger";
-                request.getAttribute("queries");
-            }
-
-            session.setAttribute("role", role);
-
-            return pageToShow;
-        } catch(UserException e){
-            e.printStackTrace();
-        }
-        return role;
+        return pageToShow;
     }
 }

@@ -19,7 +19,10 @@ public class CarportFacade {
     }
 
     public void createCarport(Carport carport) throws UserException {
-        carportMapper.createCarport(carport);
+        Carport c = carportMapper.createCarport(carport);
+    }
+    public Carport createGetCarport(Carport carport) throws UserException {
+        return carportMapper.createCarport(carport);
     }
 
     public Carport getCarport(int id) throws UserException {
