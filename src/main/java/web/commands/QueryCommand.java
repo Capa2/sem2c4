@@ -1,23 +1,25 @@
 package web.commands;
 
+import business.entities.Bom;
 import business.entities.Carport;
 import business.entities.Query;
 import business.entities.User;
 import business.exceptions.UserException;
+import business.services.BomBuilder;
 import business.services.CarportFacade;
 import business.services.QueryFacade;
-import business.services.UserFacade;;
+import business.services.UserFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.List;
 
 public class QueryCommand extends CommandUnprotectedPage {
-    private CarportFacade carportFacade;
-    private QueryFacade queryFacade;
-    private UserFacade userFacade;
+    final private CarportFacade carportFacade;
+    final private QueryFacade queryFacade;
+    final private UserFacade userFacade;
+    final private BomBuilder bomBuilder;
 
 
     public QueryCommand(String pageToShow) {
@@ -25,7 +27,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         carportFacade = new CarportFacade(database);
         queryFacade = new QueryFacade(database);
         userFacade = new UserFacade(database);
-
+        bomBuilder = new BomBuilder(database);
     }
 
     @Override
@@ -34,10 +36,12 @@ public class QueryCommand extends CommandUnprotectedPage {
         int carportId = Integer.parseInt(request.getParameter("queriedId"));
         String wantBuilder = request.getParameter("wantBuilder");
         Carport carport = carportFacade.getCarport(carportId);
-        System.out.println(carport);
+        Bom bom = bomBuilder.getBom(carportId);
+        request.setAttribute("bom", bom);
+        request.setAttribute("carport", carport);
+        request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
-//        id, roofAngle, width, length, shedWidth, shedLength
-
+        request.setAttribute("wantBuilder", wantBuilder);
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
         ArrayList<Query> queries = new ArrayList<>();
@@ -47,7 +51,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         try {
             if (role.equals("customer") || role.equals("Kunde")) {
                 role = "Kunde";
-                queryFacade.createQuery(userId, carport.getId(), "Xreated", "Robotmachine", wantBuilder);
+                queryFacade.createQuery(userId, carport.getId(), "Created", "Robotmachine", wantBuilder);
                 queries = queryFacade.getQueries(userId);
                 request.setAttribute("queries", queries);
                 session.getAttribute("user");
@@ -55,13 +59,14 @@ public class QueryCommand extends CommandUnprotectedPage {
 
             if (role.equals("employee") || role.equals("Sælger")) {
                 role = "Sælger";
-                request.getAttribute("queries");
+                queries = queryFacade.getAllQueries();
+                request.setAttribute("queries", queries);
             }
 
             session.setAttribute("role", role);
 
             return pageToShow;
-        } catch(UserException e){
+        } catch (UserException e) {
             e.printStackTrace();
         }
         return role;
