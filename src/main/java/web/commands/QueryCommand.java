@@ -5,11 +5,7 @@ import business.entities.Carport;
 import business.entities.Query;
 import business.entities.User;
 import business.exceptions.UserException;
-import business.services.BomBuilder;
-import business.services.CarportFacade;
-import business.services.QueryFacade;
-import business.services.UserFacade;
-import business.services.QuickBuilder;
+import business.services.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +17,9 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private UserFacade userFacade;
     final private BomBuilder bomBuilder;
     final private QuickBuilder quickBuilder;
+    private SvgBuilder svgBuilder;
     private Carport carport;
-    boolean custom;
+    private boolean custom;
 
 
     public QueryCommand(String pageToShow) {
@@ -31,6 +28,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         queryFacade = new QueryFacade(database);
         userFacade = new UserFacade(database);
         bomBuilder = new BomBuilder(database);
+        svgBuilder = new SvgBuilder(database);
         quickBuilder = new QuickBuilder();
 
     }
@@ -39,6 +37,7 @@ public class QueryCommand extends CommandUnprotectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
             custom = true;
@@ -47,14 +46,17 @@ public class QueryCommand extends CommandUnprotectedPage {
             carport = carportFacade.getCarport(id);
             custom = false;
         }
-        String wantBuilder = request.getParameter("wantBuilder");
+
         Bom bom = bomBuilder.getBom(carport.getId());
+        String svgString = svgBuilder.draw(carport, bom);
+        request.setAttribute("svg", svgString);
+
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
         request.setAttribute("custom", custom);
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
-        request.setAttribute("wantBuilder", wantBuilder);
+        request.setAttribute("wantBuilder", request.getParameter("wantBuilder"));
 
         return pageToShow;
     }

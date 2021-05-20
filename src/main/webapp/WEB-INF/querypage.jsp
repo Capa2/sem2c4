@@ -37,7 +37,7 @@
                         <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                     </div>
                     <div class="row col-6 offset-1">
-                        <c:if test="${requestScope.custom = false}">
+                        <c:if test="${Boolean.parseBoolean(requestScope.custom) == false}">
                             <img class="img-fluid" style="float: right;"
                                  src="<c:url  value='/data/${requestScope.carport.name}.png'/>"
                                  alt="carport"/>
