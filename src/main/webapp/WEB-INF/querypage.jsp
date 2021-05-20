@@ -29,6 +29,7 @@
                 <div class="col-5">
                     <div class="mb-4">
                         <h3 class="display-8">Du har sendt en forespørgsel på</h3>
+                        <br>
                         <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                         <c:forEach var="material" items="${requestScope.bom.list}">
                             <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
@@ -38,6 +39,7 @@
                         <br>
                         <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                             </div>
+                </div>
 <%--                        Pictures--%>
                         <div class="row col-6 offset-1">
                             <img class="img-fluid" style="float: right;" src="<c:url  value='/data/${carport.name}.png'/>"
