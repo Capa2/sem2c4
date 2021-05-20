@@ -4,6 +4,7 @@ import business.entities.Query;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.QueryMapper;
+import business.persistence.ResponseMapper;
 
 import java.util.ArrayList;
 
@@ -31,9 +32,5 @@ public class QueryFacade {
     public ArrayList getAllQueries() throws UserException {
 
         return (ArrayList) queryMapper.getAllQueries();
-    }
-
-    public void updateQueryMessage(String message) {
-
     }
 }

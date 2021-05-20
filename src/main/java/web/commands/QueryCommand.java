@@ -1,9 +1,6 @@
 package web.commands;
 
-import business.entities.Bom;
-import business.entities.Carport;
-import business.entities.Query;
-import business.entities.User;
+import business.entities.*;
 import business.exceptions.UserException;
 import business.services.*;
 
@@ -17,6 +14,7 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private UserFacade userFacade;
     final private BomBuilder bomBuilder;
     final private QuickBuilder quickBuilder;
+    final private ResponseFacade responseFacade;
     private SvgBuilder svgBuilder;
     private Carport carport;
     private boolean custom;
@@ -30,6 +28,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         bomBuilder = new BomBuilder(database);
         svgBuilder = new SvgBuilder(database);
         quickBuilder = new QuickBuilder();
+        responseFacade = new ResponseFacade(database);
 
     }
 
@@ -38,7 +37,12 @@ public class QueryCommand extends CommandUnprotectedPage {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String wantBuilder = request.getParameter("wantBuilder");
-        String message = "message";
+        String message = null;
+//        request.getParameter();
+
+        if (user.getRole() != "employee"); {
+
+        }
 
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
@@ -49,11 +53,21 @@ public class QueryCommand extends CommandUnprotectedPage {
             custom = false;
         }
 
-        Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
+//        if(request.getParameter() != null) {
+//
+//        }
+
+        if(user.getRole().equals("customer")) {
+            Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
+            request.setAttribute("query", query);
+        }
+//        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
+
         Bom bom = bomBuilder.getBom(carport.getId());
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);
-        request.setAttribute("query", query);
+
+//        request.setAttribute("response1", response1);
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
         request.setAttribute("custom", custom);
@@ -61,8 +75,11 @@ public class QueryCommand extends CommandUnprotectedPage {
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
         request.setAttribute("queryFacade", queryFacade);
+        request.setAttribute("responseFacade", responseFacade);
         request.setAttribute("message", message);
         request.setAttribute("wantBuilder", request.getParameter("wantBuilder"));
+
+
 
         return pageToShow;
     }

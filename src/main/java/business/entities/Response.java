@@ -1,32 +1,38 @@
 package business.entities;
 
 public class Response {
-    User employee;
-    Query query;
+    int id, queryId, userId;
     String message;
     double price;
 
-    public Response(User employee, Query query, String message, double price) {
-        this.employee = employee;
-        this.query = query;
+    public Response(int queryId, int userId, String message) {
+        this.queryId = queryId;
+        this.userId = userId;
         this.message = message;
-        this.price = price;
     }
 
-    public User getEmployee() {
-        return employee;
+    public int getId() {
+        return id;
     }
 
-    public void setEmployee(User employee) {
-        this.employee = employee;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Query getQuery() {
-        return query;
+    public int getQueryId() {
+        return queryId;
     }
 
-    public void setQuery(Query query) {
-        this.query = query;
+    public void setQueryId(int queryId) {
+        this.queryId = queryId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getMessage() {
@@ -43,5 +49,10 @@ public class Response {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Response " + "id: " + id + ", queryId: " + queryId + ", userId: " + userId + ", message: " + message + ", price: " + price;
     }
 }

@@ -17,7 +17,7 @@ public class QueryMapper {
 
     public Query createQuery(Query query) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO Query (userId, carportId, status, message, wantBuilder) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO query (userId, carportId, status, message, wantBuilder) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, query.getUserId());

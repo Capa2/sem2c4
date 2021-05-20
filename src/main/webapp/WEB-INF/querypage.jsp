@@ -27,17 +27,17 @@
             <hr class="border-white">
             <div class="col-5">
                 <div class="mb-4">
-                    <h3 class="display-8">Du har sendt en forespørgsel på</h3>
+                    <c:if test="${sessionScope.user.role == 'customer'}"><p><h3 class="display-8">Du har sendt en forespørgsel på</h3></p></c:if>
                     <br>
                     <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                     <c:forEach var="material" items="${requestScope.bom.list}">
                         <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
                     </c:forEach>
                     <p>Inkl. søm, skruer og hulbånd.</p>
+                    <p> <b>besked fra sælger: ${requestScope.message}</b></p>
                     <br>
                     <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                 </div>
-                <p>besked fra sælger: ${requestScope.message}</p>
             </div>
 
                 <div class="row col-6 offset-1">
@@ -50,19 +50,7 @@
                         ${requestScope.svg}
         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
 
-            <form name="updateMessage" action="${pageContext.request.contextPath}/fc/querypage" method="post">
-                <input type="hidden" name="newMessage" value="${requestScope.carport.id}"/>
 
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-
-                <button class="btn btn-success mt-2" type="submit"
-                        name="updateMessage"
-                        value="${requestScope.carport.name}">Send forespørgsel
-                </button>
-            </form>
 
     </c:if>
     </jsp:body>
