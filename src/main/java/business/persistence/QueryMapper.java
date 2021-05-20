@@ -17,13 +17,14 @@ public class QueryMapper {
 
     public Query createQuery(Query query) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO Query (userId, carportId, status, message) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Query (userId, carportId, status, message, wantBuilder) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, query.getUserId());
                 ps.setInt(2, query.getCarportId());
                 ps.setString(3, query.getStatus());
                 ps.setString(4, query.getMessage());
+                ps.setString(5, query.getWantBuilder());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
@@ -41,7 +42,7 @@ public class QueryMapper {
     public List<Query> getQuery(int userId) throws UserException {
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, carportId, status, message FROM query WHERE userId=?";
+            String sql = "SELECT id, carportId, status, message, wantBuilder FROM query WHERE userId=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, userId);
@@ -52,7 +53,8 @@ public class QueryMapper {
                     int carportId = rs.getInt("carportId");
                     String status = rs.getString("status");
                     String message = rs.getString("message");
-                    Query query = new Query(id, userId, carportId, status, message);
+                    String  wantBuilder = rs.getString("wantBuilder");
+                    Query query = new Query(id, userId, carportId, status, message, wantBuilder);
                     queries.add(query);
                 }
                 return queries;
@@ -78,7 +80,8 @@ public class QueryMapper {
                     int carportId = rs.getInt("carportId");
                     String status = rs.getString("status");
                     String message = rs.getString("message");
-                    Query query = new Query(id, userId, carportId, status, message);
+                    String wantBuilder = rs.getString("wantBuilder");
+                    Query query = new Query(id, userId, carportId, status, message, wantBuilder);
                     queries.add(query);
                 }
                 return queries;

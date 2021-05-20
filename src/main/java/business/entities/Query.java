@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Query {
     int id, userId, carportId;
-    String status, message;
+    String status, message, wantBuilder;
 
-    public Query(int userId, int carportId, String status, String message) {
+    public Query(int userId, int carportId, String status, String message, String wantBuilder) {
         this.userId = userId;
         this.carportId = carportId;
         this.status = status;
         this.message = message;
     }
 
-    public Query(int id, int userId, int carportId, String status, String message) {
+    public Query(int id, int userId, int carportId, String status, String message, String wantBuilder) {
         this.id = id;
         this.userId = userId;
         this.carportId = carportId;
@@ -59,6 +59,10 @@ public class Query {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public String getWantBuilder() { return wantBuilder; }
+
+    public void setWantBuilder(String wantBuilder) { this.wantBuilder = wantBuilder; }
 
     @Override
     public String toString() {

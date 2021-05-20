@@ -16,9 +16,9 @@ public class QueryFacade {
         queryMapper = new QueryMapper(database);
     }
 
-    public Query createQuery(int userId, int carportId, String status, String message) throws UserException
+    public Query createQuery(int userId, int carportId, String status, String message, String wantBuilder) throws UserException
     {
-        Query query = new Query(userId, carportId, status, message);
+        Query query = new Query(userId, carportId, status, message, wantBuilder);
         queryMapper.createQuery(query);
         return query;
     }

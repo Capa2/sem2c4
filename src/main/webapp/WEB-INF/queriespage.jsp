@@ -43,6 +43,10 @@
                         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
                         <p>Indkøbspris</p>
                     </th></c:if>
+                    <th>
+                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                        <p>Med avance</p>
+                    </th></c:if>
                 </tr>
                 <c:forEach items="${requestScope.queries}" var="queries">
                     <tr>
@@ -56,8 +60,12 @@
                         <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
                         <td>
                         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId)}                   </p> <c:out value="${income}"/><p>
+                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} Dkkr</p> <c:out value="${income}"/><p>
                     </td></c:if>
+                        <td>
+                            <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                            <p>${requestScope.bomBuilder.getPriceString(queries.carportId) * 1.5} Dkkr</p> <c:out value="${income}"/><p>
+                        </td></c:if>
                     </tr>
                 </c:forEach>
                 </tbody>

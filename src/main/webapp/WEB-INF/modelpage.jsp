@@ -43,11 +43,22 @@
                         <form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
                             <input type="hidden" name="queriedId" value="${requestScope.carport.id}"/>
                             <button class="btn btn-success mt-2" type="submit"
-                                    <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if>
+                                    <c:if test="${sessionScope.user == null}">disabled</c:if>
                                     name="submitQuery"
                                     value="${requestScope.carport.name}">Send forespørgsel
                             </button>
                         </form>
+                        <div class="form-check form-check-inline">
+                            <input
+                                    name="wantBuilder"
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="inlineCheckbox3"
+                                    value="yes"
+                                    <c:if test="${sessionScope.user == null}">disabled</c:if>
+                            />
+                            <label class="form-check-label" for="inlineCheckbox3"> Jeg vil gerne have tilbud fra en håndværker</label>
+                        </div>
                     </div>
                     <c:if test="${sessionScope.user == null}">
                         <div class="alert-info p-3 mt-2 rounded">Inden du bestiller: <a class="alert-info"

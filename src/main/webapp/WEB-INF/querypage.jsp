@@ -39,6 +39,7 @@
                     <th>navn</th>
                     <th>email</th>
                     <th>telefon</th>
+                    <th>Håndværker</th>
                 </tr>
 
 
