@@ -46,7 +46,8 @@ public class QueryCommand extends CommandUnprotectedPage {
             carport = carportFacade.getCarport(id);
             custom = false;
         }
-        Query query = queryFacade.createQuery(user.getId(),carport.getId(),"created", "message", wantBuilder);
+
+        Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", "message", wantBuilder);
         Bom bom = bomBuilder.getBom(carport.getId());
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);

@@ -46,6 +46,18 @@
                         <hr class="border-white">
                     </c:if>
                         ${requestScope.svg}
+        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </form>
+
+
+
+
+
+    </c:if>
     </jsp:body>
 </t:genericpage>
 
