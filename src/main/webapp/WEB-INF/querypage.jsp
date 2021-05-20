@@ -41,6 +41,8 @@
         <th>telefon</th>
     </tr>
 
+
+
     <c:forEach items="${requestScope.queries}" var="object">
         <tr>
             <td>${object.id}</td>

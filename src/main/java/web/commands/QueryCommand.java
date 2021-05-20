@@ -29,19 +29,27 @@ public class QueryCommand extends CommandUnprotectedPage {
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
+        int carportId = Integer.parseInt(request.getParameter("queriedId"));
+        Carport carport = carportFacade.getCarport(carportId);
+        System.out.println(carport);
+//        id, roofAngle, width, length, shedWidth, shedLength
 
         int userId = (int) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
-        ArrayList<Query> queries;
+        ArrayList<Query> queries = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
+        Query query = new Query(userId, carportId, "Xreated", "Robotmachine");
 
         try {
             if (role.equals("customer") || role.equals("Kunde")) {
                 role = "Kunde";
+                queryFacade.createQuery(userId, carport.getId(), "Xreated", "Robotmachine");
                 queries = queryFacade.getQueries(userId);
                 request.setAttribute("queries", queries);
+//                queries.add(new Query(userId, carportId, "Xcreated", "Robotmachine"));
+
             }
 
             if (role.equals("employee") || role.equals("Sælger")) {

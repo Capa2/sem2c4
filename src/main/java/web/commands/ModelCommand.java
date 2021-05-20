@@ -47,6 +47,7 @@ public class ModelCommand extends CommandUnprotectedPage {
             request.setAttribute("carport", carport);
             request.setAttribute("bom", bom);
             request.setAttribute("svg", svgString);
+            request.setAttribute("carportId", carportId);
         } catch (UserException e) {
             e.printStackTrace();
         }
