@@ -4,10 +4,8 @@ import business.entities.Carport;
 import business.entities.Query;
 import business.entities.User;
 import business.exceptions.UserException;
-import business.services.BomBuilder;
-import business.services.CarportFacade;
-import business.services.QueryFacade;
-import business.services.UserFacade;;
+import business.services.*;
+;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,7 @@ public class QueriesCommand extends CommandUnprotectedPage {
     private QueryFacade queryFacade;
     private UserFacade userFacade;
     private BomBuilder bomBuilder;
-
+    private SvgBuilder svgBuilder;
 
     public QueriesCommand(String pageToShow) {
         super(pageToShow);

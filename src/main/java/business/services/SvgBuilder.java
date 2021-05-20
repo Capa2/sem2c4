@@ -4,21 +4,28 @@ import business.entities.Bom;
 import business.entities.Carport;
 import business.entities.Material;
 import business.entities.SVG;
+import business.exceptions.UserException;
+import business.persistence.Database;
 
 import java.util.Map;
 
 public class SvgBuilder {
     SVG svg;
-    Map<Integer, String> cats;
+    Map<Integer, String> materialCategories;
 
-    public SvgBuilder(Map<Integer, String> cats) {
-        this.cats = cats;
+    public SvgBuilder(Database database) {
+        MaterialFacade materialFacade = new MaterialFacade(database);
+        try {
+            materialCategories = materialFacade.getCategories();
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
     }
 
     private int typeCount(Bom bom, String categoryName) {
         int count = 0;
         for (Material m : bom.getList()) {
-            if (categoryName.equals(cats.get(m.getMaterialCategoryId()))) {
+            if (categoryName.equals(materialCategories.get(m.getMaterialCategoryId()))) {
                 count += m.getAmount();
             }
         }

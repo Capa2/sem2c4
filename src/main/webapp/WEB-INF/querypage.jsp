@@ -42,9 +42,8 @@
             </tbody>
         </table>
         </div>
-        </div>
-        </div>
         <div class="container my-5">
+
         <h2 class="display-4"> ${requestScope.carport.name}
             <c:if test="${requestScope.carport.length >= 400}">dobbelt</c:if>
             <c:if test="${requestScope.carport.length < 400}">enkelt</c:if> carport</h2>
@@ -70,9 +69,6 @@
                         <hr class="border-white">
                     </c:if>
                         ${requestScope.svg}
-                </div>
-            </div>
-        </div>
     </jsp:body>
 </t:genericpage>
 

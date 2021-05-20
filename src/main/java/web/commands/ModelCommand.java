@@ -23,16 +23,7 @@ public class ModelCommand extends CommandUnprotectedPage {
         super(pageToShow);
         carportFacade = new CarportFacade(database);
         bomBuilder = new BomBuilder(database);
-
-
-        MaterialFacade materialFacade = new MaterialFacade(database);
-        try {
-            Map<Integer, String> cats = materialFacade.getCategories();
-            svgBuilder = new SvgBuilder(cats);
-        } catch (UserException e) {
-            e.printStackTrace();
-        }
-
+        svgBuilder = new SvgBuilder(database);
     }
 
     @Override
