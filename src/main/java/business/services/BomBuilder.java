@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BomBuilder {
-List<Material> bom;
-CarportFacade carportFacade;
-MaterialFacade materialFacade;
-Carport carport;
+    List<Material> bom;
+    CarportFacade carportFacade;
+    MaterialFacade materialFacade;
+    Carport carport;
 
     public BomBuilder(Database database) {
         carportFacade = new CarportFacade(database);
@@ -23,6 +23,10 @@ Carport carport;
 
     public String getPriceString(int carportId) {
         return getBom(carportId).getPriceString();
+    }
+
+    public String getCostString(int carportId) {
+        return getBom(carportId).getCostString();
     }
 
     public Bom getBom(int carportId) {
@@ -39,10 +43,10 @@ Carport carport;
         bom = new ArrayList<>();
 
         // assign materials
-        Material post   = getDbMaterial("trykimp. stolpe");
+        Material post = getDbMaterial("trykimp. stolpe");
         Material rafter = getDbMaterial("spærtræ ubh.");
-        Material roof   = getDbMaterial("Plastmo Ecolite blåtonet");
-        Material rim    = getDbMaterial("trykimp. brædt");
+        Material roof = getDbMaterial("Plastmo Ecolite blåtonet");
+        Material rim = getDbMaterial("trykimp. brædt");
 
         // calc amount & add to bom
         addPosts(post);
@@ -69,7 +73,9 @@ Carport carport;
         return null;
     }
 
-    private  void add(Material m) {bom.add(m);}
+    private void add(Material m) {
+        bom.add(m);
+    }
 
     private void addPosts(Material post) { // stolper
         int amount = 2;
@@ -92,7 +98,7 @@ Carport carport;
     }
 
     private void addRim(Material rem) { // remme
-        rem.setAmount(2 * (int) Math.ceil(carport.getLength()/rem.getLength()));
+        rem.setAmount(2 * (int) Math.ceil(carport.getLength() / rem.getLength()));
         bom.add(rem);
     }
 
