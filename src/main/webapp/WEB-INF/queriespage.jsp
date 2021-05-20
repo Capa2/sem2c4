@@ -71,6 +71,14 @@
                             <p>${requestScope.bomBuilder.getCostString(queries.carportId)} DKK</p> <c:out
                                 value="${income}"/><p>
                         </td>
+                        <td><form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
+                            <input name="queriedId" value="${queries.carportId}"/>
+                            <button class="btn btn-success mt-2" type="submit"
+                                    name="submitQuery"
+                                    value="${requestScope.carport.name}">Gå til forespørgsel
+                            </button>
+                        </form>
+                        </td>
                         </c:if>
                     </tr>
                 </c:forEach>
