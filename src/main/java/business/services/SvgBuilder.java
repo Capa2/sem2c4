@@ -36,7 +36,6 @@ public class SvgBuilder {
         int lg = 20; // large
         int posts = typeCount(bom, "post");
         int rafters = typeCount(bom, "rafter");
-        System.out.println(posts);
         // frame & sides:
         svg.addRect(0, 0, length, width);
         svg.addRect(0, 0, length, sm);

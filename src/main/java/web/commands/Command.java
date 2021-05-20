@@ -28,9 +28,8 @@ public abstract class Command
         commands.put("registercommand", new RegisterCommand(""));
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
-        // Switch to ModelCommand when ready
-        // Make dynamic
         commands.put("modelpage", new ModelCommand("modelpage"));
+        commands.put("quickbuildpage", new QuickBuildCommand("quickbuildpage"));
         // skal laves protected
         commands.put("querypage", new QueryCommand("querypage"));
         commands.put("queriespage", new QueriesCommand("queriespage"));

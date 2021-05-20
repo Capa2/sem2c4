@@ -57,7 +57,7 @@ Carport carport;
         add(getDbMaterial("firkantsskiver 40x40mm"));
 
         return new Bom(bom);
-        // TODO: add new materials and assign them according to carport data
+        // TODO: add new materials and assign them according to carport data for price variation
     }
 
     private Material getDbMaterial(String m) {
