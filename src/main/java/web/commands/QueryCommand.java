@@ -32,8 +32,7 @@ public class QueryCommand extends CommandUnprotectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
         int carportId = Integer.parseInt(request.getParameter("queriedId"));
-        String wantBuilder = "";
-        wantBuilder = request.getParameter("wantBuilder");
+        String wantBuilder = request.getParameter("wantBuilder");
         Carport carport = carportFacade.getCarport(carportId);
         System.out.println(carport);
         request.setAttribute("userFacade", userFacade);

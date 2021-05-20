@@ -41,11 +41,11 @@
                     <th>telefon</th>
                     <th>
                         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>Indkøbspris</p>
+                        <p>Salgspris</p>
                     </th></c:if>
                     <th>
                         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>Med avance</p>
+                        <p>Indkøbspris</p>
                     </th></c:if>
                 </tr>
                 <c:forEach items="${requestScope.queries}" var="queries">
