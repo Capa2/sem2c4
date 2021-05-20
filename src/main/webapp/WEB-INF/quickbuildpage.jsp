@@ -74,7 +74,7 @@
                                 <small id="note" class="form-text text-muted">(Valgfrit) besked ved henvendelse.</small>
                             </div>
                             <input type="submit" class="btn btn-success my-2"
-                                   type="submit" name="submit" value="Send forespørgsel"
+                                   type="submit" name="submitCustom" value="Send forespørgsel"
                                    <c:if test="${sessionScope.user == null}">disabled="disabled"</c:if> />
                         </form>
                     </div>

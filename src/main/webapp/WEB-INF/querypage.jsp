@@ -34,69 +34,70 @@
                             <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
                         </c:forEach>
                         <p>Inkl. søm, skruer og hulbånd.</p>
-                        <p>Sælges som standardmodel.</p>
                         <br>
                         <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
-                            </div>
-<%--                        Pictures--%>
-                        <div class="row col-6 offset-1">
-                            <img class="img-fluid" style="float: right;" src="<c:url  value='/data/${carport.name}.png'/>"
+                    </div>
+                        <%--                        Pictures--%>
+                    <div class="row col-6 offset-1">
+                        <c:if test="${requestScope.custom = false}">
+                            <img class="img-fluid" style="float: right;"
+                                 src="<c:url  value='/data/${carport.name}.png'/>"
                                  alt="carport"/>
                             <hr class="border-white">
-                                ${requestScope.svg}
-                            <!--<img class="img-fluid img-thumbnail" src="<c:url value='/data/SVGD.png'/>"
-                         alt="carport ${requestscope.carport.name}"/>-->
-                        </div>
+                        </c:if>
+                            ${requestScope.svg}
+                    </div>
 
-        <table class="table" style="width: auto;">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">${sessionScope.role}</th>
-                <th scope="col">${sessionScope.user.name}</th>
-                <th scope="col">${sessionScope.user.email}</th>
-                <th scope="col">${sessionScope.user.phone}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">forespørgsels nr.</th>
-                <th>kunde nr.</th>
-                <th scope="row">carport nr.</th>
-                <th scope="row">status</th>
-                <th>besked</th>
-                <th>navn</th>
-                <th>email</th>
-                <th>telefon</th>
-                <th>Håndværker</th>
-            </tr>
+                    <table class="table" style="width: auto;">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">${sessionScope.role}</th>
+                            <th scope="col">${sessionScope.user.name}</th>
+                            <th scope="col">${sessionScope.user.email}</th>
+                            <th scope="col">${sessionScope.user.phone}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">forespørgsels nr.</th>
+                            <th>kunde nr.</th>
+                            <th scope="row">carport nr.</th>
+                            <th scope="row">status</th>
+                            <th>besked</th>
+                            <th>navn</th>
+                            <th>email</th>
+                            <th>telefon</th>
+                            <th>Håndværker</th>
+                        </tr>
 
 
-            <c:forEach items="${requestScope.queries}" var="queries">
-                <tr>
-                    <td>${queries.id}</td>
-                    <td>${queries.userId}</td>
-                    <td>${queries.carportId}</td>
-                    <td>${queries.status}</td>
-                    <td>${queries.message}</td>
-                    <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
-                    <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
-                    <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
-                    <td>${queries.wantBuilder}</td>
+                        <c:forEach items="${requestScope.queries}" var="queries">
+                            <tr>
+                                <td>${queries.id}</td>
+                                <td>${queries.userId}</td>
+                                <td>${queries.carportId}</td>
+                                <td>${queries.status}</td>
+                                <td>${queries.message}</td>
+                                <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                                <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                                <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
+                                <td>${queries.wantBuilder}</td>
 
-                    <td>
-                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId) * 1.5} Dkkr</p> <c:out
-                            value="${income}"/><p>
-                    </td>
-                    </c:if>
-                </tr>
-            </c:forEach>
+                                <td>
+                                    <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                                    <p>${requestScope.bomBuilder.getPriceString(queries.carportId) * 1.5} Dkkr</p>
+                                    <c:out
+                                            value="${income}"/><p>
+                                </td>
+                                </c:if>
+                            </tr>
+                        </c:forEach>
 
-            </tbody>
-        </table>
+                        </tbody>
+                    </table>
 
-        </div>
                 </div>
+            </div>
         </body>
     </jsp:body>
 </t:genericpage>

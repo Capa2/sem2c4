@@ -23,6 +23,7 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private BomBuilder bomBuilder;
     final private QuickBuilder quickBuilder;
     private Carport carport;
+    boolean custom;
 
 
     public QueryCommand(String pageToShow) {
@@ -32,41 +33,30 @@ public class QueryCommand extends CommandUnprotectedPage {
         userFacade = new UserFacade(database);
         bomBuilder = new BomBuilder(database);
         quickBuilder = new QuickBuilder();
+
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        if (request.getParameter("submit") != null) {
+        if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
+            custom = true;
         } else {
             int id = Integer.parseInt(request.getParameter("queriedId"));
             carport = carportFacade.getCarport(id);
+            custom = false;
         }
         String wantBuilder = request.getParameter("wantBuilder");
         Bom bom = bomBuilder.getBom(carport.getId());
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
+        request.setAttribute("custom", custom);
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
         request.setAttribute("wantBuilder", wantBuilder);
-        int userId = (int) session.getAttribute("userId");
-        String role = user.getRole();
-        ArrayList<Query> queries = new ArrayList<>();
-        Query query = new Query(userId, carport.getId(), "Created", "Robotmachine", wantBuilder); // add wantbuilder
 
-
-        if (user.getRole().equals("customer")) {
-            queryFacade.createQuery(userId, carport.getId(), "Created", "Robotmachine", wantBuilder);
-            queries = queryFacade.getQueries(userId);
-            request.setAttribute("queries", queries);
-        }
-
-        if (user.getRole().equals("employee")) {
-            queries = queryFacade.getAllQueries();
-            request.setAttribute("queries", queries);
-        }
         return pageToShow;
     }
 }
