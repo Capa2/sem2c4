@@ -14,7 +14,6 @@ import business.services.QuickBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 public class QueryCommand extends CommandUnprotectedPage {
     final private CarportFacade carportFacade;
