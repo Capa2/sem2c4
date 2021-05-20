@@ -16,7 +16,7 @@ public class CarportMapper {
 
     public Carport createCarport(Carport carport) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO Carport (roofAngle, width, length, shedwidth, shedlength) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `carport` (roofAngle, width, length, shedwidth, shedlength) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, carport.getRoofAngle());
@@ -40,7 +40,7 @@ public class CarportMapper {
 
     public Carport getCarport(int id) throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE id = ?";
+            String sql = "SELECT roofAngle, width, length, shedwidth, shedlength, name FROM `carport` WHERE id = ?";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
@@ -71,7 +71,7 @@ public class CarportMapper {
 
     public List<Carport> getModels() throws UserException {
         try (Connection connection = database.connect()) {
-            String sql = "SELECT id, roofAngle, width, length, shedwidth, shedlength, name FROM carport WHERE name IS NOT NULL";
+            String sql = "SELECT id, roofAngle, width, length, shedwidth, shedlength, name FROM `carport` WHERE name IS NOT NULL";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 List<Carport> carportList = new ArrayList<>();

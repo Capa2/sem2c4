@@ -4,9 +4,9 @@ public class Response {
     User employee;
     Query query;
     String message;
-    float price;
+    double price;
 
-    public Response(User employee, Query query, String message, float price) {
+    public Response(User employee, Query query, String message, double price) {
         this.employee = employee;
         this.query = query;
         this.message = message;
@@ -37,11 +37,11 @@ public class Response {
         this.message = message;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

@@ -36,12 +36,11 @@
                                     </p>
                                     <p>
                                         <c:if test="${carport.roofAngle == 0}">Fladt tag</c:if>
-                                        <c:if test="${carport.roofAngle > 0}">Tag med høj rejsning</c:if>
+                                        <c:if test="${carport.roofAngle > 0}">Tag med rejsning</c:if>
                                     </p>
                                 </div>
                                 <div class="text-center">
-                                    <p style="font-weight: 600"
-                                       class="lead">${requestScope.bomBuilder.getPriceString(carport.id)} DKK</p>
+                                    <p style="font-weight: 600" class="lead">${requestScope.bomBuilder.getPriceString(carport.id)} DKK</p>
                                     <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">
                                         <button class="btn btn-success rounded-0 rounded-top">Læs mere</button>
                                     </a></div>
