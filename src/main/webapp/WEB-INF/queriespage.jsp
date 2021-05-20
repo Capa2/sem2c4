@@ -39,14 +39,16 @@
                     <th>navn</th>
                     <th>email</th>
                     <th>telefon</th>
-                    <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                    <th>
-                        <p>Indkøbspris</p>
-                    </th></c:if>
                     <th>
                         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>Med avance</p>
-                    </th></c:if>
+                        <p>Salgspris</p>
+                    </th>
+                    </c:if>
+                    <th>
+                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                        <p>Indkøbspris</p>
+                    </th>
+                    </c:if>
                 </tr>
                 <c:forEach items="${requestScope.queries}" var="queries">
                     <tr>
@@ -59,13 +61,17 @@
                         <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
                         <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
                         <td>
-                        <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                        <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} DKK</p> <c:out value="${income}"/><p>
-                    </td></c:if>
+                            <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                            <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} DKK</p> <c:out
+                                value="${income}"/><p>
+                        </td>
+                        </c:if>
                         <td>
                             <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
-                            <p>${requestScope.bomBuilder.getCostString(queries.carportId)} DKK</p> <c:out value="${income}"/><p>
-                        </td></c:if>
+                            <p>${requestScope.bomBuilder.getCostString(queries.carportId)} DKK</p> <c:out
+                                value="${income}"/><p>
+                        </td>
+                        </c:if>
                     </tr>
                 </c:forEach>
                 </tbody>
