@@ -18,30 +18,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <table class="table" style="width: auto;">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">${sessionScope.user.role}</th>
-                <th scope="col">${sessionScope.user.name}</th>
-                <th scope="col">${sessionScope.user.email}</th>
-                <th scope="col">${sessionScope.user.phone}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">forespørgsels nr.</th>
-                <th>kunde nr.</th>
-                <th scope="row">carport nr.</th>
-                <th scope="row">status</th>
-                <th>besked</th>
-                <th>navn</th>
-                <th>email</th>
-                <th>telefon</th>
-                <th>Håndværker</th>
-            </tr>
-            </tbody>
-        </table>
-        </div>
         <div class="container my-5">
 
         <h2 class="display-4"> ${requestScope.carport.name}
@@ -61,6 +37,7 @@
                     <br>
                     <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
                 </div>
+            </div>
                 <div class="row col-6 offset-1">
                     <c:if test="${requestScope.custom == false}">
                         <img class="img-fluid" style="float: right;"
