@@ -9,6 +9,7 @@ import business.services.BomBuilder;
 import business.services.CarportFacade;
 import business.services.QueryFacade;
 import business.services.UserFacade;
+import business.services.QuickBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,8 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private QueryFacade queryFacade;
     final private UserFacade userFacade;
     final private BomBuilder bomBuilder;
+    final private QuickBuilder quickBuilder;
+    private Carport carport;
 
 
     public QueryCommand(String pageToShow) {
@@ -28,47 +31,42 @@ public class QueryCommand extends CommandUnprotectedPage {
         queryFacade = new QueryFacade(database);
         userFacade = new UserFacade(database);
         bomBuilder = new BomBuilder(database);
+        quickBuilder = new QuickBuilder();
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
-        int carportId = Integer.parseInt(request.getParameter("queriedId"));
+        User user = (User) session.getAttribute("user");
+        if (request.getParameter("submit") != null) {
+            carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
+        } else {
+            int id = Integer.parseInt(request.getParameter("queriedId"));
+            carport = carportFacade.getCarport(id);
+        }
         String wantBuilder = request.getParameter("wantBuilder");
-        Carport carport = carportFacade.getCarport(carportId);
-        Bom bom = bomBuilder.getBom(carportId);
+        Bom bom = bomBuilder.getBom(carport.getId());
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);
         request.setAttribute("wantBuilder", wantBuilder);
         int userId = (int) session.getAttribute("userId");
-        String role = (String) session.getAttribute("role");
+        String role = user.getRole();
         ArrayList<Query> queries = new ArrayList<>();
-        ArrayList<User> users = new ArrayList<>();
-        Query query = new Query(userId, carportId, "Xreated", "Robotmachine", wantBuilder); // add wantbuilder
+        Query query = new Query(userId, carport.getId(), "Created", "Robotmachine", wantBuilder); // add wantbuilder
 
-        try {
-            if (role.equals("customer") || role.equals("Kunde")) {
-                role = "Kunde";
-                queryFacade.createQuery(userId, carport.getId(), "Created", "Robotmachine", wantBuilder);
-                queries = queryFacade.getQueries(userId);
-                request.setAttribute("queries", queries);
-                session.getAttribute("user");
-            }
 
-            if (role.equals("employee") || role.equals("Sælger")) {
-                role = "Sælger";
-                queries = queryFacade.getAllQueries();
-                request.setAttribute("queries", queries);
-            }
-
-            session.setAttribute("role", role);
-
-            return pageToShow;
-        } catch (UserException e) {
-            e.printStackTrace();
+        if (user.getRole().equals("customer")) {
+            queryFacade.createQuery(userId, carport.getId(), "Created", "Robotmachine", wantBuilder);
+            queries = queryFacade.getQueries(userId);
+            request.setAttribute("queries", queries);
         }
-        return role;
+
+        if (user.getRole().equals("employee")) {
+            queries = queryFacade.getAllQueries();
+            request.setAttribute("queries", queries);
+        }
+        return pageToShow;
     }
 }

@@ -21,16 +21,16 @@ public abstract class Command
     {
         commands = new HashMap<>();
         commands.put("index", new IndexCommand("index"));
+
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
         commands.put("logincommand", new LoginCommand(""));
-        commands.put("logoutcommand", new LogoutCommand(""));
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand(""));
-        commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
-        commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
+        commands.put("logoutcommand", new LogoutCommand(""));
+
         commands.put("modelpage", new ModelCommand("modelpage"));
         commands.put("quickbuildpage", new QuickBuildCommand("quickbuildpage"));
-        // skal laves protected
+
         commands.put("querypage", new QueryCommand("querypage"));
         commands.put("queriespage", new QueriesCommand("queriespage"));
     }

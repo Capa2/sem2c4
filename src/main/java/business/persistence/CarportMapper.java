@@ -14,7 +14,7 @@ public class CarportMapper {
         this.database = database;
     }
 
-    public void createCarport(Carport carport) throws UserException {
+    public Carport createCarport(Carport carport) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO Carport (roofAngle, width, length, shedwidth, shedlength) VALUES (?, ?, ?, ?, ?)";
 
@@ -29,6 +29,7 @@ public class CarportMapper {
                 ids.next();
                 int id = ids.getInt(1);
                 carport.setId(id);
+                return carport;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
