@@ -40,7 +40,8 @@
                                     </p>
                                 </div>
                                 <div class="text-center">
-                                    <p style="font-weight: 600" class="lead">${requestScope.bomBuilder.getPriceString(carport.id)} DKK</p>
+                                    <p style="font-weight: 600"
+                                       class="lead">${requestScope.bomBuilder.getPriceString(carport.id)} DKK</p>
                                     <a href="${pageContext.request.contextPath}/fc/modelpage?model=${carport.id}">
                                         <button class="btn btn-success rounded-0 rounded-top">Læs mere</button>
                                     </a></div>
@@ -74,15 +75,12 @@
                         </form>
                     </div>
                     <hr>
-                    <div class="bg-info p-4 rounded"><a href="${pageContext.request.contextPath}/fc/custom">
-                        <h2 class="display-4">Klik her for byg-selv-formular</h2></a>
+                    <div class="bg-info p-4 rounded text-center">
+                        <a href="${pageContext.request.contextPath}/fc/quickbuildpage">
+                            <h2 class="display-4">Klik her for byg-selv-formular</h2></a>
                     </div>
                 </div>
             </div>
         </div>
-        <c:if test="${sessionScope.role == 'employee' }">
-        </c:if>
-        <c:if test="${sessionScope.role == 'customer' }">
-        </c:if>
     </jsp:body>
 </t:genericpage>
