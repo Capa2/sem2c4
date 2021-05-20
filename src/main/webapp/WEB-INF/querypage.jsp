@@ -18,52 +18,52 @@
     </jsp:attribute>
 
     <jsp:body>
-<body>
-<div style="font-family: 'Times New Roman'">
-<table class="table" style="width: auto;">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">${sessionScope.role}</th>
-        <th scope="col">${sessionScope.user.name}</th>
-        <th scope="col">${sessionScope.user.email}</th>
-        <th scope="col">${sessionScope.user.phone}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">forespørgsels nr.</th>
-        <th>kunde nr.</th>
-        <th scope="row">carport nr.</th>
-        <th scope="row">status</th>
-        <th>besked</th>
-        <th>navn</th>
-        <th>email</th>
-        <th>telefon</th>
-    </tr>
+        <body>
+        <div style="font-family: 'Times New Roman'">
+            <table class="table" style="width: auto;">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">${sessionScope.role}</th>
+                    <th scope="col">${sessionScope.user.name}</th>
+                    <th scope="col">${sessionScope.user.email}</th>
+                    <th scope="col">${sessionScope.user.phone}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">forespørgsels nr.</th>
+                    <th>kunde nr.</th>
+                    <th scope="row">carport nr.</th>
+                    <th scope="row">status</th>
+                    <th>besked</th>
+                    <th>navn</th>
+                    <th>email</th>
+                    <th>telefon</th>
+                </tr>
 
 
+                <c:forEach items="${requestScope.queries}" var="queries">
+                    <tr>
+                        <td>${queries.id}</td>
+                        <td>${queries.userId}</td>
+                        <td>${queries.carportId}</td>
+                        <td>${queries.status}</td>
+                        <td>${queries.message}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).name}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).email}</td>
+                        <td>${requestScope.userFacade.getUser(queries.userId).phone}</td>
+                        <td>
+                            <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
+                            <p>${requestScope.bomBuilder.getPriceString(queries.carportId)} <c:out value="${income}"/><p>
+                        </td></c:if>
+                    </tr>
+                </c:forEach>
 
-    <c:forEach items="${requestScope.queries}" var="object">
-        <tr>
-            <td>${object.id}</td>
-            <td>${object.userId}</td>
-            <td>${object.carportId}</td>
-            <td>${object.status}</td>
-            <td>${object.message}</td>
-        <c:forEach items="${requestScope.users}" var="users">
+                </tbody>
+            </table>
 
-                <td>${users.name}</td>
-                <td>${users.email}</td>
-                <td>${users.phone}</td>
-            </tr>
-        </c:forEach>
-    </c:forEach>
-
-    </tbody>
-</table>
-
-</div>
-</body>
+        </div>
+        </body>
     </jsp:body>
 </t:genericpage>
 

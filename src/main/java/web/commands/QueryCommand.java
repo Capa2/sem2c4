@@ -34,6 +34,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         int carportId = Integer.parseInt(request.getParameter("queriedId"));
         Carport carport = carportFacade.getCarport(carportId);
         System.out.println(carport);
+        request.setAttribute("userFacade", userFacade);
 //        id, roofAngle, width, length, shedWidth, shedLength
 
         int userId = (int) session.getAttribute("userId");
@@ -48,8 +49,7 @@ public class QueryCommand extends CommandUnprotectedPage {
                 queryFacade.createQuery(userId, carport.getId(), "Xreated", "Robotmachine");
                 queries = queryFacade.getQueries(userId);
                 request.setAttribute("queries", queries);
-//                queries.add(new Query(userId, carportId, "Xcreated", "Robotmachine"));
-
+                session.getAttribute("user");
             }
 
             if (role.equals("employee") || role.equals("Sælger")) {
