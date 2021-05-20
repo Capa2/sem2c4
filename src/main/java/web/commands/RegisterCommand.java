@@ -40,11 +40,9 @@ public class RegisterCommand extends CommandUnprotectedPage {
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
             session.setAttribute("userId", user.getId());
-//            session.setAttribute("town", town);
-//            session.setAttribute("zipCode", zipCode);
-//            session.setAttribute("street", street);
-//            session.setAttribute("town", town);
-            return request.getContextPath();
+
+            String pageToShow = request.getContextPath();
+            return REDIRECT_INDICATOR + pageToShow;
         } else {
             request.setAttribute("error", "the two passwords did not match");
             return "registerpage";
