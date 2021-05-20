@@ -11,12 +11,6 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        Carport ${requestScope.carport.name}
-        <c:if test="${carport.width >= 400}">dobbelt</c:if>
-            <c:if test="${carport.width < 400}">enkelt</c:if>
-        ${requestScope.carport.width}cm x ${requestScope.carport.length}cm
-            <c:if test="${carport.roofAngle == 0}"> med fladt tag</c:if>
-            <c:if test="${carport.roofAngle > 0}">med høj rejsning</c:if>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -25,6 +19,7 @@
 
     <jsp:body>
         <body>
+
         <div class="container my-5">
             <h2 class="display-4"> ${requestScope.carport.name}
                 <c:if test="${carport.length >= 400}">dobbelt</c:if>
@@ -33,6 +28,7 @@
                 <hr class="border-white">
                 <div class="col-5">
                     <div class="mb-4">
+                        <h3 class="display-8">Du har sendt en forespørgsel på</h3>
                         <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                         <c:forEach var="material" items="${requestScope.bom.list}">
                             <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
@@ -41,6 +37,16 @@
                         <p>Sælges som standardmodel.</p>
                         <br>
                         <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
+                            </div>
+<%--                        Pictures--%>
+                        <div class="row col-6 offset-1">
+                            <img class="img-fluid" style="float: right;" src="<c:url  value='/data/${carport.name}.png'/>"
+                                 alt="carport"/>
+                            <hr class="border-white">
+                                ${requestScope.svg}
+                            <!--<img class="img-fluid img-thumbnail" src="<c:url value='/data/SVGD.png'/>"
+                         alt="carport ${requestscope.carport.name}"/>-->
+                        </div>
 
         <table class="table" style="width: auto;">
             <thead class="thead-dark">
@@ -90,6 +96,7 @@
         </table>
 
         </div>
+                </div>
         </body>
     </jsp:body>
 </t:genericpage>
