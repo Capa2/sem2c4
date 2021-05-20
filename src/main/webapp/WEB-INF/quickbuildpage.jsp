@@ -42,18 +42,18 @@
                             <div class="form-group my-2">
                                 <label class="" for="width">Bredde, carport</label>
                                 <input class="form-control" id="width" name="width" placeholder="600" type="number"
-                                       min="250" max="2500"/> <small class="form-text text-muted">centimeter</small>
+                                       min="50" max="2500"/> <small class="form-text text-muted">centimeter</small>
                             </div>
                             <div class="form-group my-2">
                                 <label for="length">Længde, carport</label>
                                 <input class="form-control" id="length" name="length" placeholder="500" type="number"
-                                       min="250" max="2500"/> <small class="form-text text-muted">centimeter</small>
+                                       min="50" max="2500"/><small class="form-text text-muted">centimeter</small>
                             </div>
                             <div class="form-group my-2">
                                 <label for="width">Bredde, skur</label>
                                 <input class="form-control" id="shedWidth" name="shedWidth" placeholder="550"
-                                       type="number" min="250"
-                                       max="2500"/> <small class="form-text text-muted">centimeter</small>
+                                       type="number" min="50" max="2500"/>
+                                <small class="form-text text-muted">centimeter</small>
                             </div>
                             <div class="form-group my-2">
                                 <label for="length">Længde, skur</label>
