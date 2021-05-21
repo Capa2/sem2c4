@@ -2,7 +2,8 @@ package business.entities;
 
 
 public class Carport {
-    int id, roofAngle, width, length, shedWidth, shedLength;
+    int id, roofAngle, width, length, shedWidth, shedLength, noShedWidth, noShedlength;
+    boolean shed, largeShed, flatRoof;
     String name;
 
     public Carport(int roofAngle, int width, int length, int shedWidth, int shedLength) {
@@ -11,6 +12,14 @@ public class Carport {
         this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+        this.noShedWidth = width - shedWidth;
+        this.noShedlength = length - shedLength;
+        this.largeShed = width - shedWidth > width / 1.5d;
+        System.out.println(width - shedWidth);
+        System.out.println(width / 1.5d);
+        System.out.println(largeShed);
+        this.shed = shedWidth > 0 && shedLength > 0;
+        this.flatRoof = roofAngle == 0;
     }
 
     public Carport(int id, int roofAngle, int width, int length, int shedWidth, int shedLength) {
@@ -20,6 +29,14 @@ public class Carport {
         this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+        this.noShedWidth = width - shedWidth;
+        this.noShedlength = length - shedLength;
+        this.largeShed = width - shedWidth > width / 1.5d;
+        System.out.println(width - shedWidth);
+        System.out.println(width / 1.5d);
+        System.out.println(largeShed);
+        this.shed = shedWidth > 0 && shedLength > 0;
+        this.flatRoof = roofAngle == 0;
     }
 
     public Carport(int id, String name, int roofAngle, int width, int length, int shedWidth, int shedLength) {
@@ -30,6 +47,11 @@ public class Carport {
         this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+        this.noShedWidth = width - shedWidth;
+        this.noShedlength = length - shedLength;
+        this.largeShed = width - shedWidth > width / 1.5d;
+        this.shed = shedWidth > 0 && shedLength > 0;
+        this.flatRoof = roofAngle == 0;
     }
 
     public int getId() {
@@ -86,5 +108,25 @@ public class Carport {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNoShedWidth() {
+        return noShedWidth;
+    }
+
+    public int getNoShedlength() {
+        return noShedlength;
+    }
+
+    public boolean hasShed() {
+        return shed;
+    }
+
+    public boolean hasLargeShed() {
+        return largeShed;
+    }
+
+    public boolean hasFlatRoof() {
+        return flatRoof;
     }
 }
