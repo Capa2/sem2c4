@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <c:if test="${requestScope.customer != null}">
+        <c:if test="${requestScope.customer != null && sessionScope.user.role.equals('employee')}">
             <p>Kundedetaljer</p>
             <p>name : ${requestScope.customer.name}<br> email : ${requestScope.customer.email}<br> phone : ${requestScope.customer.phone}</p>
         </c:if>
