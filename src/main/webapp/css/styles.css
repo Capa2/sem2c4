@@ -1,0 +1,14 @@
+/*
+    CSS styles for the whole website
+    The file is included in the genericpage.tag template
+ */
+
+body {
+
+  background-image: url(/circuit/circuit.png);
+} 
+
+#topmenu_login_dialogue {
+    font-size: smaller;
+}
+
