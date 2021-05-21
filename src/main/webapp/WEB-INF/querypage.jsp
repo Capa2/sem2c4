@@ -50,18 +50,11 @@
         </div>
 
         <c:if test="${requestScope.customer != null}">
-
-
-
             <p>Kundedetaljer</p>
             <p>name : ${requestScope.customer.name}<br> email : ${requestScope.customer.email}<br> phone : ${requestScope.customer.phone}</p>
-
-
-
-
         </c:if>
 
-        <c:if test="${requestScope.query.wantBuilder != null}">
+        <c:if test="${requestScope.query.wantBuilder != 0}">
             <p>Jeg vil gerne have tilbud fra en håndværker</p>
         </c:if>
 

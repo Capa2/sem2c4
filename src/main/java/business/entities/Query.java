@@ -1,25 +1,24 @@
 package business.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Query {
-    int id, userId, carportId;
-    String status, message, wantBuilder;
+    int id, userId, carportId, wantBuilder;
+    String status, message;
 
-    public Query(int userId, int carportId, String status, String message, String wantBuilder) {
+    public Query(int userId, int carportId, String status, String message, int wantBuilder) {
         this.userId = userId;
         this.carportId = carportId;
         this.status = status;
         this.message = message;
+        this.wantBuilder = wantBuilder;
     }
 
-    public Query(int id, int userId, int carportId, String status, String message, String wantBuilder) {
+    public Query(int id, int userId, int carportId, String status, String message, int wantBuilder) {
         this.id = id;
         this.userId = userId;
         this.carportId = carportId;
         this.status = status;
         this.message = message;
+        this.wantBuilder = wantBuilder;
     }
 
     public int getId() {
@@ -60,9 +59,9 @@ public class Query {
         this.message = message;
     }
 
-    public String getWantBuilder() { return wantBuilder; }
+    public int getWantBuilder() { return wantBuilder; }
 
-    public void setWantBuilder(String wantBuilder) { this.wantBuilder = wantBuilder; }
+    public void setWantBuilder(int wantBuilder) { this.wantBuilder = wantBuilder; }
 
     @Override
     public String toString() {

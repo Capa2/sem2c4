@@ -36,8 +36,8 @@ public class QueryCommand extends CommandUnprotectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        String wantBuilder = request.getParameter("wantBuilder");
         String message = null;
+        int wantBuilder = 0;
 
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
@@ -51,6 +51,12 @@ public class QueryCommand extends CommandUnprotectedPage {
         if(request.getParameter("userId") != null){
             int userId = Integer.parseInt(request.getParameter("userId"));
             request.setAttribute("customer", userFacade.getUser(userId));
+        }
+
+        if(request.getParameter("wantBuilder") != null)
+        {
+            wantBuilder = Integer.parseInt(request.getParameter("wantBuilder"));
+            request.setAttribute("wantBuilder", wantBuilder);
         }
 
 //        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
@@ -69,9 +75,6 @@ public class QueryCommand extends CommandUnprotectedPage {
         request.setAttribute("queryFacade", queryFacade);
         request.setAttribute("responseFacade", responseFacade);
         request.setAttribute("message", message);
-
-        request.setAttribute("wantBuilder", request.getParameter("wantBuilder"));
-        System.out.println(wantBuilder);
 
         if(user.getRole().equals("customer")) {
             Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);

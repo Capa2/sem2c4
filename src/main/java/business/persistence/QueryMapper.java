@@ -24,7 +24,7 @@ public class QueryMapper {
                 ps.setInt(2, query.getCarportId());
                 ps.setString(3, query.getStatus());
                 ps.setString(4, query.getMessage());
-                ps.setString(5, query.getWantBuilder());
+                ps.setInt(5, query.getWantBuilder());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
@@ -53,7 +53,7 @@ public class QueryMapper {
                     int carportId = rs.getInt("carportId");
                     String status = rs.getString("status");
                     String message = rs.getString("message");
-                    String wantBuilder = rs.getString("wantBuilder");
+                    int wantBuilder = rs.getInt("wantBuilder");
                     Query query = new Query(id, userId, carportId, status, message, wantBuilder);
                     queries.add(query);
                 }
@@ -80,7 +80,7 @@ public class QueryMapper {
                     int carportId = rs.getInt("carportId");
                     String status = rs.getString("status");
                     String message = rs.getString("message");
-                    String wantBuilder = rs.getString("wantBuilder");
+                    int wantBuilder = rs.getInt("wantBuilder");
                     Query query = new Query(id, userId, carportId, status, message, wantBuilder);
                     queries.add(query);
                 }

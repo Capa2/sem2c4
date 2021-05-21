@@ -57,7 +57,7 @@
                                        class="form-check-input"
                                        type="checkbox"
                                        id="inlineCheckbox3"
-                                       value="yes"
+                                       value="1"
                                        <c:if test="${sessionScope.user == null}">disabled</c:if>
                                 />
                                 <label class="form-check-label" for="inlineCheckbox3"> Jeg vil gerne have tilbud fra en
