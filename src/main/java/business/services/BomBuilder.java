@@ -45,7 +45,7 @@ public class BomBuilder {
         // assign materials
         Material post = getDbMaterial("trykimp. stolpe");
         Material rafter = getDbMaterial("spærtræ ubh.");
-        Material roof = getDbMaterial("Plastmo Ecolite blåtonet");
+        Material roof = (carport.getRoofAngle() == 0) ? getDbMaterial("Plastmo Ecolite blåtonet") : getDbMaterial("Betontagsten");
         Material rim = getDbMaterial("trykimp. brædt");
 
         // calc amount & add to bom
@@ -54,14 +54,21 @@ public class BomBuilder {
         addRim(rim);
         addRoof(roof);
 
-        // add misc items
+        // add (a currently arbitrary amount of) misc items
+        addMisc();
+        if (carport.getWidth() + carport.getLength() > 750) addMisc();
+        if (carport.getWidth() + carport.getLength() > 1150) addMisc();
+        if (carport.getWidth() + carport.getLength() > 1350) addMisc();
+
+        return new Bom(bom);
+        // TODO: add new materials and assign them according to carport data for price variation
+    }
+
+    private void addMisc() {
         add(getDbMaterial("plastmo bundskruer 200 stk."));
         add(getDbMaterial("skruer 4,5x7mm 400 stk."));
         add(getDbMaterial("skruer 4,5x7mm 300 stk."));
         add(getDbMaterial("firkantsskiver 40x40mm"));
-
-        return new Bom(bom);
-        // TODO: add new materials and assign them according to carport data for price variation
     }
 
     private Material getDbMaterial(String m) {
@@ -78,14 +85,14 @@ public class BomBuilder {
     }
 
     private void addPosts(Material post) { // stolper
-        double shedRatio = (carport.getShedWidth() == 0 || carport.getShedLength() == 0) ? 0 : (carport.getWidth() *1d)/(carport.getShedWidth() * 1d);
-        int amount = (shedRatio == 0) ? 2 : 6; // shed needs 4
+        double shedRatio = (carport.getShedWidth() == 0 || carport.getShedLength() == 0) ? 0 : (carport.getWidth() * 1d) / (carport.getShedWidth() * 1d);
+        int amount = (shedRatio == 0) ? 0 : 4; // shed needs 4
         int lengthToSupport = (shedRatio > 0.8) ? carport.getLength() - carport.getShedLength() : carport.getLength();
         while (lengthToSupport > 0) {
             amount += 2;
             lengthToSupport -= 310; // max supported length
         }
-        post.setAmount(amount);
+        post.setAmount(Math.max(amount, 4));
         bom.add(post);
     }
 
@@ -99,12 +106,12 @@ public class BomBuilder {
     }
 
     private void addRim(Material rem) { // remme
-        rem.setAmount((int) (2 * (Math.ceil(1d * carport.getLength() / rem.getLength()))));;
+        rem.setAmount((int) (2 * (Math.ceil(1d * carport.getLength() / rem.getLength()))));
         bom.add(rem);
     }
 
     private void addRoof(Material roof) { // tag
-        roof.setAmount((int) Math.ceil(Math.max(1d * carport.getLength() / roof.getLength(), 1d * carport.getWidth() / roof.getWidth())));
+        roof.setAmount((int) Math.ceil(carport.getLength() * carport.getWidth()) / (roof.getLength() * roof.getWidth()));
         bom.add(roof);
     }
 

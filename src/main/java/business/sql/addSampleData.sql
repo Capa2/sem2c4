@@ -48,6 +48,7 @@ VALUES ('trykimp. stolpe', '300', '300', '97', (SELECT id from `materialcategory
        ('spærtræ ubh.', '250', '600', '195', (SELECT id from `materialcategory` WHERE name='rafter')),
        ('spærtræ ubh.', '250', '600', '195', (SELECT id from `materialcategory` WHERE name='rem')),
        ('Plastmo Ecolite blåtonet', '500', '600', '600', (SELECT id from `materialcategory` WHERE name='flatRoof')),
+       ('Betontagsten', '20', '60', '30', (SELECT id from `materialcategory` WHERE name='sloapedRoof')),
        ('trykimp. brædt', '200', '210', '100', (SELECT id from `materialcategory` WHERE name='cladding'));
 
 
