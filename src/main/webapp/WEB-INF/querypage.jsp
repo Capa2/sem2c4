@@ -49,6 +49,22 @@
             </div>
         </div>
 
+        <c:if test="${requestScope.customer != null}">
+
+
+
+            <p>Kundedetaljer</p>
+            <p>name : ${requestScope.customer.name}<br> email : ${requestScope.customer.email}<br> phone : ${requestScope.customer.phone}</p>
+
+
+
+
+        </c:if>
+
+        <c:if test="${requestScope.query.wantBuilder != null}">
+            <p>Jeg vil gerne have tilbud fra en håndværker</p>
+        </c:if>
+
         <div class="col-4 offset-1">
         ${requestScope.svg}
         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">

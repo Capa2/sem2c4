@@ -74,6 +74,7 @@
                         </c:if>
                         <td><form name="sendQuery" action="${pageContext.request.contextPath}/fc/querypage" method="post">
                             <input hidden="hidden" name="queriedId" value="${queries.carportId}"/>
+                            <input hidden="hidden" name="userId" value="${queries.userId}"/>
                             <button class="btn btn-success mt-2" type="submit"
                                     name="submitQuery"
                                     value="${requestScope.carport.name}">Gå til forespørgsel

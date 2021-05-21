@@ -38,11 +38,6 @@ public class QueryCommand extends CommandUnprotectedPage {
         User user = (User) session.getAttribute("user");
         String wantBuilder = request.getParameter("wantBuilder");
         String message = null;
-//        request.getParameter();
-
-        if (user.getRole() != "employee"); {
-
-        }
 
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
@@ -53,14 +48,11 @@ public class QueryCommand extends CommandUnprotectedPage {
             custom = false;
         }
 
-//        if(request.getParameter() != null) {
-//
-//        }
-
-        if(user.getRole().equals("customer")) {
-            Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
-            request.setAttribute("query", query);
+        if(request.getParameter("userId") != null){
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            request.setAttribute("customer", userFacade.getUser(userId));
         }
+
 //        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
 
         Bom bom = bomBuilder.getBom(carport.getId());
@@ -77,9 +69,14 @@ public class QueryCommand extends CommandUnprotectedPage {
         request.setAttribute("queryFacade", queryFacade);
         request.setAttribute("responseFacade", responseFacade);
         request.setAttribute("message", message);
+
         request.setAttribute("wantBuilder", request.getParameter("wantBuilder"));
+        System.out.println(wantBuilder);
 
-
+        if(user.getRole().equals("customer")) {
+            Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
+            request.setAttribute("query", query);
+        }
 
         return pageToShow;
     }
