@@ -15,9 +15,6 @@ public class Carport {
         this.noShedWidth = width - shedWidth;
         this.noShedlength = length - shedLength;
         this.largeShed = width - shedWidth > width / 1.5d;
-        System.out.println(width - shedWidth);
-        System.out.println(width / 1.5d);
-        System.out.println(largeShed);
         this.shed = shedWidth > 0 && shedLength > 0;
         this.flatRoof = roofAngle == 0;
     }
@@ -32,9 +29,6 @@ public class Carport {
         this.noShedWidth = width - shedWidth;
         this.noShedlength = length - shedLength;
         this.largeShed = width - shedWidth > width / 1.5d;
-        System.out.println(width - shedWidth);
-        System.out.println(width / 1.5d);
-        System.out.println(largeShed);
         this.shed = shedWidth > 0 && shedLength > 0;
         this.flatRoof = roofAngle == 0;
     }

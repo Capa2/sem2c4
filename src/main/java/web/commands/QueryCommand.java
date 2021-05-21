@@ -64,13 +64,10 @@ public class QueryCommand extends CommandUnprotectedPage {
         }
         System.out.println(fromQ);
 
-//        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
-
         Bom bom = bomBuilder.getBom(carport);
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);
 
-//        request.setAttribute("response1", response1);
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
 
