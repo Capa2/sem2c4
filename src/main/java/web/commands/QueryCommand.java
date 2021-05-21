@@ -37,6 +37,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         User user = (User) session.getAttribute("user");
         String message = null;
         int wantBuilder = 0;
+        int fromQ = 0;
 
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
@@ -56,6 +57,13 @@ public class QueryCommand extends CommandUnprotectedPage {
             request.setAttribute("wantBuilder", wantBuilder);
         }
 
+        if(request.getParameter("fromQ") != null)
+        {
+            fromQ = Integer.parseInt(request.getParameter("fromQ"));
+            request.setAttribute("fromQ", fromQ);
+        }
+        System.out.println(fromQ);
+
 //        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
 
         Bom bom = bomBuilder.getBom(carport);
@@ -72,7 +80,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         request.setAttribute("responseFacade", responseFacade);
         request.setAttribute("message", message);
 
-        if(user.getRole().equals("customer")) {
+        if(user.getRole().equals("customer") && fromQ == 0) {
             Query query = queryFacade.createQuery(user.getId(), carport.getId(), "created", message, wantBuilder);
             request.setAttribute("query", query);
         }
