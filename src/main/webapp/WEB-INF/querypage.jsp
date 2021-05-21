@@ -33,7 +33,6 @@
                 <hr class="border-white">
                 <div class="col-7">
                     <c:if test="${sessionScope.user.role == 'employee'}">
-                        <hr class="border-white">
                         <h4>Kundedetaljer:</h4>
                         <p>Navn: ${requestScope.customer.name}</p>
                         <p>email: ${requestScope.customer.email}</p>
