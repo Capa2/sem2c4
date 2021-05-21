@@ -50,7 +50,6 @@
                 </c:if>
             </div>
         </div>
-
         <c:if test="${sessionScope.user.role == 'employee'}">
             <hr class="border-white">
             <h4>Kundedetaljer:</h4>
@@ -59,7 +58,7 @@
             <p>Telefon: ${requestScope.customer.phone}</p>
         </c:if>
 
-        <c:if test="${requestScope.query.wantBuilder != null}">
+        <c:if test="${requestScope.query.wantBuilder != 0}">
             <p>Jeg vil gerne have tilbud fra en håndværker</p>
         </c:if>
 
