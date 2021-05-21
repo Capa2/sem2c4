@@ -94,17 +94,17 @@ public class BomBuilder {
     }
 
     private void addRafters(Material rafter, int gap) { // spæretræ
-        rafter.setAmount((int) Math.ceil((1d * carport.getWidth()) / (1d * gap)));
+        rafter.setAmount(carport.getLength() / gap);
         bom.add(rafter);
     }
 
     private void addRim(Material rem) { // remme
-        rem.setAmount(2 * (int) Math.ceil(carport.getLength() / rem.getLength()));
+        rem.setAmount((int) (2 * (Math.ceil(1d * carport.getLength() / rem.getLength()))));;
         bom.add(rem);
     }
 
     private void addRoof(Material roof) { // tag
-        roof.setAmount((int) Math.ceil(carport.getLength() * carport.getWidth()) / (roof.getWidth() + roof.getLength()));
+        roof.setAmount((int) Math.ceil(Math.max(1d * carport.getLength() / roof.getLength(), 1d * carport.getWidth() / roof.getWidth())));
         bom.add(roof);
     }
 

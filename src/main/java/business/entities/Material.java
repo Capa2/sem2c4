@@ -48,7 +48,7 @@ public class Material {
     }
 
     public double getCost() {
-        return cost;
+        return cost * amount;
     }
 
     public void setCost(double cost) {

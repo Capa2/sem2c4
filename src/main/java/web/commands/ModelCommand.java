@@ -2,6 +2,7 @@ package web.commands;
 
 import business.entities.Bom;
 import business.entities.Carport;
+import business.entities.Material;
 import business.services.BomBuilder;
 import business.services.CarportFacade;
 import business.exceptions.UserException;
@@ -33,6 +34,9 @@ public class ModelCommand extends CommandUnprotectedPage {
             int carportId = Integer.parseInt(request.getParameter("model"));
             Carport carport = carportFacade.getCarport(carportId);
             Bom bom = bomBuilder.getBom(carportId);
+            for (Material m : bom.getList()) {
+                System.out.println(m.getName() + " x" + m.getAmount());
+            }
             String svgString = svgBuilder.draw(carport, bom);
 
             request.setAttribute("carport", carport);
