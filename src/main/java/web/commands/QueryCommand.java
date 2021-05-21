@@ -15,9 +15,8 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private BomBuilder bomBuilder;
     final private QuickBuilder quickBuilder;
     final private ResponseFacade responseFacade;
-    private SvgBuilder svgBuilder;
+    final private SvgBuilder svgBuilder;
     private Carport carport;
-    private boolean custom;
 
 
     public QueryCommand(String pageToShow) {
@@ -41,11 +40,9 @@ public class QueryCommand extends CommandUnprotectedPage {
 
         if (request.getParameter("submitCustom") != null) {
             carport = carportFacade.createGetCarport(quickBuilder.getCarport(request));
-            custom = true;
         } else {
             int id = Integer.parseInt(request.getParameter("queriedId"));
             carport = carportFacade.getCarport(id);
-            custom = false;
         }
 
         if(request.getParameter("userId") != null){
@@ -61,14 +58,13 @@ public class QueryCommand extends CommandUnprotectedPage {
 
 //        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
 
-        Bom bom = bomBuilder.getBom(carport.getId());
+        Bom bom = bomBuilder.getBom(carport);
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);
 
 //        request.setAttribute("response1", response1);
         request.setAttribute("bom", bom);
         request.setAttribute("carport", carport);
-        request.setAttribute("custom", custom);
 
         request.setAttribute("carportFacade", carportFacade);
         request.setAttribute("userFacade", userFacade);

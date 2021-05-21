@@ -18,7 +18,6 @@ public class BomBuilder {
     public BomBuilder(Database database) {
         carportFacade = new CarportFacade(database);
         materialFacade = new MaterialFacade(database);
-
     }
 
     public String getPriceString(int carportId) {
@@ -40,17 +39,18 @@ public class BomBuilder {
     }
 
     public Bom getBom(Carport carport) {
+        this.carport = carport;
         bom = new ArrayList<>();
 
         // assign materials
         Material post = getDbMaterial("trykimp. stolpe");
         Material rafter = getDbMaterial("spærtræ ubh.");
-        Material roof = (carport.getRoofAngle() == 0) ? getDbMaterial("Plastmo Ecolite blåtonet") : getDbMaterial("Betontagsten");
+        Material roof = carport.hasFlatRoof() ? getDbMaterial("Plastmo Ecolite blåtonet") : getDbMaterial("Betontagsten");
         Material rim = getDbMaterial("trykimp. brædt");
 
         // calc amount & add to bom
         addPosts(post);
-        addRafters(rafter);
+        addRafters(rafter, 55);
         addRim(rim);
         addRoof(roof);
 
@@ -85,33 +85,29 @@ public class BomBuilder {
     }
 
     private void addPosts(Material post) { // stolper
-        double shedRatio = (carport.getShedWidth() == 0 || carport.getShedLength() == 0) ? 0 : (carport.getWidth() * 1d) / (carport.getShedWidth() * 1d);
-        int amount = (shedRatio == 0) ? 0 : 4; // shed needs 4
-        int lengthToSupport = (shedRatio > 0.8) ? carport.getLength() - carport.getShedLength() : carport.getLength();
+        int amount = 2;
+        if (carport.hasShed()) amount += (carport.hasLargeShed() ? 4 : 3);
+        int lengthToSupport = carport.hasLargeShed() ? carport.getNoShedlength() : carport.getLength();
         while (lengthToSupport > 0) {
             amount += 2;
-            lengthToSupport -= 310; // max supported length
+            lengthToSupport -= 300; // max supported length
         }
         post.setAmount(Math.max(amount, 4));
         bom.add(post);
     }
 
-    private void addRafters(Material rafter) { // spæretræ
-        addRafters(rafter, 55); // default span
-    }
-
-    private void addRafters(Material rafter, int gap) { // spæretræ
-        rafter.setAmount(carport.getLength() / gap);
+    private void addRafters(Material rafter, double gap) { // spæretræ
+        rafter.setAmount((int) Math.ceil((1d * carport.getLength()) / gap));
         bom.add(rafter);
     }
 
     private void addRim(Material rem) { // remme
-        rem.setAmount((int) (2 * (Math.ceil(1d * carport.getLength() / rem.getLength()))));
+        rem.setAmount((int) (2 * (Math.ceil((1d * carport.getLength()) / (1d * rem.getLength())))));
         bom.add(rem);
     }
 
     private void addRoof(Material roof) { // tag
-        roof.setAmount((int) Math.ceil(carport.getLength() * carport.getWidth()) / (roof.getLength() * roof.getWidth()));
+        roof.setAmount((int) Math.ceil(((1d * carport.getLength()) * (1d * carport.getWidth())) / ((1d * roof.getLength()) * (1d * roof.getWidth()))));
         bom.add(roof);
     }
 

@@ -31,29 +31,4 @@
         <text transform="translate(30,300) rotate(-90)">600 cm</text>
         <text transform="translate(400,630)">800 cm</text>
     </g>
-    <svg  xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="75" y="50" width="720" height="525"
-          viewBox="0 0 780 600" preserveAspectRatio="xMinYMin">
-        >
-        <g style="stroke-width:2; stroke:black; fill: white">
-            <!-- frame & sides -->
-            <rect x="0" y="0" height="600" width="780"></rect>
-            <rect x="0" y="0" height="600" width="10"></rect>
-            <rect x="770" y="0" height="600" width="10"></rect>
-            <!-- top plank with small squares -->
-            <rect x="10" y="20" height="10" width="760"></rect>
-            <rect x="100" y="17" height="16" width="16"></rect>
-            <rect x="410" y="17" height="16" width="16"></rect>
-            <rect x="710" y="17" height="16" width="16"></rect>
-            <!-- bottom plank with small squares -->
-            <rect x="10" y="570" height="10" width="760"></rect>
-            <rect x="100" y="567" height="16" width="16"></rect>
-            <rect x="410" y="567" height="16" width="16"></rect>
-            <rect x="710" y="567" height="16" width="16"></rect>
-            <!-- lines across -->
-            <line x1="50" y1="20" x2="600" y2="580" style="stroke-dasharray: 4 4" />
-            <line x1="50" y1="580" x2="600" y2="20" style="stroke-dasharray: 4 4" />
-        </g>
-    </svg>
 </svg>
