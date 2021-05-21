@@ -47,7 +47,6 @@ public class SvgBuilder {
         double length = carport.getLength();
         double shedWidth = carport.getShedWidth();
         double shedLength = carport.getShedLength();
-        double shedRatio = (shedLength == 0 || shedWidth == 0) ? 0 : (shedWidth / width);
         // size units
         int ti = 4; // tiny
         int sm = ti * 2; // small
@@ -55,58 +54,66 @@ public class SvgBuilder {
         int lg = md * 2; // large
 
         int posts = typeCount(bom, "post");
-        int rafters = typeCount(bom, "raf");
+        int rafters = typeCount(bom, "rafter");
 
         // frame
         svg.addFilledRect(0, 0, width, length);
         svg.addRect(ti, ti, width - sm, length - sm);
 
         // Draw 2 posts top, 2 in the bottom, or past large sheds
-        double firstPostY = md;
         double lastPostY = length - lg;
-        if (shedRatio != 0) lastPostY -= (shedRatio > 0.8) ? shedLength + lg * 4 : shedLength - md;
+        if (carport.hasShed()) lastPostY -= (carport.hasLargeShed()) ? shedLength + lg * 4 : shedLength - md;
 
-        svg.addRect(md, firstPostY, md, md); // fixed post top
-        svg.addRect(width - lg, firstPostY, md, md); // fixed post top
+        svg.addRect(md, md, md, md); // fixed post top
+        svg.addRect(width - lg, md, md, md); // fixed post top
         svg.addRect(md, lastPostY, md, md); // fixed post bottom
         svg.addRect(width - lg, lastPostY, md, md); // fixed post bottom
 
         // draw shed with posts
-        if (shedRatio != 0) {
-            double shedX = (shedRatio > 0.8) ? (width - shedWidth) / 2 : md; // center big sheds
+        if (carport.hasShed()) {
+            double shedX = (carport.hasLargeShed()) ? (carport.getNoShedWidth()) / 2d : md; // center big sheds
             double shedY = length - shedLength;
-            shedY -= (shedRatio > 0.8) ? (width - shedWidth) / 2 : md; // center big sheds
+            shedY -= (carport.hasLargeShed()) ? carport.getNoShedWidth() / 2d : md; // center big sheds
             svg.addFilledRect(shedX, shedY, shedWidth, shedLength); // shed
             svg.addRect(shedX, shedY, md, md); // shedpost top left
             svg.addRect(shedX + shedWidth - md, shedY, md, md); // shedpost top right
             svg.addRect(shedX, shedY + shedLength - md, md, md); // shedpost bottom left
             svg.addRect(shedX + shedWidth - md, shedY + shedLength - md, md, md); // shedpost bottom right
-            if (shedRatio < 0.8) svg.addRect(width - lg, length - lg, md, md); // post opposite small shed
+            if (!carport.hasLargeShed()) svg.addRect(width - lg, length - lg, md, md); // post opposite small shed
         }
 
-        if ((lastPostY - firstPostY) / 2 > 310) {
-            double centerPostY = (lastPostY - firstPostY) / 2;
+        // add center post if length between corner posts require additional support
+        if ((lastPostY - md) / 2 > 310) {
+            double centerPostY = (lastPostY - md) / 2;
             svg.addRect(md, centerPostY, md, md);
             svg.addRect(width - lg, centerPostY, md, md);
         }
-        // rem
+        // rim / rem
         svg.addRect(sm, ti, sm, length - sm);
         svg.addRect(width - md, ti, sm, length - sm);
 
-        // spæretræ
-        Material raf = getType(bom, "rafter");
-        for (int i = 0; i <= raf.getAmount(); i++) {
-            double gab = (length - lg) / raf.getAmount();
-            svg.addEmptyRect(0, md + gab * i, width, ti);
+        // rafter / spæretræ
+        Material rafter = getType(bom, "rafter");
+        try {
+            for (int i = 0; i <= rafter.getAmount(); i++) {
+                double gab = (length - lg) / rafter.getAmount();
+                svg.addEmptyRect(0, md + gab * i, width, ti);
+            }
+        } catch (NullPointerException ex) {
+            for (int i = 0; i <= (int) Math.ceil(carport.getLength() / 55d); i++) {
+                double gab = (length - lg) / rafter.getAmount();
+                svg.addEmptyRect(0, md + gab * i, width, ti);
+            }
+            ex.printStackTrace();
         }
+
         // roof
         double roofY2 = length - md;
-        if (shedRatio > 0.8) roofY2 -= shedLength;
+        if (carport.hasLargeShed()) roofY2 -= shedLength;
         svg.addDottedLine(md, md, width - md, roofY2);
         svg.addDottedLine(width - md, md, md, roofY2);
         return toString();
     }
-
 
     @Override
     public String toString() {

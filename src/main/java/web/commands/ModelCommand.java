@@ -6,19 +6,16 @@ import business.entities.Material;
 import business.services.BomBuilder;
 import business.services.CarportFacade;
 import business.exceptions.UserException;
-import business.services.MaterialFacade;
 import business.services.SvgBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
 
 public class ModelCommand extends CommandUnprotectedPage {
     final private CarportFacade carportFacade;
     final private BomBuilder bomBuilder;
-    private SvgBuilder svgBuilder;
+    final private SvgBuilder svgBuilder;
 
     public ModelCommand(String pageToShow) {
         super(pageToShow);
@@ -33,7 +30,7 @@ public class ModelCommand extends CommandUnprotectedPage {
         try {
             int carportId = Integer.parseInt(request.getParameter("model"));
             Carport carport = carportFacade.getCarport(carportId);
-            Bom bom = bomBuilder.getBom(carportId);
+            Bom bom = bomBuilder.getBom(carport);
             for (Material m : bom.getList()) {
                 System.out.println(m.getName() + " x" + m.getAmount());
             }

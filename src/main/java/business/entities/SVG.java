@@ -3,8 +3,8 @@ package business.entities;
 public class SVG {
     StringBuilder svg = new StringBuilder();
 
-    private int x;
-    private int y;
+    final private int x;
+    final private int y;
     private String viewBox;
     private int width;
     private int height;
@@ -16,6 +16,7 @@ public class SVG {
             "x=\"%d\"   " +
             "y=\"%d\"   " +
             " preserveAspectRatio=\"xMinYMin\">";
+
 
     private final String rectEmptyTemplate = "<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"stroke:#000; fill: none\" />";
     private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"stroke:#000; fill: #FAFAFA\" />";
@@ -35,6 +36,7 @@ public class SVG {
     public void addRect(double x, double y, double width, double height) {
         svg.append(String.format(rectTemplate, x, y, width, height));
     }
+
     public void addEmptyRect(double x, double y, double width, double height) {
         svg.append(String.format(rectEmptyTemplate, x, y, width, height));
     }
@@ -59,4 +61,5 @@ public class SVG {
     public String toString() {
         return svg.toString() + "</svg>";
     }
+
 }

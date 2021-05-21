@@ -15,7 +15,7 @@ public class QueryCommand extends CommandUnprotectedPage {
     final private BomBuilder bomBuilder;
     final private QuickBuilder quickBuilder;
     final private ResponseFacade responseFacade;
-    private SvgBuilder svgBuilder;
+    final private SvgBuilder svgBuilder;
     private Carport carport;
     private boolean custom;
 
@@ -63,7 +63,7 @@ public class QueryCommand extends CommandUnprotectedPage {
         }
 //        Response response1 = responseFacade.createResponse(query.getId(), query.getUserId(), request.getParameter(message));
 
-        Bom bom = bomBuilder.getBom(carport.getId());
+        Bom bom = bomBuilder.getBom(carport);
         String svgString = svgBuilder.draw(carport, bom);
         request.setAttribute("svg", svgString);
 
