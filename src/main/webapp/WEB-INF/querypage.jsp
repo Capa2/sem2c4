@@ -20,39 +20,41 @@
     <jsp:body>
         <div class="container my-5">
 
-        <h2 class="display-4"> ${requestScope.carport.name}
+        <h2 class="display-4">
+            <c:if test="${requestScope.custom == false}">
+                ${requestScope.carport.name}
+            </c:if>
+            <c:if test="${requestScope.custom == true}">
+                Quick-byg
+            </c:if>
             <c:if test="${requestScope.carport.length >= 400}">dobbelt</c:if>
             <c:if test="${requestScope.carport.length < 400}">enkelt</c:if> carport</h2>
         <div class="row mt-4">
-            <hr class="border-white">
-            <div class="col-5">
-                <div class="mb-4">
-                    <c:if test="${sessionScope.user.role == 'customer'}"><p><h3 class="display-8">Du har sendt en forespørgsel på</h3></p></c:if>
-                    <br>
-                    <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
-                    <c:forEach var="material" items="${requestScope.bom.list}">
-                        <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
-                    </c:forEach>
-                    <p>Inkl. søm, skruer og hulbånd.</p>
-                    <p> <b>besked fra sælger: ${requestScope.message}</b></p>
-                    <br>
-                    <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
-                </div>
+        <hr class="border-white">
+        <div class="col-7">
+            <div class="my-4">
+                <c:if test="${sessionScope.user.role == 'customer'}"><p>
+                    <h3>Forespørgselsbekræftigelse</h3></p></c:if>
+                <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
+                <c:if test="${requestScope.carport.shedWidth != 0}">
+                    <p>skur: ${requestScope.carport.shedWidth} x ${requestScope.carport.shedLength} mtr.</p>
+                </c:if>
+                <c:forEach var="material" items="${requestScope.bom.list}">
+                    <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
+                </c:forEach>
+                <p>Inkl. søm, skruer og hulbånd.</p>
+                <c:if test="${requestScope.message != null}">
+                    <p><b>besked fra sælger: ${requestScope.message}</b></p></c:if>
+                <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
             </div>
+        </div>
 
-                <div class="row col-6 offset-1">
-                    <c:if test="${requestScope.custom == false}">
-                        <img class="img-fluid" style="float: right;"
-                             src="<c:url  value='/data/${requestScope.carport.name}.png'/>"
-                             alt="carport"/>
-                        <hr class="border-white">
-                    </c:if>
-                        ${requestScope.svg}
+        <div class="col-4 offset-1">
+        ${requestScope.svg}
         <c:if test="${sessionScope.role.equals('Sælger') || sessionScope.role.equals('employee')}">
 
 
-
-    </c:if>
+        </c:if>
     </jsp:body>
 </t:genericpage>
 
