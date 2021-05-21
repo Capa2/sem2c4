@@ -30,9 +30,14 @@
                 <c:if test="${carport.length < 400}">enkelt</c:if> carport</h2>
             <div class="row mt-4">
                 <hr class="border-white">
-                <div class="col-5">
-                    <div class="mb-4">
+                <div class="col-7">
+                    <img class="img-fluid w-100" src="<c:url value='/data/${carport.name}.png'/>"
+                         alt="carport"/>
+                    <div class="my-4">
                         <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
+                        <c:if test="${requestScope.carport.shedWidth != 0}">
+                            <p>skur: ${requestScope.carport.shedWidth} x ${requestScope.carport.shedLength} mtr.</p>
+                        </c:if>
                         <c:forEach var="material" items="${requestScope.bom.list}">
                             <c:if test="${material.materialCategoryId > 0}"><p>${material.name}</p></c:if>
                         </c:forEach>
@@ -48,16 +53,16 @@
                                     value="${requestScope.carport.name}">Send forespørgsel
                             </button>
                         </form>
-                        <div class="form-check form-check-inline">
-                            <input
-                                    name="wantBuilder"
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    id="inlineCheckbox3"
-                                    value="yes"
-                                    <c:if test="${sessionScope.user == null}">disabled</c:if>
+                        <div class="mt-4 form-check form-check-inline">
+                            <input name="wantBuilder"
+                                   class="form-check-input"
+                                   type="checkbox"
+                                   id="inlineCheckbox3"
+                                   value="yes"
+                                   <c:if test="${sessionScope.user == null}">disabled</c:if>
                             />
-                            <label class="form-check-label" for="inlineCheckbox3"> Jeg vil gerne have tilbud fra en håndværker</label>
+                            <label class="form-check-label" for="inlineCheckbox3"> Jeg vil gerne have tilbud fra en
+                                håndværker</label>
                         </div>
                     </div>
                     <c:if test="${sessionScope.user == null}">
@@ -67,13 +72,8 @@
                                                 href="${pageContext.request.contextPath}/fc/loginpage">login</a></div>
                     </c:if>
                 </div>
-                <div class="row col-6 offset-1">
-                    <img class="img-fluid" src="<c:url  value='/data/${carport.name}.png'/>"
-                         alt="carport"/>
-                    <hr class="border-white">
+                <div class="col-4 offset-1">
                         ${requestScope.svg}
-                    <!--<img class="img-fluid img-thumbnail" src="<c:url value='/data/SVGD.png'/>"
-                         alt="carport ${requestscope.carport.name}"/>-->
                 </div>
             </div>
         </div>
