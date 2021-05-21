@@ -22,6 +22,15 @@ public class SvgBuilder {
         }
     }
 
+    private Material getType(Bom bom, String categoryName) {
+        for (Material m : bom.getList()) {
+            if (categoryName.equals(materialCategories.get(m.getMaterialCategoryId()))) {
+                return m;
+            }
+        }
+        return null;
+    }
+
     private int typeCount(Bom bom, String categoryName) {
         int count = 0;
         for (Material m : bom.getList()) {
@@ -33,45 +42,69 @@ public class SvgBuilder {
     }
 
     public String draw(Carport carport, Bom bom) {
-        svg = new SVG(0, 0, "0 0 " + carport.getWidth() +" "+ carport.getLength(), 100, 100);
-        int length = carport.getLength(); // 600
-        int width = carport.getWidth();// 780
-        int shedLength = carport.getShedLength();
-        int shedWidth = carport.getShedWidth();
-        int sm = 10; // small
-        int md = 15; // medium
-        int lg = 20; // large
+        svg = new SVG(0, 0, "0 0 " + carport.getWidth() + " " + carport.getLength(), 100, 50);
+        double width = carport.getWidth();
+        double length = carport.getLength();
+        double shedWidth = carport.getShedWidth();
+        double shedLength = carport.getShedLength();
+        double shedRatio = (shedLength == 0 || shedWidth == 0) ? 0 : (shedWidth / width);
+        // size units
+        int ti = 4; // tiny
+        int sm = ti * 2; // small
+        int md = sm * 2; // medium
+        int lg = md * 2; // large
+
         int posts = typeCount(bom, "post");
-        int rafters = typeCount(bom, "rafter");
-        // frame & sides:
-        svg.addRect(0, 0, length, width);
-        svg.addRect(0, 0, length, sm);
-        svg.addRect(width - sm, 0, length, sm);
-        // plank with posts
-        svg.addRect(sm, lg, sm, width - lg); // top plank
-        svg.addRect(sm, length - lg - sm, sm, width - lg); // bottom plank
-        if (shedLength != 0) {
-            int shedY = (shedWidth < width / 2) ? lg : (width / 2 - shedWidth / 2) / 4; // center shed if more than half carport width
-            svg.addFilledRect(sm, shedY, shedWidth, shedLength); // shed
+        int rafters = typeCount(bom, "raf");
+
+        // frame
+        svg.addFilledRect(0, 0, width, length);
+        svg.addRect(ti, ti, width - sm, length - sm);
+
+        // Draw 2 posts top, 2 in the bottom, or past large sheds
+        double firstPostY = md;
+        double lastPostY = length - lg;
+        if (shedRatio != 0) lastPostY -= (shedRatio > 0.8) ? shedLength + lg * 2 : shedLength - md;
+
+        svg.addRect(md, firstPostY, md, md); // fixed post top
+        svg.addRect(width - lg, firstPostY, md, md); // fixed post top
+        svg.addRect(md, lastPostY, md, md); // fixed post bottom
+        svg.addRect(width - lg, lastPostY, md, md); // fixed post bottom
+
+        // draw shed and posts
+        if (shedRatio != 0) {
+            double shedX = (shedRatio > 0.8) ? (width - shedWidth) / 2 : md; // center big sheds
+            double shedY = length - shedLength;
+            shedY -= (shedRatio > 0.8) ? (width - shedWidth) / 2 : md; // center big sheds
+            svg.addFilledRect(shedX, shedY, shedWidth, shedLength); // shed
+            svg.addRect(shedX, shedY, md, md); // shedpost top left
+            svg.addRect(shedX + shedWidth - md, shedY, md, md); // shedpost top right
+            svg.addRect(shedX, shedY + shedLength - md, md, md); // shedpost bottom left
+            svg.addRect(shedX + shedWidth - md, shedY + shedLength - md, md, md); // shedpost bottom right
+            if (shedRatio < 0.8) svg.addRect(width - lg, length - lg, md, md); // shedpost bottom-bottom right
         }
-        // draw 4 fixed posts
-        int firstPostX = (shedLength == 0) ? sm * 10 : shedLength + lg * 5 - sm / 2;
-        int lastPostX = width - sm * 10;
-        svg.addRect(firstPostX, md, md, md); // fixed post top
-        svg.addRect(firstPostX, length - lg - sm, md, md); // fixed post top
-        svg.addRect(lastPostX, md, md, md); // fixed post top
-        svg.addRect(lastPostX, length - lg - sm, md, md); // fixed post top
-        // draw remaining posts
-        if (posts < 4) {
-            int remainingPosts = posts - 4;
-            int postGap = (length - firstPostX - (length - lastPostX)) / ((remainingPosts) / 2); // post spacing
-            for (int i = remainingPosts; i > 0; i -= 2) {
-                svg.addRect(firstPostX + postGap * (remainingPosts - i), md + sm / 10, md, md); // top
-                svg.addRect(firstPostX + postGap * (remainingPosts - i), length - lg - sm, md, md); // bottom
-            }
+
+        if ((lastPostY - firstPostY) / 2 > 310) {
+            double centerPostY = (lastPostY - firstPostY) / 2;
+            svg.addRect(md, centerPostY, md, md);
+            svg.addRect(width - lg, centerPostY, md, md);
         }
+        // rem
+        svg.addRect(sm, ti, sm, length - sm);
+        svg.addRect(width - md, ti, sm, length - sm);
+
+        // spæretræ
+        Material raf = getType(bom, "rafter");
+        for (int i = 0; i <= raf.getAmount(); i++) {
+            double gab = (length - lg) / raf.getAmount();
+            svg.addEmptyRect(0, md + gab * i, width, ti);
+        }
+        // roof
+        svg.addDottedLine(md, md, width - md, length - md - shedLength);
+        svg.addDottedLine(width - md, md, md, length - md - shedLength);
         return toString();
     }
+
 
     @Override
     public String toString() {

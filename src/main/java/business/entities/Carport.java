@@ -7,10 +7,8 @@ public class Carport {
 
     public Carport(int roofAngle, int width, int length, int shedWidth, int shedLength) {
         this.roofAngle = roofAngle;
-        //this.width = width;
-        //this.length = length;
-        this.width = length;
-        this.length = width;
+        this.width = width;
+        this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
     }
@@ -18,10 +16,8 @@ public class Carport {
     public Carport(int id, int roofAngle, int width, int length, int shedWidth, int shedLength) {
         this.id = id;
         this.roofAngle = roofAngle;
-        //this.width = width;
-        //this.length = length;
-        this.width = length;
-        this.length = width;
+        this.width = width;
+        this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
     }
@@ -30,10 +26,8 @@ public class Carport {
         this.id = id;
         this.name = name;
         this.roofAngle = roofAngle;
-        //this.width = width;
-        //this.length = length;
-        this.width = length;
-        this.length = width;
+        this.width = width;
+        this.length = length;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
     }

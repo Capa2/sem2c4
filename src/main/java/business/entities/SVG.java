@@ -17,8 +17,11 @@ public class SVG {
             "y=\"%d\"   " +
             " preserveAspectRatio=\"xMinYMin\">";
 
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000; fill: #fff\" />";
-    private final String filledRectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000; fill: #ccc\" />";
+    private final String rectEmptyTemplate = "<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"stroke:#000; fill: none\" />";
+    private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" style=\"stroke:#000; fill: #FAFAFA\" />";
+    private final String filledRectTemplate = "<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\"  style=\"stroke:#000; fill: #c9c9c9\" />";
+    private final String lineTemplate = "<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"black\" />";
+    private final String lineDottedTemplate = "<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"black\" stroke-dasharray=\"4 4\" />";
 
     public SVG(int x, int y, String viewBox, int width, int height) {
         this.x = x;
@@ -29,16 +32,23 @@ public class SVG {
         svg.append(String.format(headerTemplate, height, width, viewBox, x, y));
     }
 
-    public void addRect(int x, int y, double height, double width) {
-        svg.append(String.format(rectTemplate, x, y, height, width));
+    public void addRect(double x, double y, double width, double height) {
+        svg.append(String.format(rectTemplate, x, y, width, height));
+    }
+    public void addEmptyRect(double x, double y, double width, double height) {
+        svg.append(String.format(rectEmptyTemplate, x, y, width, height));
     }
 
-    public void addFilledRect(int x, int y, double height, double width) {
-        svg.append(String.format(filledRectTemplate, x, y, height, width));
+    public void addFilledRect(double x, double y, double width, double height) {
+        svg.append(String.format(filledRectTemplate, x, y, width, height));
     }
 
-    public void addLine(int x1, int y1, int x2, int y2) {
+    public void addLine(double x1, double y1, double x2, double y2) {
+        svg.append(String.format(lineTemplate, x1, y1, x2, y2));
+    }
 
+    public void addDottedLine(double x1, double y1, double x2, double y2) {
+        svg.append(String.format(lineDottedTemplate, x1, y1, x2, y2));
     }
 
     public void addSvg(SVG innerSVG) {

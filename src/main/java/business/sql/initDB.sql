@@ -10,13 +10,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema fog_carport
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `fog_carport` ;
+DROP SCHEMA IF EXISTS `fog_carport`;
 
 -- -----------------------------------------------------
 -- Schema fog_carport
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `fog_carport` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `fog_carport` ;
+USE `fog_carport`;
 
 -- -----------------------------------------------------
 -- Table `fog_carport`.`carport`

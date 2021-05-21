@@ -78,8 +78,9 @@ public class BomBuilder {
     }
 
     private void addPosts(Material post) { // stolper
-        int amount = 2;
-        int lengthToSupport = carport.getLength() - carport.getShedLength(); // first posts always @ 1m
+        double shedRatio = (carport.getShedWidth() == 0 || carport.getShedLength() == 0) ? 0 : (carport.getWidth() *1d)/(carport.getShedWidth() * 1d);
+        int amount = (shedRatio == 0) ? 2 : 6; // shed needs 4
+        int lengthToSupport = (shedRatio > 0.8) ? carport.getLength() - carport.getShedLength() : carport.getLength();
         while (lengthToSupport > 0) {
             amount += 2;
             lengthToSupport -= 310; // max supported length
@@ -93,7 +94,7 @@ public class BomBuilder {
     }
 
     private void addRafters(Material rafter, int gap) { // spæretræ
-        rafter.setAmount((int) Math.ceil(carport.getWidth() / gap));
+        rafter.setAmount((int) Math.ceil((1d * carport.getWidth()) / (1d * gap)));
         bom.add(rafter);
     }
 

@@ -16,6 +16,7 @@ public class Bom {
         return bom;
     }
 
+
     public double getCost() {
         double cost;
         try {
