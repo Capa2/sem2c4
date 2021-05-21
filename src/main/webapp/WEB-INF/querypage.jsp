@@ -21,10 +21,10 @@
         <div class="container my-5">
 
         <h2 class="display-4">
-            <c:if test="${requestScope.custom == false}">
+            <c:if test="${requestScope.carport.name != null}">
                 ${requestScope.carport.name}
             </c:if>
-            <c:if test="${requestScope.custom == true}">
+            <c:if test="${requestScope.carport.name == null}">
                 Quick-byg
             </c:if>
             <c:if test="${requestScope.carport.length >= 400}">dobbelt</c:if>
@@ -34,7 +34,7 @@
         <div class="col-7">
             <div class="my-4">
                 <c:if test="${sessionScope.user.role == 'customer'}"><p>
-                    <h3>Forespørgselsbekræftigelse</h3></p></c:if>
+                    <h3>Forespørgselsbekræftigelse</h3></c:if>
                 <p>${requestScope.carport.width} x ${requestScope.carport.length} mtr.</p>
                 <c:if test="${requestScope.carport.shedWidth != 0}">
                     <p>skur: ${requestScope.carport.shedWidth} x ${requestScope.carport.shedLength} mtr.</p>
@@ -45,20 +45,18 @@
                 <p>Inkl. søm, skruer og hulbånd.</p>
                 <c:if test="${requestScope.message != null}">
                     <p><b>besked fra sælger: ${requestScope.message}</b></p></c:if>
-                <h4 class="text-uppercase">PRIS: ${requestScope.bom.priceString} DKK</h4>
+                <c:if test="${requestScope.carport.name != null}">
+                    <h5 class="text-uppercase">${requestScope.bom.priceString} DKK</h5>
+                </c:if>
             </div>
         </div>
 
-        <c:if test="${requestScope.customer != null}">
-
-
-
-            <p>Kundedetaljer</p>
-            <p>name : ${requestScope.customer.name}<br> email : ${requestScope.customer.email}<br> phone : ${requestScope.customer.phone}</p>
-
-
-
-
+        <c:if test="${sessionScope.user.role == 'employee'}">
+            <hr class="border-white">
+            <h4>Kundedetaljer:</h4>
+            <p>Navn: ${requestScope.customer.name}</p>
+            <p>email: ${requestScope.customer.email}</p>
+            <p>Telefon: ${requestScope.customer.phone}</p>
         </c:if>
 
         <c:if test="${requestScope.query.wantBuilder != null}">
